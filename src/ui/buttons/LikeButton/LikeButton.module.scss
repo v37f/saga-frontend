@@ -1,0 +1,23 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.likeButton {
+  @include reset-button;
+  @include transition-opacity;
+  width: 24px;
+  height: 24px;
+
+  & * {
+    stroke: $colorBrandBlack;
+  }
+
+  &_active {
+    & * {
+      fill: $colorBrandBlack;
+    }
+  }
+
+  &:hover {
+    @include hover-opacity;
+  }
+}

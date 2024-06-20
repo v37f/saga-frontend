@@ -1,0 +1,116 @@
+@import './variables.scss';
+
+@mixin reset-list {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@mixin reset-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+@mixin reset-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@mixin reset-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin text-for-all {
+  font-family: $fontPrimary;
+  color: inherit;
+  margin: 0;
+}
+
+@mixin text-header-h1 {
+  @include text-for-all;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@mixin text-header-h2 {
+  @include text-for-all;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@mixin text-header-h3 {
+  @include text-for-all;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.56px;
+}
+
+@mixin text-header-h4 {
+  @include text-for-all;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 0.4px;
+}
+
+@mixin text-header-h5 {
+  @include text-for-all;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0.32px;
+}
+
+@mixin text-body-large {
+  @include text-for-all;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.4px;
+}
+
+@mixin text-body-medium {
+  @include text-for-all;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.32px;
+}
+
+@mixin text-body-small {
+  @include text-for-all;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin text-menu {
+  @include text-for-all;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+@mixin text-link {
+  @include text-for-all;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.32px;
+  text-decoration-line: underline;
+}
+
+@mixin transition-opacity {
+  transition: opacity ease-in-out 0.15s;
+}
+
+@mixin hover-opacity {
+  opacity: 0.7;
+}

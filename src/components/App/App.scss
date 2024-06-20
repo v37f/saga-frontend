@@ -1,0 +1,35 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.container {
+  display: flex;
+  gap: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.square {
+  width: 290px;
+  height: 400px;
+  background-color: red;
+}
+
+.vertical {
+  width: 290px;
+  height: 488px;
+  background-color: blue;
+}
+
+.horizontal {
+  width: 290px;
+  height: 312px;
+  background-color: green;
+}
+
+.list {
+  @include reset-list;
+}

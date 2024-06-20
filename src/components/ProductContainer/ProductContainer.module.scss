@@ -1,0 +1,15 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.productContainer {
+  width: fit-content;
+  display: flex;
+  gap: 40px;
+
+  &__column {
+    @include reset-list;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
