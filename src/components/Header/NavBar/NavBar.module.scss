@@ -1,0 +1,28 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.navbar {
+  background-color: $colorBrandBlack;
+
+  &__list {
+    @include reset-list;
+    max-width: $contentMaxWidth;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 12px 80px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    @include reset-button;
+    @include reset-link;
+    @include text-menu;
+    @include transition-opacity;
+    color: $colorBrandWhite;
+
+    &:hover {
+      @include hover-opacity;
+    }
+  }
+}
