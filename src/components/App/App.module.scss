@@ -1,0 +1,8 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.app {
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

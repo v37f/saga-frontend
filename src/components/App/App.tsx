@@ -1,6 +1,11 @@
-import './App.scss';
+import Header from '../Header/Header';
+import styles from './App.module.scss';
 
 function App() {
-  return <div></div>;
+  return (
+    <div className={styles.app}>
+      <Header />
+    </div>
+  );
 }
 export default App;
