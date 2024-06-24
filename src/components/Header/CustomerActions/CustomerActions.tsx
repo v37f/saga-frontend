@@ -5,6 +5,7 @@ import UserIcon from 'src/assets/images/components/user.svg';
 import FavoritesIcon from 'src/assets/images/components/like.svg';
 import CartIcon from 'src/assets/images/components/cart.svg';
 import InputTypeSearch from 'src/ui/inputs/InputTypeSearch/InputTypeSearch';
+
 const CustomerActions = () => {
   const navigate = useNavigate();
   const cartItemsNumber = 0;
