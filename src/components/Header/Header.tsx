@@ -17,13 +17,13 @@ const Header = () => {
           title="Перейти на главную"
           aria-label="Перейти на главную"
         />
-        {currentUser.userRole === 'seller' ? (
-          <SellerActions />
-        ) : (
+        {currentUser.userRole === 'customer' ? (
           <CustomerActions />
+        ) : (
+          <SellerActions />
         )}
       </div>
-      <NavBar />
+      {currentUser.userRole === 'customer' && <NavBar />}
     </header>
   );
 };

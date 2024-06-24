@@ -5,8 +5,12 @@ import UserIcon from 'src/assets/images/components/user.svg';
 import FavoritesIcon from 'src/assets/images/components/like.svg';
 import CartIcon from 'src/assets/images/components/cart.svg';
 import InputTypeSearch from 'src/ui/inputs/InputTypeSearch/InputTypeSearch';
+import { useAppDispatch } from 'src/service/hooks';
+import { setCurrentUserData } from 'src/service/slices/currentUserSlice';
+import { Seller } from 'src/utils/mock/currentUserMockData';
 
 const CustomerActions = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const cartItemsNumber = 0;
   const onSearchSubmit = () => {
@@ -44,7 +48,13 @@ const CustomerActions = () => {
           </Link>
         </li>
         <li className={styles.customerActions__rightSideItem}>
-          <Link to="/profile" className={styles.customerActions__link}>
+          <Link
+            to="/profile"
+            className={styles.customerActions__link}
+            onClick={() => {
+              dispatch(setCurrentUserData(Seller));
+            }}
+          >
             <UserIcon />
           </Link>
         </li>
