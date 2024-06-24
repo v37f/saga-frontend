@@ -3,14 +3,22 @@
 
 .inputTypeSearch {
   padding: 12px 20px 12px 12px;
+  box-sizing: border-box;
+  height: 48px;
   border: 1px solid $colorBrandBlack;
   display: flex;
+  align-items: center;
   gap: 12px;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
 
   &__input {
     @include text-body-medium;
     color: $colorBrandBlack;
-
+    box-sizing: border-box;
     border: none;
     padding: 0;
     flex-grow: 1;
