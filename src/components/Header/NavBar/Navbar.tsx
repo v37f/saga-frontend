@@ -44,7 +44,7 @@ const NavBar = () => {
           </button>
         </li>
         <li className={styles.navbar__listItem}>
-          <Link to="/artist" className={styles.navbar__link}>
+          <Link to="/artists" className={styles.navbar__link}>
             Художники
           </Link>
         </li>

@@ -1,0 +1,96 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.customerActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+
+  &__leftSide {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 20px;
+    max-width: 730px;
+    margin-right: 50px;
+  }
+
+  &__button {
+    @include reset-link;
+    @include button-square;
+    @include transition-opacity;
+    @include text-body-medium;
+
+    display: flex;
+    gap: 10px;
+    color: $colorBrandWhite;
+
+    & * {
+      width: 24px;
+      height: 24px;
+      stroke: $colorBrandWhite;
+      stroke-width: 2px;
+    }
+
+    &:hover {
+      @include hover-opacity;
+    }
+  }
+
+  &__buttonText {
+    @include text-body-medium;
+    color: $colorBrandWhite;
+  }
+
+  &__search {
+    flex-grow: 1;
+  }
+
+  &__rightSide {
+    @include reset-list;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  &__link {
+    @include reset-link;
+    @include text-menu;
+    @include transition-opacity;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    & svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 1.5px;
+    }
+
+    &:hover {
+      @include hover-opacity;
+    }
+
+    &:hover > .header__badge {
+      opacity: 1;
+    }
+  }
+
+  &__badge {
+    @include text-menu;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: $colorBrandWhite;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: red;
+  }
+}

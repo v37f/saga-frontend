@@ -1,0 +1,45 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.sellerActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+
+  &__links {
+    @include reset-list;
+    display: flex;
+    gap: 40px;
+  }
+
+  &__link {
+    @include reset-link;
+    @include text-menu;
+    @include transition-opacity;
+    display: flex;
+    align-items: center;
+
+    &_active {
+      border-bottom: 1px solid $colorBrandBlack;
+    }
+
+    &:hover {
+      @include hover-opacity;
+    }
+  }
+
+  &__button {
+    @include reset-button;
+    @include text-body-medium;
+    @include transition-opacity;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $colorBrandBlack;
+
+    &:hover {
+      @include hover-opacity;
+    }
+  }
+}
