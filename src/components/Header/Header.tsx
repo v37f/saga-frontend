@@ -3,9 +3,11 @@ import styles from './Header.module.scss';
 import NavBar from './NavBar/Navbar';
 import CustomerActions from './CustomerActions/CustomerActions';
 import SellerActions from './SellerActions/SellerActions';
+import { useAppSelector } from 'src/service/hooks';
+import { getCurrentUserData } from 'src/service/slices/currentUserSlice';
 
 const Header = () => {
-  const userRole = 'customer';
+  const currentUser = useAppSelector(getCurrentUserData);
   return (
     <header className={styles.header}>
       <div className={styles.header__container}>
@@ -15,9 +17,13 @@ const Header = () => {
           title="Перейти на главную"
           aria-label="Перейти на главную"
         />
-        {userRole === 'seller' ? <SellerActions /> : <CustomerActions />}
+        {currentUser.userRole === 'customer' ? (
+          <CustomerActions />
+        ) : (
+          <SellerActions />
+        )}
       </div>
-      <NavBar />
+      {currentUser.userRole === 'customer' && <NavBar />}
     </header>
   );
 };
