@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Modal from '../Modal';
 import styles from './AuthModal.module.scss';
 import LoginForm from './LoginForm/LoginForm';
+import RegistrationForm from './RegistrationForm/RegistrationForm';
 
 const AuthModal = () => {
   const [currentTab, setCurrentTab] = useState('login');
@@ -26,7 +27,7 @@ const AuthModal = () => {
             Регистрация
           </button>
         </div>
-        {currentTab === 'login' ? <LoginForm /> : 'Registration'}
+        {currentTab === 'login' ? <LoginForm /> : <RegistrationForm />}
       </div>
     </Modal>
   );

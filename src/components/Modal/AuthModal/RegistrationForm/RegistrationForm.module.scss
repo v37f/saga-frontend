@@ -1,0 +1,46 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .inputs {
+    @include reset-fieldset;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .checkbox {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+
+      .checkboxInput {
+        @include checkbox-black;
+      }
+
+      .checkboxLabel {
+        @include text-body-medium;
+      }
+    }
+  }
+
+  .requestError {
+    @include text-body-medium;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $colorCritical;
+    text-align: center;
+    min-height: 48px;
+  }
+
+  .agreement {
+    @include text-body-medium;
+    padding-top: 18px;
+    color: $colorDarkGrey;
+  }
+}
