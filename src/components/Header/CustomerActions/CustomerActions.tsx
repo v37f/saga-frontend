@@ -6,8 +6,7 @@ import FavoritesIcon from 'src/assets/images/components/like.svg';
 import CartIcon from 'src/assets/images/components/cart.svg';
 import InputTypeSearch from 'src/ui/inputs/InputTypeSearch/InputTypeSearch';
 import { useAppDispatch } from 'src/service/hooks';
-import { setCurrentUserData } from 'src/service/slices/currentUserSlice';
-import { Seller } from 'src/utils/mock/currentUserMockData';
+import { setIsAuthModalOpen } from 'src/service/slices/modalsSlice';
 
 const CustomerActions = () => {
   const dispatch = useAppDispatch();
@@ -16,6 +15,10 @@ const CustomerActions = () => {
   const onSearchSubmit = () => {
     // search products by keyword
     navigate('/catalog');
+  };
+
+  const onProfileClick = () => {
+    dispatch(setIsAuthModalOpen(true));
   };
   return (
     <div className={styles.customerActions}>
@@ -51,9 +54,7 @@ const CustomerActions = () => {
           <Link
             to="/profile"
             className={styles.customerActions__link}
-            onClick={() => {
-              dispatch(setCurrentUserData(Seller));
-            }}
+            onClick={onProfileClick}
           >
             <UserIcon />
           </Link>

@@ -1,8 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import styles from './SellerActions.module.scss';
 import LogoutIcon from 'src/assets/images/components/logout.svg';
+import { useAppDispatch } from 'src/service/hooks';
+import {
+  setCurrentUserData,
+  setIsLoggedIn,
+} from 'src/service/slices/currentUserSlice';
+import { defaultCurrentUser } from 'src/utils/constDefaultCurrentUser';
 
 const SellerActions = () => {
+  const dispatch = useAppDispatch();
+  const onLogoutClick = () => {
+    dispatch(setIsLoggedIn(false));
+    dispatch(setCurrentUserData(defaultCurrentUser));
+  };
   return (
     <div className={styles.sellerActions}>
       <ul className={styles.sellerActions__links}>
@@ -43,7 +54,7 @@ const SellerActions = () => {
           </NavLink>
         </li>
       </ul>
-      <button className={styles.sellerActions__button}>
+      <button className={styles.sellerActions__button} onClick={onLogoutClick}>
         <LogoutIcon />
         Выйти из аккаунта
       </button>

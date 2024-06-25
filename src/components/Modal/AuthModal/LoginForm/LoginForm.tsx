@@ -5,6 +5,13 @@ import * as yup from 'yup';
 import { PASSWORD_REGEX } from 'src/utils/constants';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { login } from 'src/api/api';
+import { useAppDispatch } from 'src/service/hooks';
+import {
+  fetchCurrentUser,
+  setIsLoggedIn,
+} from 'src/service/slices/currentUserSlice';
+import { setIsAuthModalOpen } from 'src/service/slices/modalsSlice';
 
 const loginSchema = yup.object({
   email: yup
@@ -26,6 +33,7 @@ type LoginInputs = {
 };
 
 const LoginForm = () => {
+  const dispatch = useAppDispatch();
   const {
     control,
     handleSubmit,
@@ -42,6 +50,15 @@ const LoginForm = () => {
   const requestError = '';
 
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
+    login()
+      .then(() => {
+        dispatch(fetchCurrentUser(data.isSeller));
+      })
+      .then(() => {
+        dispatch(setIsLoggedIn(true));
+        dispatch(setIsAuthModalOpen(false));
+      });
+
     console.log({
       email: data.email,
       password: data.password,

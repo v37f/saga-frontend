@@ -25,7 +25,10 @@ const initialState: ICurrentUserStateType = {
 
 export const fetchCurrentUser = createAsyncThunk(
   'fetch/currentUser',
-  getCurrentUser
+  async (isSeller: boolean) => {
+    const response = await getCurrentUser(isSeller);
+    return response;
+  }
 );
 
 const currentUser = createSlice({
