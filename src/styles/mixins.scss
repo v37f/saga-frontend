@@ -119,3 +119,10 @@
   padding: 12px 16px;
   background-color: $colorBrandBlack;
 }
+
+@mixin checkbox-black {
+  width: 18px;
+  height: 18px;
+  accent-color: $colorBrandBlack;
+  cursor: pointer;
+}

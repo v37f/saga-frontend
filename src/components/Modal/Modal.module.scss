@@ -1,0 +1,43 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.modal {
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(20, 18, 18, 0.3);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    position: relative;
+    padding: 60px 48px 48px;
+    background-color: $colorBrandWhite;
+    border: 1px solid rgba(255, 255, 255, 0.27);
+
+    .closeButton {
+      @include reset-button;
+      @include transition-opacity;
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+
+      & svg {
+        width: 24px;
+        height: 24px;
+        stroke-width: 2px;
+        stroke: red;
+      }
+
+      &:hover {
+        @include hover-opacity;
+      }
+    }
+  }
+}

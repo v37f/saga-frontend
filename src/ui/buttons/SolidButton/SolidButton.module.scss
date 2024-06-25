@@ -1,0 +1,26 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.solidButton {
+  @include reset-button;
+  @include text-body-medium;
+  background-color: $colorBrandBlack;
+  padding: 12px 0;
+  color: $colorBrandWhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  transition: background-color ease-in-out 0.15s;
+
+  &:hover {
+    background-color: $colorDarkGrey;
+  }
+
+  &:disabled {
+    color: $colorMediumGrey;
+    background-color: $colorLightGrey;
+    cursor: default;
+  }
+}
