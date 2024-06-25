@@ -1,0 +1,41 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.authModal {
+  width: 533px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  .tabs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .tab {
+      @include reset-button;
+      @include text-header-h3;
+      @include transition-opacity;
+      color: $colorMediumGrey;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      padding: 6px 24px 0;
+      min-width: 184px;
+      height: 48px;
+
+      &:hover {
+        @include hover-opacity;
+      }
+    }
+
+    .activeTab {
+      border-bottom: 1px solid $colorBrandBlack;
+      color: $colorBrandBlack;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

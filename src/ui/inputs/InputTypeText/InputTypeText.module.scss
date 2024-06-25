@@ -1,0 +1,70 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.inputTypeText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__label {
+    @include text-menu;
+    color: $colorBrandBlack;
+
+    &_invalid {
+      color: $colorCritical;
+    }
+
+    &_disabled {
+      color: $colorMediumGrey;
+    }
+  }
+
+  &__input {
+    @include text-body-medium;
+    border: none;
+    border-bottom: 1px solid $colorBrandBlack;
+    box-sizing: border-box;
+    height: 48px;
+    background-color: transparent;
+    color: $colorMediumGrey;
+
+    &_outlined {
+      border: 1px solid $colorBrandBlack;
+    }
+
+    &_invalid {
+      color: $colorCritical;
+      border-color: $colorCritical;
+    }
+
+    &_disabled {
+      color: $colorMediumGrey;
+      border-color: $colorMediumGrey;
+    }
+
+    &:focus-visible {
+      outline: none;
+      color: $colorBrandBlack;
+    }
+
+    &:autofill {
+      background-color: transparent;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__error {
+    @include text-body-small;
+    min-height: 18px;
+    color: $colorCritical;
+
+    &_disabled {
+      color: $colorMediumGrey;
+    }
+  }
+}

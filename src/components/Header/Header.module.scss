@@ -2,6 +2,8 @@
 @import 'src/styles/mixins.scss';
 
 .header {
+  border-bottom: 1px solid $colorBrandBlack;
+
   &__container {
     max-width: $contentMaxWidth;
     box-sizing: border-box;
@@ -9,7 +11,6 @@
     margin: 0 auto;
     display: flex;
     gap: 40px;
-    border-bottom: 1px solid $colorBrandBlack;
   }
 
   &__logo {
