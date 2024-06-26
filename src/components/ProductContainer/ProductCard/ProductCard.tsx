@@ -39,9 +39,11 @@ const ProductCard = (props: IProductCardPropsType) => {
       </div>
       <p className={styles.productCard__title}>{item.titleArt}</p>
       <div className={styles.productCard__evaluation}>
-        <p className={styles.productCard__price}>{`${item.priceSale} ₽`}</p>
+        <p
+          className={styles.productCard__price}
+        >{`${item.estimatedPrice} ₽`}</p>
         <div className={styles.productCard__trend}>
-          {item.priceSale > item.forecastPrice ? (
+          {item.estimatedPrice > item.forecastPrice ? (
             <TrendingDownIcon />
           ) : (
             <TrendingUpIcon />

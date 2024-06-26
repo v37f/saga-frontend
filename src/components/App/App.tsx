@@ -12,6 +12,7 @@ import { getIsAuthModalOpen } from 'src/service/slices/modalsSlice';
 import AuthModal from '../Modal/AuthModal/AuthModal';
 import { useEffect } from 'react';
 import { Customer, Seller } from 'src/utils/mock/currentUserMockData';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <div className={styles.app}>
+      <ScrollToTop />
       <Header />
       {currentUser.userRole === 'customer' ? (
         <CustomerRoutes />
