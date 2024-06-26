@@ -4,10 +4,12 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 interface IModalsStateType {
   isAuthModalOpen: boolean;
+  targetUrl: string;
 }
 
 const initialState: IModalsStateType = {
   isAuthModalOpen: false,
+  targetUrl: '/',
 };
 
 const modals = createSlice({
@@ -17,12 +19,16 @@ const modals = createSlice({
     setIsAuthModalOpen: (state, action: PayloadAction<boolean>) => {
       state.isAuthModalOpen = action.payload;
     },
+    setTargetUrl: (state, action: PayloadAction<string>) => {
+      state.targetUrl = action.payload;
+    },
   },
 });
 
-export const { setIsAuthModalOpen } = modals.actions;
+export const { setIsAuthModalOpen, setTargetUrl } = modals.actions;
 
 export default modals.reducer;
 
 export const getIsAuthModalOpen = (state: RootState) =>
   state.modals.isAuthModalOpen;
+export const getTargetUrl = (state: RootState) => state.modals.targetUrl;

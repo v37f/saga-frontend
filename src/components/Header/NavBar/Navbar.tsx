@@ -54,7 +54,13 @@ const NavBar = () => {
           </Link>
         </li>
         <li className={styles.navbar__listItem}>
-          <Link to="/consultation" className={styles.navbar__link}>
+          <Link
+            to="/consultation"
+            className={styles.navbar__link}
+            state={{
+              outgoingUrl: location.pathname,
+            }}
+          >
             Арт-консультация
           </Link>
         </li>

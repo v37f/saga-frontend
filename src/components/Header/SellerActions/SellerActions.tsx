@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styles from './SellerActions.module.scss';
 import LogoutIcon from 'src/assets/images/components/logout.svg';
 import { useAppDispatch } from 'src/service/hooks';
@@ -9,10 +9,13 @@ import {
 import { defaultCurrentUser } from 'src/utils/constDefaultCurrentUser';
 
 const SellerActions = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const onLogoutClick = () => {
     dispatch(setIsLoggedIn(false));
     dispatch(setCurrentUserData(defaultCurrentUser));
+    localStorage.removeItem('jwt');
+    navigate('/');
   };
   return (
     <div className={styles.sellerActions}>
