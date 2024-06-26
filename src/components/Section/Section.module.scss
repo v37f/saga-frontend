@@ -1,0 +1,39 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.section {
+  padding: 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      @include text-header-h2;
+      color: $colorBrandBlack;
+    }
+
+    .title.titleH3 {
+      @include text-header-h3;
+    }
+
+    .moreButton {
+      @include reset-button;
+      @include text-menu;
+      @include transition-opacity;
+      color: $colorBrandBlack;
+
+      &:hover {
+        @include hover-opacity;
+      }
+    }
+  }
+}
+
+.section.smallGap {
+  gap: 40px;
+}
