@@ -99,3 +99,9 @@ export interface IOrderType {
   insurance: boolean;
   insuranceCost: number;
 }
+
+export interface IBannerItemType {
+  bannerId: number;
+  src: string;
+  title: string;
+}

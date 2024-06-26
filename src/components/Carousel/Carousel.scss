@@ -1,0 +1,53 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.carousel-container {
+  padding-bottom: 104px;
+  .slick-list {
+    cursor: grab;
+  }
+
+  .dots {
+    @include reset-list;
+    display: flex !important;
+    height: 16px;
+    list-style-type: none;
+    gap: 8px;
+    bottom: -80px;
+    position: absolute;
+  }
+
+  .dots.offset {
+    bottom: -40px;
+    left: 80px;
+  }
+
+  .dots > li {
+    display: flex;
+  }
+
+  .dots > li > button {
+    @include reset-button;
+    width: 20px;
+    height: 16px;
+    font-size: 0;
+  }
+
+  .dots > li > button::before {
+    content: '';
+    display: block;
+    opacity: 1;
+    width: 20px;
+    height: 0px;
+    box-sizing: border-box;
+    border: 1px solid $colorMediumGrey;
+  }
+
+  .dots > li.slick-active > button::before {
+    border-color: $colorBrandBlack;
+  }
+}
+
+.carousel-container.offset {
+  padding-bottom: 64px;
+}

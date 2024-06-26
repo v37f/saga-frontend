@@ -1,0 +1,47 @@
+@import 'src/styles/mixins.scss';
+
+.carouselArrow {
+  @include reset-button;
+  @include transition-opacity;
+  padding: 16px;
+  width: 100px;
+  height: 16px;
+  background-size: 100px 16px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: absolute;
+  bottom: -88px;
+
+  &:hover {
+    @include hover-opacity;
+  }
+}
+
+.carouselArrow.offset {
+  bottom: -48px;
+}
+
+.prev {
+  background-image: url('../../../assets/images/icons/arrow_right.svg');
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: 'FlipH';
+  right: 124px;
+}
+
+.carouselArrow.prev.offset {
+  right: 204px;
+}
+
+.next {
+  background-image: url('../../../assets/images/icons/arrow_right.svg');
+  right: 0;
+}
+
+.carouselArrow.next.offset {
+  right: 80px;
+}
