@@ -6,12 +6,16 @@ import { PASSWORD_REGEX } from 'src/utils/constants';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { login } from 'src/api/api';
-import { useAppDispatch } from 'src/service/hooks';
+import { useAppDispatch, useAppSelector } from 'src/service/hooks';
 import {
   fetchCurrentUser,
   setIsLoggedIn,
 } from 'src/service/slices/currentUserSlice';
-import { setIsAuthModalOpen } from 'src/service/slices/modalsSlice';
+import {
+  getTargetUrl,
+  setIsAuthModalOpen,
+} from 'src/service/slices/modalsSlice';
+import { useNavigate } from 'react-router-dom';
 
 const loginSchema = yup.object({
   email: yup
@@ -33,7 +37,9 @@ type LoginInputs = {
 };
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const targetUrl = useAppSelector(getTargetUrl);
   const {
     control,
     handleSubmit,
@@ -52,11 +58,13 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
     login()
       .then(() => {
+        localStorage.setItem('jwt', data.isSeller ? 'seller' : 'customer');
         dispatch(fetchCurrentUser(data.isSeller));
       })
       .then(() => {
         dispatch(setIsLoggedIn(true));
         dispatch(setIsAuthModalOpen(false));
+        navigate(data.isSeller ? '/' : targetUrl);
       });
 
     console.log({

@@ -1,25 +1,20 @@
 import styles from './CustomerActions.module.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import CatalogIcon from 'src/assets/images/components/catalog.svg';
 import UserIcon from 'src/assets/images/components/user.svg';
 import FavoritesIcon from 'src/assets/images/components/like.svg';
 import CartIcon from 'src/assets/images/components/cart.svg';
 import InputTypeSearch from 'src/ui/inputs/InputTypeSearch/InputTypeSearch';
-import { useAppDispatch } from 'src/service/hooks';
-import { setIsAuthModalOpen } from 'src/service/slices/modalsSlice';
 
 const CustomerActions = () => {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const cartItemsNumber = 0;
   const onSearchSubmit = () => {
     // search products by keyword
     navigate('/catalog');
   };
 
-  const onProfileClick = () => {
-    dispatch(setIsAuthModalOpen(true));
-  };
   return (
     <div className={styles.customerActions}>
       <div className={styles.customerActions__leftSide}>
@@ -46,7 +41,13 @@ const CustomerActions = () => {
       </div>
       <ul className={styles.customerActions__rightSide}>
         <li className={styles.customerActions__rightSideItem}>
-          <Link to="/priceanalytics" className={styles.customerActions__link}>
+          <Link
+            to="/priceanalytics"
+            className={styles.customerActions__link}
+            state={{
+              outgoingUrl: location.pathname,
+            }}
+          >
             Аналитика цен
           </Link>
         </li>
@@ -54,7 +55,9 @@ const CustomerActions = () => {
           <Link
             to="/profile"
             className={styles.customerActions__link}
-            onClick={onProfileClick}
+            state={{
+              outgoingUrl: location.pathname,
+            }}
           >
             <UserIcon />
           </Link>
@@ -63,6 +66,9 @@ const CustomerActions = () => {
           <Link
             to="/profile/favoritelots"
             className={styles.customerActions__link}
+            state={{
+              outgoingUrl: location.pathname,
+            }}
           >
             <FavoritesIcon />
           </Link>
