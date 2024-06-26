@@ -1,7 +1,11 @@
-interface IArtistType {
+export interface IArtistType {
   artistId: number;
   lastnameArtist: string;
   nameArtist: string;
+  shortDescription: string;
+  yearOfBirth: string;
+  photo: string;
+  personalStyle: TArtStyleType;
 }
 
 type TProductOrientalType = 'вертикальная' | 'горизонтальная' | 'квадратная';
@@ -11,12 +15,12 @@ export interface IProductType {
   titleArt: string;
   orientalProduct: TProductOrientalType;
   artist: IArtistType;
-  priceSale: number;
+  estimatedPrice: number;
   forecastPrice: number;
   photoProduct: string[];
 }
 
-export type TProductStyleType =
+export type TArtStyleType =
   | 'Абстракция'
   | 'Интерьерное искусство'
   | 'Концептуальное искусство'
@@ -52,7 +56,7 @@ export interface ICustomerType {
   surname: string;
   email: string;
   phone: string;
-  preferStyle: TProductStyleType;
+  preferStyle: TArtStyleType;
   preferCategory: TProductCategoryType;
   favoriteProducts: IProductType[];
   favoriteArtist: IArtistType[];

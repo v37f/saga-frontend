@@ -4,6 +4,7 @@ import NewProducts from 'src/components/NewProducts/NewProducts';
 import CheapProducts from 'src/components/CheapProducts/CheapProducts';
 import ExpensiveProducts from 'src/components/ExpensiveProducts/ExpensiveProducts';
 import NewsSection from 'src/components/NewsSection/NewsSection';
+import ArtistSection from 'src/components/ArtistsSection/ArtistsSection';
 
 const MainPage = () => {
   return (
@@ -11,6 +12,7 @@ const MainPage = () => {
       <MainBanner />
       <NewProducts />
       <NewsSection />
+      <ArtistSection />
       <CheapProducts />
       <ExpensiveProducts />
     </main>

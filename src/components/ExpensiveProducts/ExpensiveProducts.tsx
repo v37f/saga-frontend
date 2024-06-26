@@ -3,6 +3,7 @@ import ProductContainer from 'src/components/ProductContainer/ProductContainer';
 import ProductCard from 'src/components/ProductContainer/ProductCard/ProductCard';
 import { productsMockData } from 'src/utils/mock/productsMockData';
 import { useNavigate } from 'react-router-dom';
+import { MAIN_SECTION_PRODUCTS_NUMBER } from 'src/utils/constants';
 
 const ExpensiveProducts = () => {
   const navigate = useNavigate();
@@ -19,9 +20,11 @@ const ExpensiveProducts = () => {
       onMoreButtonClick={handleMoreButtonClick}
     >
       <ProductContainer columnsNumber={4}>
-        {expensiveProducts.slice(0, 8).map((item) => (
-          <ProductCard item={item} key={item.productId} />
-        ))}
+        {expensiveProducts
+          .slice(0, MAIN_SECTION_PRODUCTS_NUMBER)
+          .map((item) => (
+            <ProductCard item={item} key={item.productId} />
+          ))}
       </ProductContainer>
     </Section>
   );

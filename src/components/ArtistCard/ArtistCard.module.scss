@@ -1,0 +1,50 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.artistCard {
+  width: 290px;
+  list-style-type: none;
+
+  &__link {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 290px;
+    margin-bottom: 20px;
+  }
+  &__photo {
+    object-fit: cover;
+    object-position: top center;
+    width: inherit;
+    height: inherit;
+
+    transition: transform ease-in-out 0.35s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__artistName {
+    @include text-header-h3;
+    color: $colorBrandBlack;
+    max-width: 254px;
+  }
+
+  &__description {
+    @include text-body-medium;
+    color: $colorBrandBlack;
+  }
+
+  &__liveYears {
+    @include text-body-medium;
+    color: $colorBrandBlack;
+  }
+}
