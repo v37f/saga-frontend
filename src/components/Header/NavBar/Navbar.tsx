@@ -1,9 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './NavBar.module.scss';
+import useProtectionNavigate from 'src/hooks/useProtectionNavigate';
 
 const NavBar = () => {
   const navigate = useNavigate();
-
+  const protectionNavigate = useProtectionNavigate();
   const onPaintingLinkClick = () => {
     navigate('/catalog');
   };
@@ -54,15 +55,12 @@ const NavBar = () => {
           </Link>
         </li>
         <li className={styles.navbar__listItem}>
-          <Link
-            to="/consultation"
+          <button
             className={styles.navbar__link}
-            state={{
-              outgoingUrl: location.pathname,
-            }}
+            onClick={() => protectionNavigate('/consultation')}
           >
             Арт-консультация
-          </Link>
+          </button>
         </li>
       </ul>
     </nav>

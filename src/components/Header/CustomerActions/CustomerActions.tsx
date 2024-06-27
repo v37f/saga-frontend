@@ -1,14 +1,14 @@
 import styles from './CustomerActions.module.scss';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CatalogIcon from 'src/assets/images/components/catalog.svg';
 import UserIcon from 'src/assets/images/components/user.svg';
 import FavoritesIcon from 'src/assets/images/components/like.svg';
 import CartIcon from 'src/assets/images/components/cart.svg';
 import InputTypeSearch from 'src/ui/inputs/InputTypeSearch/InputTypeSearch';
-
+import useProtectionNavigate from 'src/hooks/useProtectionNavigate';
 const CustomerActions = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+  const protectionNavigate = useProtectionNavigate();
   const cartItemsNumber = 0;
   const onSearchSubmit = () => {
     // search products by keyword
@@ -41,37 +41,28 @@ const CustomerActions = () => {
       </div>
       <ul className={styles.customerActions__rightSide}>
         <li className={styles.customerActions__rightSideItem}>
-          <Link
-            to="/priceanalytics"
+          <button
             className={styles.customerActions__link}
-            state={{
-              outgoingUrl: location.pathname,
-            }}
+            onClick={() => protectionNavigate('/priceanalytics')}
           >
             Аналитика цен
-          </Link>
+          </button>
         </li>
         <li className={styles.customerActions__rightSideItem}>
-          <Link
-            to="/profile"
+          <button
             className={styles.customerActions__link}
-            state={{
-              outgoingUrl: location.pathname,
-            }}
+            onClick={() => protectionNavigate('/profile')}
           >
             <UserIcon />
-          </Link>
+          </button>
         </li>
         <li className={styles.customerActions__rightSideItem}>
-          <Link
-            to="/profile/favoritelots"
+          <button
             className={styles.customerActions__link}
-            state={{
-              outgoingUrl: location.pathname,
-            }}
+            onClick={() => protectionNavigate('/profile/favoritelots')}
           >
             <FavoritesIcon />
-          </Link>
+          </button>
         </li>
         <li className={styles.customerActions__rightSideItem}>
           <Link to="/cart" className={styles.customerActions__link}>
