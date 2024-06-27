@@ -3,14 +3,17 @@ import ProductContainer from 'src/components/ProductContainer/ProductContainer';
 import ProductCard from 'src/components/ProductContainer/ProductCard/ProductCard';
 import { productsMockData } from 'src/utils/mock/productsMockData';
 import { useNavigate } from 'react-router-dom';
-import { MAIN_SECTION_PRODUCTS_NUMBER } from 'src/utils/constants';
+import {
+  CATALOG_ROUTE,
+  MAIN_SECTION_PRODUCTS_NUMBER,
+} from 'src/utils/constants';
 
 const CheapProducts = () => {
   const navigate = useNavigate();
   const cheapProducts = productsMockData;
 
   const handleMoreButtonClick = () => {
-    navigate('/catalog');
+    navigate(CATALOG_ROUTE);
   };
   return (
     <Section

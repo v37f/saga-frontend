@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { DEFAULT_ROUTE } from 'src/utils/constants';
 
 interface IModalsStateType {
   isAuthModalOpen: boolean;
@@ -9,7 +10,7 @@ interface IModalsStateType {
 
 const initialState: IModalsStateType = {
   isAuthModalOpen: false,
-  targetUrl: '/',
+  targetUrl: DEFAULT_ROUTE,
 };
 
 const modals = createSlice({

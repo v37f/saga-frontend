@@ -17,7 +17,10 @@ const ArtistCard = (props: IArtistCardPropsType) => {
   };
   return (
     <li className={styles.artistCard}>
-      <Link to="/" className={`${styles.artistCard__link}`}>
+      <Link
+        to={`/arists/${item.artistId}`}
+        className={`${styles.artistCard__link}`}
+      >
         <img className={styles.artistCard__photo} src={item.photo} />
       </Link>
       <div className={styles.artistCard__header}>

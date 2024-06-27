@@ -36,13 +36,13 @@ export type TProductCategoryType =
   | 'Фотография'
   | 'Digital';
 
-type TSubscribtionPeiodType = 1 | 6 | 12;
+type TSubscribtionPeriodType = 1 | 6 | 12;
 
 type TSubscribtionStatusType = 'active' | 'inactive';
 
 interface ISubscriptionType {
   subscriptionId: number;
-  subsPeriod: TSubscribtionPeiodType;
+  subsPeriod: TSubscribtionPeriodType;
   autoSubs: boolean;
   subsDateOn: string;
   subsStatus: TSubscribtionStatusType;

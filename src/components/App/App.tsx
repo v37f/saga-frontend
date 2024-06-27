@@ -14,6 +14,7 @@ import { useEffect } from 'react';
 import { Customer, Seller } from 'src/utils/mock/currentUserMockData';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { CUSTOMER_ROLE } from 'src/utils/constants';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -26,7 +27,7 @@ function App() {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       dispatch(setIsLoggedIn(true));
-      dispatch(setCurrentUserData(jwt === 'customer' ? Customer : Seller));
+      dispatch(setCurrentUserData(jwt === CUSTOMER_ROLE ? Customer : Seller));
       navigate(pathname, { replace: true });
     }
   };
@@ -41,7 +42,7 @@ function App() {
     <div className={styles.app}>
       <ScrollToTop />
       <Header />
-      {currentUser.userRole === 'customer' ? (
+      {currentUser.userRole === CUSTOMER_ROLE ? (
         <CustomerRoutes />
       ) : (
         <SellerRoutes />

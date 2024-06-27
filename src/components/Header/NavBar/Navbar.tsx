@@ -1,24 +1,30 @@
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './NavBar.module.scss';
 import useProtectionNavigate from 'src/hooks/useProtectionNavigate';
+import {
+  ARTISTS_ROUTE,
+  CATALOG_ROUTE,
+  CONSULTATION_ROUTE,
+  NEWS_ROUTE,
+} from 'src/utils/constants';
 
 const NavBar = () => {
   const navigate = useNavigate();
   const protectionNavigate = useProtectionNavigate();
   const onPaintingLinkClick = () => {
-    navigate('/catalog');
+    navigate(CATALOG_ROUTE);
   };
 
   const onGraphicLinkClick = () => {
-    navigate('/catalog');
+    navigate(CATALOG_ROUTE);
   };
 
   const onPhotoLinkClick = () => {
-    navigate('/catalog');
+    navigate(CATALOG_ROUTE);
   };
 
   const onDigitalLinkClick = () => {
-    navigate('/catalog');
+    navigate(CATALOG_ROUTE);
   };
 
   return (
@@ -45,19 +51,19 @@ const NavBar = () => {
           </button>
         </li>
         <li className={styles.navbar__listItem}>
-          <Link to="/artists" className={styles.navbar__link}>
+          <Link to={ARTISTS_ROUTE} className={styles.navbar__link}>
             Художники
           </Link>
         </li>
         <li className={styles.navbar__listItem}>
-          <Link to="/news" className={styles.navbar__link}>
+          <Link to={NEWS_ROUTE} className={styles.navbar__link}>
             Новости
           </Link>
         </li>
         <li className={styles.navbar__listItem}>
           <button
             className={styles.navbar__link}
-            onClick={() => protectionNavigate('/consultation')}
+            onClick={() => protectionNavigate(CONSULTATION_ROUTE)}
           >
             Арт-консультация
           </button>
