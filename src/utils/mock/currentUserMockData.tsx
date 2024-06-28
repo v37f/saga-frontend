@@ -1,6 +1,6 @@
-import { ICustomerType, ISellerType } from '../types';
+import { ICurrentUserType } from '../types';
 
-export const Customer: ICustomerType = {
+export const Customer: ICurrentUserType = {
   userId: 1,
   userRole: 'customer',
   name: 'Иванов',
@@ -13,10 +13,10 @@ export const Customer: ICustomerType = {
   favoriteProducts: [],
   favoriteArtist: [],
   subscription: null,
-  orders: [],
+  customerOrders: [],
 };
 
-export const Seller: ISellerType = {
+export const Seller: ICurrentUserType = {
   userId: 1,
   userRole: 'seller',
   name: 'Дмитриев',
@@ -24,6 +24,6 @@ export const Seller: ISellerType = {
   surname: 'Дмитриевич',
   email: 'dmitry@mail.com',
   phone: '+79067839823',
-  products: [],
-  orders: [],
+  goods: [],
+  sellerOrders: [],
 };

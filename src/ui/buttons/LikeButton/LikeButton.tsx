@@ -14,6 +14,8 @@ const LikeButton = (props: ILikeButtonProps) => {
         isActive ? styles.likeButton_active : ''
       }`}
       onClick={onClick}
+      title={isActive ? 'Убрать из избранного' : 'Добавить в избранное'}
+      aria-label={isActive ? 'Убрать из избранного' : 'Добавить в избранное'}
     >
       <LikeIcon />
     </button>

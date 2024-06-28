@@ -5,6 +5,7 @@ import CustomerActions from './CustomerActions/CustomerActions';
 import SellerActions from './SellerActions/SellerActions';
 import { useAppSelector } from 'src/service/hooks';
 import { getCurrentUserData } from 'src/service/slices/currentUserSlice';
+import { CUSTOMER_ROLE, DEFAULT_ROUTE } from 'src/utils/constants';
 
 const Header = () => {
   const currentUser = useAppSelector(getCurrentUserData);
@@ -12,18 +13,18 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.header__container}>
         <Link
-          to="/"
+          to={DEFAULT_ROUTE}
           className={styles.header__logo}
           title="Перейти на главную"
           aria-label="Перейти на главную"
         />
-        {currentUser.userRole === 'customer' ? (
+        {currentUser.userRole === CUSTOMER_ROLE ? (
           <CustomerActions />
         ) : (
           <SellerActions />
         )}
       </div>
-      {currentUser.userRole === 'customer' && <NavBar />}
+      {currentUser.userRole === CUSTOMER_ROLE && <NavBar />}
     </header>
   );
 };

@@ -1,0 +1,35 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.subscriptionOffer {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  .title {
+    @include text-header-h2;
+    color: $colorBrandBlack;
+  }
+
+  .subTypes {
+    @include reset-list;
+    display: flex;
+    gap: 40px;
+  }
+
+  .question {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .questionTitle {
+      @include text-header-h4;
+      color: $colorBrandBlack;
+    }
+
+    .button {
+      width: 191px;
+    }
+  }
+}

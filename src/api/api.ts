@@ -11,6 +11,15 @@ export const getCurrentUser = async (isSeller: boolean) => {
   return res;
 };
 
+export const updateCurrentUser = async <T>(newUserInfo: T) => {
+  //regions from server
+  const updatedtUserDataFromServer: T = newUserInfo;
+
+  const res = await Promise.resolve(updatedtUserDataFromServer);
+
+  return res;
+};
+
 export const login = async () => {
   //login request
 

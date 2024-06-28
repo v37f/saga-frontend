@@ -11,16 +11,28 @@ import PriceAnalyticsPage from 'src/pages/PriceAnalyticsPage/PriceAnalyticsPage'
 
 import { Route, Routes } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import {
+  ARTISTS_ROUTE,
+  CART_ROUTE,
+  CATALOG_ROUTE,
+  CONSULTATION_ROUTE,
+  CUSTOMER_PROFILE_ROUTE,
+  DEFAULT_ROUTE,
+  NEWS_ROUTE,
+  NOT_FOUND_ROUTE,
+  PLACE_ORDER_ROUTE,
+  PRICE_ANALYTICS_ROUTE,
+} from 'src/utils/constants';
 
 const CustomerRoutes = () => {
   return (
     <Routes>
-      <Route index path="/" element={<MainPage />} />
-      <Route path="/catalog" element={<CatalogPage />} />
-      <Route path="/artists" element={<ArtistsPage />} />
-      <Route path="/news" element={<NewsPage />} />
+      <Route index path={DEFAULT_ROUTE} element={<MainPage />} />
+      <Route path={CATALOG_ROUTE} element={<CatalogPage />} />
+      <Route path={ARTISTS_ROUTE} element={<ArtistsPage />} />
+      <Route path={NEWS_ROUTE} element={<NewsPage />} />
       <Route
-        path="/consultation"
+        path={CONSULTATION_ROUTE}
         element={
           <ProtectedRoute>
             <ConsultationPage />
@@ -28,7 +40,7 @@ const CustomerRoutes = () => {
         }
       />
       <Route
-        path="/priceanalytics"
+        path={PRICE_ANALYTICS_ROUTE}
         element={
           <ProtectedRoute>
             <PriceAnalyticsPage />
@@ -36,16 +48,16 @@ const CustomerRoutes = () => {
         }
       />
       <Route
-        path="/profile"
+        path={CUSTOMER_PROFILE_ROUTE}
         element={
           <ProtectedRoute>
             <CustomerProfilePage />
           </ProtectedRoute>
         }
       />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path="/placeorder" element={<PlaceOrderPage />} />
-      <Route path="/*" element={<NotFoundPage />} />
+      <Route path={CART_ROUTE} element={<CartPage />} />
+      <Route path={PLACE_ORDER_ROUTE} element={<PlaceOrderPage />} />
+      <Route path={NOT_FOUND_ROUTE} element={<NotFoundPage />} />
     </Routes>
   );
 };

@@ -36,47 +36,39 @@ export type TProductCategoryType =
   | 'Фотография'
   | 'Digital';
 
-type TSubscribtionPeiodType = 1 | 6 | 12;
+export type TSubscribtionPeriodType = 1 | 6 | 12;
 
-type TSubscribtionStatusType = 'active' | 'inactive';
-
-interface ISubscriptionType {
+export interface ISubscriptionType {
   subscriptionId: number;
-  subsPeriod: TSubscribtionPeiodType;
+  price: number;
+  period: TSubscribtionPeriodType;
+}
+
+interface ICustomerSubscriptionType {
+  subsPeriod: ISubscriptionType;
   autoSubs: boolean;
   subsDateOn: string;
-  subsStatus: TSubscribtionStatusType;
 }
 
-export interface ICustomerType {
+type TUserRoleType = 'customer' | 'seller';
+
+export interface ICurrentUserType {
   userId: number;
-  userRole: 'customer';
+  userRole: TUserRoleType;
   name: string;
   lastName: string;
   surname: string;
   email: string;
   phone: string;
-  preferStyle: TArtStyleType;
-  preferCategory: TProductCategoryType;
-  favoriteProducts: IProductType[];
-  favoriteArtist: IArtistType[];
-  subscription: ISubscriptionType | null | undefined;
-  orders: IOrderType[];
+  preferStyle?: TArtStyleType;
+  preferCategory?: TProductCategoryType;
+  favoriteProducts?: IProductType[];
+  favoriteArtist?: IArtistType[];
+  subscription?: ICustomerSubscriptionType | null | undefined;
+  customerOrders?: IOrderType[];
+  goods?: IProductType[];
+  sellerOrders?: IOrderType[];
 }
-
-export interface ISellerType {
-  userId: number;
-  userRole: 'seller';
-  name: string;
-  lastName: string;
-  surname: string;
-  email: string;
-  phone: string;
-  products: IProductType[];
-  orders: IOrderType[];
-}
-
-export type ICurrentUserType = ICustomerType | ISellerType;
 
 interface IOrderAddressType {
   postIndex: number;

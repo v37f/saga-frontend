@@ -5,6 +5,7 @@ import {
   setIsLoggedIn,
 } from 'src/service/slices/currentUserSlice';
 import { defaultCurrentUser } from 'src/utils/constDefaultCurrentUser';
+import { DEFAULT_ROUTE } from 'src/utils/constants';
 
 const CustomerProfilePage = () => {
   const navigate = useNavigate();
@@ -13,11 +14,12 @@ const CustomerProfilePage = () => {
     dispatch(setIsLoggedIn(false));
     dispatch(setCurrentUserData(defaultCurrentUser));
     localStorage.removeItem('jwt');
-    navigate('/');
+    navigate(DEFAULT_ROUTE);
   };
+
   return (
     <main>
-      Профиль покупателя{' '}
+      Профиль покупателя
       <button onClick={onLogoutClick}>выйти из профиля</button>
     </main>
   );
