@@ -36,21 +36,25 @@ export type TProductCategoryType =
   | 'Фотография'
   | 'Digital';
 
-type TSubscribtionPeriodType = 1 | 6 | 12;
+export type TSubscribtionPeriodType = 1 | 6 | 12;
 
-type TSubscribtionStatusType = 'active' | 'inactive';
-
-interface ISubscriptionType {
+export interface ISubscriptionType {
   subscriptionId: number;
-  subsPeriod: TSubscribtionPeriodType;
+  price: number;
+  period: TSubscribtionPeriodType;
+}
+
+interface ICustomerSubscriptionType {
+  subsPeriod: ISubscriptionType;
   autoSubs: boolean;
   subsDateOn: string;
-  subsStatus: TSubscribtionStatusType;
 }
+
+type TUserRoleType = 'customer' | 'seller';
 
 export interface ICustomerType {
   userId: number;
-  userRole: 'customer';
+  userRole: TUserRoleType;
   name: string;
   lastName: string;
   surname: string;
@@ -60,13 +64,13 @@ export interface ICustomerType {
   preferCategory: TProductCategoryType;
   favoriteProducts: IProductType[];
   favoriteArtist: IArtistType[];
-  subscription: ISubscriptionType | null | undefined;
+  subscription: ICustomerSubscriptionType | null | undefined;
   orders: IOrderType[];
 }
 
 export interface ISellerType {
   userId: number;
-  userRole: 'seller';
+  userRole: TUserRoleType;
   name: string;
   lastName: string;
   surname: string;

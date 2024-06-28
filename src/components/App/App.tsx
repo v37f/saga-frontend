@@ -8,18 +8,23 @@ import {
   setIsLoggedIn,
 } from 'src/service/slices/currentUserSlice';
 import SellerRoutes from '../Routes/SellerRoutes';
-import { getIsAuthModalOpen } from 'src/service/slices/modalsSlice';
+import {
+  getIsAuthModalOpen,
+  getIsSubscribeModalOpen,
+} from 'src/service/slices/modalsSlice';
 import AuthModal from '../Modal/AuthModal/AuthModal';
 import { useEffect } from 'react';
 import { Customer, Seller } from 'src/utils/mock/currentUserMockData';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CUSTOMER_ROLE } from 'src/utils/constants';
+import SubscribtionModal from '../Modal/SubscribtionModal/SubscribtionModal';
 
 function App() {
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector(getCurrentUserData);
   const isAuthModalOpen = useAppSelector(getIsAuthModalOpen);
+  const isSubscribeModalOpen = useAppSelector(getIsSubscribeModalOpen);
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -48,6 +53,7 @@ function App() {
         <SellerRoutes />
       )}
       {isAuthModalOpen && <AuthModal />}
+      {isSubscribeModalOpen && <SubscribtionModal />}
     </div>
   );
 }

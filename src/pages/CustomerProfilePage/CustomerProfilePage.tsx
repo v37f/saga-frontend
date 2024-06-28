@@ -16,6 +16,7 @@ const CustomerProfilePage = () => {
     localStorage.removeItem('jwt');
     navigate(DEFAULT_ROUTE);
   };
+
   return (
     <main>
       Профиль покупателя

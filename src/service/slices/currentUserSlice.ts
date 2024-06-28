@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { getCurrentUser } from 'src/api/api';
+import { getCurrentUser, updateCurrentUser } from 'src/api/api';
 import { defaultCurrentUser } from 'src/utils/constDefaultCurrentUser';
 import { ICurrentUserType } from 'src/utils/types';
 import { RootState } from '../store';
@@ -27,6 +27,14 @@ export const fetchCurrentUser = createAsyncThunk(
   'fetch/currentUser',
   async (isSeller: boolean) => {
     const response = await getCurrentUser(isSeller);
+    return response;
+  }
+);
+
+export const updateCurrentUserInfo = createAsyncThunk(
+  'update/currentUser',
+  async (newCurrentUserInfo: ICurrentUserType) => {
+    const response = await updateCurrentUser(newCurrentUserInfo);
     return response;
   }
 );
@@ -58,6 +66,25 @@ const currentUser = createSlice({
         state.errorMessage = '';
       })
       .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.isRequest = false;
+        state.isSuccess = false;
+        state.isFailed = true;
+        console.log(action.error);
+      })
+      .addCase(updateCurrentUserInfo.pending, (state) => {
+        state.isRequest = true;
+        state.isSuccess = false;
+        state.isFailed = false;
+        state.errorMessage = '';
+      })
+      .addCase(updateCurrentUserInfo.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.isRequest = false;
+        state.isSuccess = true;
+        state.isFailed = false;
+        state.errorMessage = '';
+      })
+      .addCase(updateCurrentUserInfo.rejected, (state, action) => {
         state.isRequest = false;
         state.isSuccess = false;
         state.isFailed = true;

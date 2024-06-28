@@ -1,12 +1,14 @@
 @import 'src/styles/variables.scss';
 @import 'src/styles/mixins.scss';
 
-.solidButton {
+.outlinedButton {
   @include reset-button;
   @include text-body-medium;
-  background-color: $colorBrandBlack;
+  width: 100%;
+  background-color: $colorBrandWhite;
+  border: 1px solid $colorBrandBlack;
   padding: 12px 0;
-  color: $colorBrandWhite;
+  color: $colorBrandBlack;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,9 +18,11 @@
 
   &:hover {
     background-color: $colorDarkGrey;
+    color: $colorBrandWhite;
   }
 
   &:disabled {
+    border-color: $colorMediumGrey;
     color: $colorMediumGrey;
     background-color: $colorLightGrey;
     cursor: default;

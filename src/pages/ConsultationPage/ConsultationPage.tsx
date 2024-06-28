@@ -1,3 +1,4 @@
+import ConsultationSubscription from 'src/components/ConsultationSubscription/ConsultationSubscription';
 import styles from './ConsultationPage.module.scss';
 
 const ConsultationPage = () => {
@@ -9,6 +10,12 @@ const ConsultationPage = () => {
         алгоритма для анализа больших данных, использующий машинное обучение, и
         учитывающий 35 критериев оценки арт-объекта и его автора.
       </p>
+      <p className={styles.subsDescription}>
+        Оценка арт-объекта входит в подписку на доступ к Price Database и
+        аналитике арт-объектов
+      </p>
+
+      <ConsultationSubscription />
     </main>
   );
 };
