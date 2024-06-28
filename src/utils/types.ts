@@ -52,7 +52,7 @@ interface ICustomerSubscriptionType {
 
 type TUserRoleType = 'customer' | 'seller';
 
-export interface ICustomerType {
+export interface ICurrentUserType {
   userId: number;
   userRole: TUserRoleType;
   name: string;
@@ -60,27 +60,15 @@ export interface ICustomerType {
   surname: string;
   email: string;
   phone: string;
-  preferStyle: TArtStyleType;
-  preferCategory: TProductCategoryType;
-  favoriteProducts: IProductType[];
-  favoriteArtist: IArtistType[];
-  subscription: ICustomerSubscriptionType | null | undefined;
-  orders: IOrderType[];
+  preferStyle?: TArtStyleType;
+  preferCategory?: TProductCategoryType;
+  favoriteProducts?: IProductType[];
+  favoriteArtist?: IArtistType[];
+  subscription?: ICustomerSubscriptionType | null | undefined;
+  customerOrders?: IOrderType[];
+  goods?: IProductType[];
+  sellerOrders?: IOrderType[];
 }
-
-export interface ISellerType {
-  userId: number;
-  userRole: TUserRoleType;
-  name: string;
-  lastName: string;
-  surname: string;
-  email: string;
-  phone: string;
-  products: IProductType[];
-  orders: IOrderType[];
-}
-
-export type ICurrentUserType = ICustomerType | ISellerType;
 
 interface IOrderAddressType {
   postIndex: number;

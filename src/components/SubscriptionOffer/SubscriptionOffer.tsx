@@ -1,12 +1,12 @@
 import OutlinedButton from 'src/ui/buttons/OutlinedButton/OutlinedButton';
-import styles from './ConsultationSubscription.module.scss';
+import styles from './SubscriptionOffer.module.scss';
 import SubscriptionCard from '../SubscriptionCard/SubscriptionCard';
 import { subcriptionMockData } from 'src/utils/mock/subscribtionMockData';
 
-const ConsultationSubscription = () => {
+const SubscriptionOffer = () => {
   const subscriptionTypes = subcriptionMockData;
   return (
-    <section className={styles.consultationSubscription}>
+    <section className={styles.subscriptionOffer}>
       <h2 className={styles.title}>
         Оформите подписку и воспользуйтесь всеми возможностями сервиса
       </h2>
@@ -25,4 +25,4 @@ const ConsultationSubscription = () => {
   );
 };
 
-export default ConsultationSubscription;
+export default SubscriptionOffer;

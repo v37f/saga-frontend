@@ -1,0 +1,41 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.consultation {
+  padding-top: 60px;
+  display: flex;
+  gap: 40px;
+  position: relative;
+
+  .form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .title {
+      @include text-header-h3;
+      color: $colorBrandBlack;
+    }
+
+    .inputs {
+      @include reset-fieldset;
+    }
+  }
+
+  .banner {
+    width: 840px;
+    height: 448px;
+    background-image: url('../../assets/images/bg/consultation.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .refresh {
+    width: 286px;
+    position: absolute;
+    right: 0;
+    top: -193px;
+  }
+}

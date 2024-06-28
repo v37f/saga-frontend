@@ -1,0 +1,45 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.artistAnalysis {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .title {
+    @include text-header-h3;
+    color: $colorBrandBlack;
+  }
+
+  .parametrs {
+    @include reset-list;
+    display: flex;
+    flex-direction: column;
+
+    .parametr {
+      display: flex;
+      align-items: center;
+      gap: 100px;
+      padding: 16px;
+
+      .key {
+        @include text-header-h5;
+        color: $colorBrandBlack;
+        width: 400px;
+      }
+
+      .value {
+        @include text-body-medium;
+        color: $colorBrandBlack;
+
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      &:nth-of-type(even) {
+        background-color: $colorLightGrey;
+      }
+    }
+  }
+}

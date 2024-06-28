@@ -16,9 +16,17 @@
 
   transition: all ease-in-out 0.15s;
 
+  & svg path {
+    transition: all ease-in-out 0.15s;
+  }
+
   &:hover {
     background-color: $colorDarkGrey;
     color: $colorBrandWhite;
+
+    & svg path {
+      stroke: $colorBrandWhite;
+    }
   }
 
   &:disabled {

@@ -1,7 +1,7 @@
 import { CUSTOMER_ROLE } from './constants';
-import { ICustomerType } from './types';
+import { ICurrentUserType } from './types';
 
-export const defaultCurrentUser: ICustomerType = {
+export const defaultCurrentUser: ICurrentUserType = {
   userId: 0,
   userRole: CUSTOMER_ROLE,
   name: '',
@@ -14,5 +14,5 @@ export const defaultCurrentUser: ICustomerType = {
   favoriteProducts: [],
   favoriteArtist: [],
   subscription: null,
-  orders: [],
+  customerOrders: [],
 };

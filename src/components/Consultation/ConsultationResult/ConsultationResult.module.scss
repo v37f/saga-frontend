@@ -1,0 +1,36 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.consultationResult {
+  width: 840px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  .summary {
+    padding: 40px;
+    background-color: $colorLightGrey;
+
+    .title {
+      @include text-header-h3;
+      color: $colorBrandBlack;
+      margin-bottom: 28px;
+    }
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .priceTitle {
+        @include text-header-h4;
+        color: $colorBrandBlack;
+      }
+
+      .priceValue {
+        @include text-header-h3;
+        color: $colorBrandBlack;
+      }
+    }
+  }
+}
