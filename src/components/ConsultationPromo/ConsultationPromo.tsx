@@ -1,6 +1,13 @@
 import styles from './ConsultationPromo.module.scss';
+import OutlinedButton from 'src/ui/buttons/OutlinedButton/OutlinedButton';
+import { useNavigate } from 'react-router-dom';
+import { CONSULTATION_ROUTE } from 'src/utils/constants';
 
 const ConsultationPromo = () => {
+  const onConsultationPromoLinkClick = () => {
+    navigate(CONSULTATION_ROUTE);
+  };
+  const navigate = useNavigate();
   return (
     <section className={styles.consultaionPromo}>
       <article className={styles.consultaionPromo__container}>
@@ -11,7 +18,11 @@ const ConsultationPromo = () => {
         <span className={styles.consultaionPromo__textCall}>
           Попробуйте бесплатно прямо сейчас
         </span>
-        <button className={styles.consultaionPromo__button}>Попробовать</button>
+        <div className={styles.consultaionPromo__button}>
+          <OutlinedButton onClick={onConsultationPromoLinkClick}>
+            Попробуйте
+          </OutlinedButton>
+        </div>
       </article>
     </section>
   );

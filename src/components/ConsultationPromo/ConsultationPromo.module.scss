@@ -41,10 +41,7 @@
   }
 
   &__button {
-    @include reset-button;
-    @include text-header-h5;
     width: 153px;
     height: 48px;
-    border: 1px solid $colorBrandBlack;
   }
 }
