@@ -23,6 +23,7 @@
 
       .checkboxLabel {
         @include text-body-medium;
+        color: $colorBrandBlack;
       }
     }
   }

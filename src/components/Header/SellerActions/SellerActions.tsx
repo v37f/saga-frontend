@@ -7,6 +7,11 @@ import {
   setIsLoggedIn,
 } from 'src/service/slices/currentUserSlice';
 import { defaultCurrentUser } from 'src/utils/constDefaultCurrentUser';
+import {
+  DEFAULT_ROUTE,
+  SELLER_GOODS_ROUTE,
+  SELLER_ORDERS_ROUTE,
+} from 'src/utils/constants';
 
 const SellerActions = () => {
   const navigate = useNavigate();
@@ -15,14 +20,14 @@ const SellerActions = () => {
     dispatch(setIsLoggedIn(false));
     dispatch(setCurrentUserData(defaultCurrentUser));
     localStorage.removeItem('jwt');
-    navigate('/');
+    navigate(DEFAULT_ROUTE);
   };
   return (
     <div className={styles.sellerActions}>
       <ul className={styles.sellerActions__links}>
         <li className={styles.sellerActions__linksItem}>
           <NavLink
-            to="/goods"
+            to={SELLER_GOODS_ROUTE}
             className={({ isActive }) =>
               isActive
                 ? `${styles.sellerActions__link} ${styles.sellerActions__link_active}`
@@ -34,7 +39,7 @@ const SellerActions = () => {
         </li>
         <li className={styles.sellerActions__linksItem}>
           <NavLink
-            to="/orders"
+            to={SELLER_ORDERS_ROUTE}
             className={({ isActive }) =>
               isActive
                 ? `${styles.sellerActions__link} ${styles.sellerActions__link_active}`
@@ -46,7 +51,7 @@ const SellerActions = () => {
         </li>
         <li className={styles.sellerActions__linksItem}>
           <NavLink
-            to="/"
+            to={DEFAULT_ROUTE}
             className={({ isActive }) =>
               isActive
                 ? `${styles.sellerActions__link} ${styles.sellerActions__link_active}`

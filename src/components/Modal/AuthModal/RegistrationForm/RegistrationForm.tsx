@@ -2,7 +2,12 @@ import InputTypeText from 'src/ui/inputs/InputTypeText/InputTypeText';
 import styles from './RegistrationForm.module.scss';
 import SolidButton from 'src/ui/buttons/SolidButton/SolidButton';
 import * as yup from 'yup';
-import { PASSWORD_REGEX } from 'src/utils/constants';
+import {
+  CUSTOMER_ROLE,
+  DEFAULT_ROUTE,
+  PASSWORD_REGEX,
+  SELLER_ROLE,
+} from 'src/utils/constants';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { register } from 'src/api/api';
@@ -66,19 +71,22 @@ const RegistrationForm = () => {
   const onSubmit: SubmitHandler<RegistrationInputs> = (data) => {
     register()
       .then(() => {
-        localStorage.setItem('jwt', data.isSeller ? 'seller' : 'customer');
+        localStorage.setItem(
+          'jwt',
+          data.isSeller ? SELLER_ROLE : CUSTOMER_ROLE
+        );
         dispatch(fetchCurrentUser(data.isSeller));
       })
       .then(() => {
         dispatch(setIsLoggedIn(true));
         dispatch(setIsAuthModalOpen(false));
-        navigate(data.isSeller ? '/' : targetUrl);
+        navigate(data.isSeller ? DEFAULT_ROUTE : targetUrl);
       });
 
     console.log({
       email: data.email,
       password: data.password,
-      userRole: data.isSeller ? 'seller' : 'customer',
+      userRole: data.isSeller ? SELLER_ROLE : CUSTOMER_ROLE,
     });
   };
 

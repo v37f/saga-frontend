@@ -56,6 +56,11 @@
     &:-webkit-autofill:active {
       transition: background-color 5000s ease-in-out 0s;
     }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
   }
 
   &__error {

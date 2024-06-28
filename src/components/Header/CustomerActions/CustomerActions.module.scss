@@ -55,6 +55,7 @@
   }
 
   &__link {
+    @include reset-button;
     @include reset-link;
     @include text-menu;
     @include transition-opacity;

@@ -3,14 +3,17 @@ import Section from '../Section/Section';
 import { artistMockData } from 'src/utils/mock/artistsMockData';
 import Carousel from '../Carousel/Carousel';
 import ArtistCard from '../ArtistCard/ArtistCard';
-import { MAIN_SECTION_ARTISTS_NUMBER } from 'src/utils/constants';
+import {
+  ARTISTS_ROUTE,
+  MAIN_SECTION_ARTISTS_NUMBER,
+} from 'src/utils/constants';
 
 const ArtistSection = () => {
   const navigate = useNavigate();
   const artists = artistMockData;
 
   const handleMoreButtonClick = () => {
-    navigate('/artists');
+    navigate(ARTISTS_ROUTE);
   };
   return (
     <Section

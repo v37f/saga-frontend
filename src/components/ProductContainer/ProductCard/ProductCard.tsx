@@ -5,6 +5,7 @@ import TrendingDownIcon from 'src/assets/images/components/trending_down.svg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IProductType } from 'src/utils/types';
+import { CATALOG_ROUTE } from 'src/utils/constants';
 
 interface IProductCardPropsType {
   item: IProductType;
@@ -20,7 +21,7 @@ const ProductCard = (props: IProductCardPropsType) => {
   return (
     <li className={styles.productCard}>
       <Link
-        to="/"
+        to={`${CATALOG_ROUTE}/${item.productId}`}
         className={`${styles.productCard__link} ${
           item.orientalProduct === 'горизонтальная'
             ? styles.productCard__link_orientation_horizontal
