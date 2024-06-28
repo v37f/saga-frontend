@@ -53,8 +53,8 @@ function App() {
       ) : (
         <SellerRoutes />
       )}
-      {isAuthModalOpen && <AuthModal />}
       <Footer />
+      {isAuthModalOpen && <AuthModal />}
       {isSubscribeModalOpen && <SubscribtionModal />}
     </div>
   );
