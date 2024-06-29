@@ -10,6 +10,11 @@ export interface IArtistType {
 
 type TProductOrientalType = 'вертикальная' | 'горизонтальная' | 'квадратная';
 
+export type TMinMaxFilterOption = {
+  min: number;
+  max: number;
+};
+
 export interface IProductType {
   productId: number;
   titleArt: string;
