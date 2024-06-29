@@ -1,0 +1,73 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.priceAnalyticsResultCard {
+  display: flex;
+  gap: 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid $colorMediumLightGrey;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+    border: none;
+  }
+
+  .photo {
+    width: 290px;
+    height: 208px;
+    object-fit: cover;
+  }
+
+  .description {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    .heading {
+      @include text-header-h4;
+      color: $colorBrandBlack;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .text {
+        @include text-body-medium;
+        color: $colorBrandBlack;
+      }
+    }
+
+    .productInfo {
+      width: 400px;
+    }
+
+    .auctionInfo {
+      gap: 20px;
+      width: 150px;
+    }
+
+    .price {
+      width: 168px;
+      text-align: end;
+    }
+
+    .needSubscription {
+      @include reset-button;
+      @include transition-opacity;
+      width: 168px;
+      text-align: start;
+      display: flex;
+      align-self: flex-start;
+
+      &:hover {
+        @include hover-opacity;
+      }
+    }
+  }
+}

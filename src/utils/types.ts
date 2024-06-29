@@ -18,6 +18,10 @@ export interface IProductType {
   estimatedPrice: number;
   forecastPrice: number;
   photoProduct: string[];
+  widthCm: number;
+  heightCm: number;
+  yearOfCreation: number;
+  artMaterial: string;
 }
 
 export type TArtStyleType =
@@ -100,4 +104,13 @@ export interface IBannerItemType {
   bannerId: number;
   src: string;
   title: string;
+}
+
+export interface IAuctionResultType {
+  auctionResultId: number;
+  product: IProductType;
+  auctionDate: string;
+  auctionHouse: string;
+  lotNumber: number;
+  sellingPrice: number | null | undefined;
 }
