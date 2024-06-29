@@ -1,0 +1,31 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.priceAnalyticsPage {
+  width: $contentMaxWidth;
+  margin: 0 auto;
+  padding: 60px 80px 40px;
+  box-sizing: border-box;
+
+  .title {
+    @include text-header-h2;
+    color: $colorBrandBlack;
+  }
+
+  .subtitle {
+    @include text-header-h4;
+    color: $colorDarkGrey;
+  }
+
+  .search {
+    display: flex;
+    padding: 60px 0;
+
+    .input {
+      flex-grow: 1;
+    }
+    .button {
+      width: 219px;
+    }
+  }
+}
