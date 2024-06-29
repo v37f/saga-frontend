@@ -1,0 +1,38 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.notFoundPage {
+  max-width: 100%;
+  max-height: 325px;
+  margin: 100px auto 206px;
+  display: flex;
+  justify-content: center;
+  gap: 98px;
+
+  &__content {
+    max-width: 728px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: start;
+    justify-content: center;
+  }
+
+  &__img {
+    width: 449px;
+    height: 325px;
+    background-image: url(../../assets/images/components/404.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &__title {
+    max-width: 728px;
+    @include text-header-h1;
+  }
+
+  &__button {
+    width: 400px;
+    height: 48px;
+  }
+}
