@@ -20,6 +20,7 @@ import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CUSTOMER_ROLE } from 'src/utils/constants';
 import SubscribtionModal from '../Modal/SubscribtionModal/SubscribtionModal';
+import { fetchProducts } from 'src/service/slices/productsSlice';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -40,6 +41,7 @@ function App() {
 
   useEffect(() => {
     checkToken();
+    dispatch(fetchProducts());
     // disable eslint because we only need check jwt token once when app loaded
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

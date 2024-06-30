@@ -1,0 +1,36 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.filterBar {
+  width: 290px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    .title {
+      @include text-header-h3;
+      color: $colorBrandBlack;
+    }
+
+    .resetButton {
+      @include reset-button;
+      @include text-menu;
+      @include transition-opacity;
+      color: $colorBrandBlack;
+      align-self: flex-end;
+
+      &:hover {
+        @include hover-opacity;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

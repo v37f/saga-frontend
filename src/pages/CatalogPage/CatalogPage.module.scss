@@ -1,0 +1,42 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.catalogPage {
+  width: $contentMaxWidth;
+  margin: 0 auto;
+  padding: 60px 80px 40px;
+  box-sizing: border-box;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  .title {
+    @include text-header-h2;
+    color: $colorBrandBlack;
+    padding-left: 330px;
+  }
+
+  .products {
+    display: flex;
+    gap: 40px;
+
+    .rightSide {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      flex-grow: 1;
+
+      .currentFilters {
+        height: 38px;
+      }
+
+      .nothingFound {
+        @include text-header-h2;
+        padding: 68px;
+        color: $colorMediumGrey;
+        text-align: center;
+      }
+    }
+  }
+}

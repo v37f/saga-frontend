@@ -1,0 +1,36 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.chip {
+  @include text-menu;
+  color: $colorBrandBlack;
+  background-color: $colorMediumLightGrey;
+  display: flex;
+  width: fit-content;
+  padding: 7px 12px;
+  gap: 12px;
+
+  .text {
+    @include text-menu;
+    color: $colorBrandBlack;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .close {
+    @include transition-opacity;
+    @include reset-button;
+    width: 24px;
+    height: 24px;
+
+    & svg {
+      stroke-width: 2px;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

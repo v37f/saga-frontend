@@ -9,9 +9,9 @@ const ConsultationPromo = () => {
     <section className={styles.consultaionPromo}>
       <article className={styles.consultaionPromo__container}>
         <h5 className={styles.consultaionPromo__title}>Арт-консультация</h5>
-        <div className={styles.consultaionPromo__text}>
+        <h1 className={styles.consultaionPromo__text}>
           Уникальный алгоритм поможет определиться с&nbsp;покупкой
-        </div>
+        </h1>
         <span className={styles.consultaionPromo__textCall}>
           Попробуйте бесплатно прямо сейчас
         </span>
@@ -19,7 +19,7 @@ const ConsultationPromo = () => {
           className={styles.consultaionPromo__button}
           onClick={() => protectionNavigate(CONSULTATION_ROUTE)}
         >
-          <OutlinedButton>Попробуйте</OutlinedButton>
+          <OutlinedButton>Попробовать</OutlinedButton>
         </div>
       </article>
     </section>

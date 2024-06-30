@@ -8,7 +8,15 @@ export interface IArtistType {
   personalStyle: TArtStyleType;
 }
 
-type TProductOrientalType = 'вертикальная' | 'горизонтальная' | 'квадратная';
+export type TProductOrientalType =
+  | 'вертикальная'
+  | 'горизонтальная'
+  | 'квадратная';
+
+export type TMinMaxFilterOption = {
+  min: number;
+  max: number;
+};
 
 export interface IProductType {
   productId: number;
@@ -22,6 +30,8 @@ export interface IProductType {
   heightCm: number;
   yearOfCreation: number;
   artMaterial: string;
+  categoryArt: TProductCategoryType;
+  styleArt: TArtStyleType;
 }
 
 export type TArtStyleType =

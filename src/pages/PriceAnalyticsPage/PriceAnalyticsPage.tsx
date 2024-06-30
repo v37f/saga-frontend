@@ -8,6 +8,7 @@ import { FormEvent, useState } from 'react';
 import PriceAnalyticsResult from 'src/components/PriceAnalyticsResult/PriceAnalyticsResult';
 import { auctionsMockData } from 'src/utils/mock/auctionsMockData';
 import { IAuctionResultType } from 'src/utils/types';
+import { filterProductByKeyword } from 'src/utils/utils';
 
 type TPriceAnalyticsStepType = 'inputData' | 'result';
 
@@ -21,21 +22,10 @@ const PriceAnalyticsPage = () => {
 
   const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const keyword = inputValue.trim().toLowerCase();
-    const result = auctionsMockData.filter((item) => {
-      return (
-        item.product.titleArt.toLowerCase().includes(keyword) ||
-        item.product.artist.lastnameArtist
-          .concat(
-            ' ',
-            item.product.artist.nameArtist,
-            ' ',
-            item.product.artist.lastnameArtist
-          )
-          .toLowerCase()
-          .includes(keyword)
-      );
-    });
+
+    const result = auctionsMockData.filter((item) =>
+      filterProductByKeyword(item.product, inputValue)
+    );
 
     setSearchResult(result);
     setCurrentStep('result');
