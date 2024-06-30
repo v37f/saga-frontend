@@ -23,6 +23,8 @@ import UsersIcon from 'src/assets/images/components/users.svg';
 import PackageIcon from 'src/assets/images/components/package.svg';
 import ClipboardIcon from 'src/assets/images/components/clipboard.svg';
 import CustomerFavoriteArtists from 'src/components/CustomerProfile/CustomerFavoriteArtists/CustomerFavoriteArtists';
+import CustomerOrders from 'src/components/CustomerProfile/CustomerOrders/CustomerOrders';
+import CustomerSubscription from 'src/components/CustomerProfile/CustomerSubscription/CustomerSubscription';
 
 const CustomerProfilePage = () => {
   const navigate = useNavigate();
@@ -110,6 +112,11 @@ const CustomerProfilePage = () => {
           <Route
             path={CUSTOMER_FAVORITE_ARTISTS_ROUTE}
             element={<CustomerFavoriteArtists />}
+          />
+          <Route path={CUSTOMER_ORDERS_ROUTE} element={<CustomerOrders />} />
+          <Route
+            path={CUSTOMER_SUBSCRIPTION_ROUTE}
+            element={<CustomerSubscription />}
           />
         </Routes>
       </section>

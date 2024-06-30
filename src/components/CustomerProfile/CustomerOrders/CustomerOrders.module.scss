@@ -1,0 +1,29 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.customerOrders {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .title {
+    @include text-header-h3;
+    color: $colorBrandBlack;
+  }
+
+  .noOrders {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+      @include text-header-h4;
+      color: $colorBrandBlack;
+    }
+
+    .text {
+      @include text-body-medium;
+      color: $colorBrandBlack;
+    }
+  }
+}
