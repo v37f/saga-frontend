@@ -10,9 +10,10 @@ import {
 
 interface ISubscriptionCardPropsType {
   item: ISubscriptionType;
+  narrow?: boolean;
 }
 
-const SubscriptionCard = ({ item }: ISubscriptionCardPropsType) => {
+const SubscriptionCard = ({ item, narrow }: ISubscriptionCardPropsType) => {
   const dispatch = useAppDispatch();
 
   const handleSubscribeClick = () => {
@@ -21,10 +22,10 @@ const SubscriptionCard = ({ item }: ISubscriptionCardPropsType) => {
   };
 
   return (
-    <li className={styles.subscriptionCard}>
-      <h3 className={styles.title}>{`Подписка на ${getPeriodWord(
-        item.period
-      )}`}</h3>
+    <li className={`${styles.subscriptionCard} ${narrow ? styles.narrow : ''}`}>
+      <h3
+        className={`${styles.title} ${narrow ? styles.narrowTitle : ''}`}
+      >{`Подписка на ${getPeriodWord(item.period)}`}</h3>
       <p className={styles.price}>{`${item.price}₽`}</p>
       <SolidButton onClick={handleSubscribeClick}>Оформить</SolidButton>
       <ul className={styles.features}>

@@ -1,0 +1,52 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.sustomerSubscription {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex-grow: 1;
+
+  .title {
+    @include text-header-h3;
+    color: $colorBrandBlack;
+  }
+
+  .noSubscription {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+      @include text-header-h4;
+      color: $colorBrandBlack;
+    }
+
+    .text {
+      @include text-body-medium;
+      color: $colorBrandBlack;
+    }
+
+    .subTypes {
+      @include reset-list;
+      display: flex;
+      gap: 40px;
+      padding-top: 20px;
+    }
+  }
+
+  .question {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .questionTitle {
+      @include text-header-h4;
+      color: $colorBrandBlack;
+    }
+
+    .button {
+      width: 191px;
+    }
+  }
+}

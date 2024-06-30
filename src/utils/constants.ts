@@ -20,6 +20,10 @@ export const PRICE_ANALYTICS_ROUTE = '/priceanalytics';
 export const CUSTOMER_PROFILE_ROUTE = '/profile';
 export const CART_ROUTE = '/cart';
 export const PLACE_ORDER_ROUTE = '/placeorder';
+export const CUSTOMER_FAVORITE_PRODUCTS_ROUTE = '/favoriteproducts';
+export const CUSTOMER_FAVORITE_ARTISTS_ROUTE = '/favoriteartists';
+export const CUSTOMER_ORDERS_ROUTE = '/orders';
+export const CUSTOMER_SUBSCRIPTION_ROUTE = '/subscription';
 
 // seller routes
 export const SELLER_GOODS_ROUTE = '/goods';

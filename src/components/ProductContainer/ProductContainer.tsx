@@ -3,7 +3,7 @@ import styles from './ProductContainer.module.scss';
 import { ReactNode } from 'react';
 
 interface IProductContainerProps {
-  children: ReactNode[];
+  children?: ReactNode[];
   columnsNumber: number;
 }
 

@@ -1,0 +1,78 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.customerProfilePage {
+  width: $contentMaxWidth;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 60px 80px 100px;
+  box-sizing: border-box;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      @include text-header-h2;
+      color: $colorBrandBlack;
+    }
+
+    .logout {
+      @include reset-button;
+      @include text-body-medium;
+      @include transition-opacity;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: $colorCritical;
+
+      & svg path {
+        stroke: $colorCritical;
+      }
+
+      &:hover {
+        @include hover-opacity;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    gap: 40px;
+
+    .navbar {
+      @include reset-list;
+      .navbarItem {
+        width: 289px;
+        .navlink {
+          @include reset-link;
+          @include text-body-medium;
+          @include transition-opacity;
+          color: $colorDarkGrey;
+          padding: 12px 20px;
+          display: flex;
+          gap: 12px;
+
+          & svg path {
+            stroke: $colorDarkGrey;
+          }
+
+          &:hover {
+            @include hover-opacity;
+          }
+        }
+
+        .navlinkActive {
+          color: $colorBrandBlack;
+          background-color: $colorLightGrey;
+
+          & svg path {
+            stroke: $colorBrandBlack;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.customerSubscriptionCard {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid $colorBrandBlack;
+  border-radius: 8px;
+
+  .leftSide {
+    .title {
+      @include text-header-h4;
+      color: $colorBrandBlack;
+      margin-bottom: 20px;
+    }
+
+    .text {
+      @include text-body-medium;
+      color: $colorBrandBlack;
+      margin-bottom: 12px;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+
+  .rightSide {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-end;
+    .button {
+      @include reset-button;
+      @include text-body-medium;
+      @include transition-opacity;
+      color: $colorBrandBlack;
+      padding: 8;
+      display: flex;
+      gap: 8px;
+
+      &:hover {
+        @include hover-opacity;
+      }
+    }
+
+    .creditCard {
+      width: 176px;
+      height: 77px;
+      background-image: url('../../../../assets/mock/bg/creditcard.png');
+    }
+  }
+}

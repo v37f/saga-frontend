@@ -58,7 +58,7 @@ export interface ISubscriptionType {
   period: TSubscribtionPeriodType;
 }
 
-interface ICustomerSubscriptionType {
+export interface ICustomerSubscriptionType {
   subsPeriod: ISubscriptionType;
   autoSubs: boolean;
   subsDateOn: string;
