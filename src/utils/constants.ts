@@ -74,3 +74,7 @@ export const PAINTING_CATEGORY_NAME = 'Живопись';
 export const GRAPHIC_CATEGORY_NAME = 'Графика';
 export const PHOTOGRAPHY_CATEGORY_NAME = 'Фотография';
 export const DIGITAL_CATEGORY_NAME = 'Digital';
+
+export const SAGA_ALL_RUSSIAN_PHONE = '+78001205250';
+export const SAGA_MOSCOW_PHONE = '+74954562421';
+export const SAGA_HELP_MAIL = 'help@sagaart.ru';

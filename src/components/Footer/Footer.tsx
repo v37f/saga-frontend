@@ -1,10 +1,28 @@
+import useProtectionNavigate from 'src/hooks/useProtectionNavigate';
 import styles from './Footer.module.scss';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from 'src/service/hooks';
 import { getCurrentUserData } from 'src/service/slices/currentUserSlice';
+import {
+  ARTISTS_ROUTE,
+  CATALOG_ROUTE,
+  CONSULTATION_ROUTE,
+  CUSTOMER_ROLE,
+  DEFAULT_ROUTE,
+  NEWS_ROUTE,
+  PRICE_ANALYTICS_ROUTE,
+  SAGA_ALL_RUSSIAN_PHONE,
+  SAGA_HELP_MAIL,
+  SAGA_MOSCOW_PHONE,
+  SELLER_GOODS_ROUTE,
+  SELLER_ORDERS_ROUTE,
+} from 'src/utils/constants';
+import { formatPhoneNumber } from 'src/utils/utils';
 
 const Footer = () => {
   const currentUser = useAppSelector(getCurrentUserData);
+  const protectionNavigate = useProtectionNavigate();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__container}>
@@ -35,53 +53,75 @@ const Footer = () => {
                 <li>
                   <a
                     className={styles.footer__connection_number}
-                    href={'tel:+78001205250'}
+                    href={`tel: ${SAGA_ALL_RUSSIAN_PHONE}`}
                   >
-                    +7 800 120-52-50
+                    {formatPhoneNumber(SAGA_ALL_RUSSIAN_PHONE)}
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              {currentUser.userRole === 'customer' ? (
+              {currentUser.userRole === CUSTOMER_ROLE ? (
                 <ul className={styles.footer__navbar}>
                   <li className={styles.footer__navbar_item}>
-                    <Link to="/catalog" className={styles.footer__navbar_link}>
+                    <Link
+                      to={CATALOG_ROUTE}
+                      className={styles.footer__navbar_link}
+                    >
                       Каталог
                     </Link>
                   </li>
                   <li className={styles.footer__navbar_item}>
-                    <Link to="/artists" className={styles.footer__navbar_link}>
+                    <Link
+                      to={ARTISTS_ROUTE}
+                      className={styles.footer__navbar_link}
+                    >
                       Художники
                     </Link>
                   </li>
                   <li className={styles.footer__navbar_item}>
-                    <Link to="/" className={styles.footer__navbar_link}>
+                    <button
+                      onClick={() => protectionNavigate(PRICE_ANALYTICS_ROUTE)}
+                      className={styles.footer__navbar_link}
+                    >
                       Аналитика цен
-                    </Link>
+                    </button>
                   </li>
                   <li className={styles.footer__navbar_item}>
-                    <Link
-                      to="/consultation"
+                    <button
+                      onClick={() => protectionNavigate(CONSULTATION_ROUTE)}
                       className={styles.footer__navbar_link}
                     >
                       Арт-консультация
-                    </Link>
+                    </button>
                   </li>
                 </ul>
               ) : (
-                <ul className={`${styles.footer__navbar} ${styles.footer__navbar_seller}`}>
+                <ul
+                  className={`${styles.footer__navbar} ${styles.footer__navbar_seller}`}
+                >
                   <li className={styles.footer__navbar_item}>
-                    <Link to="/" className={styles.footer__navbar_link}>
-                      Аналитика цен
+                    <Link
+                      to={DEFAULT_ROUTE}
+                      className={styles.footer__navbar_link}
+                    >
+                      Профиль продавца
                     </Link>
                   </li>
                   <li className={styles.footer__navbar_item}>
                     <Link
-                      to="/consultation"
+                      to={SELLER_ORDERS_ROUTE}
                       className={styles.footer__navbar_link}
                     >
-                      Арт-консультация
+                      Заказы
+                    </Link>
+                  </li>
+                  <li className={styles.footer__navbar_item}>
+                    <Link
+                      to={SELLER_GOODS_ROUTE}
+                      className={styles.footer__navbar_link}
+                    >
+                      Товары
                     </Link>
                   </li>
                 </ul>
@@ -100,56 +140,50 @@ const Footer = () => {
                 <li>
                   <a
                     className={styles.footer__connection_number}
-                    href={'tel:+74954562421'}
+                    href={`tel:${SAGA_MOSCOW_PHONE}`}
                   >
-                    +7 495 456-24-21
+                    {formatPhoneNumber(SAGA_MOSCOW_PHONE)}
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              {currentUser.userRole === 'customer' ? (
-                <ul className={styles.footer__navbar}>
+              <ul className={styles.footer__navbar}>
+                <li className={styles.footer__navbar_item}>
+                  <Link
+                    to={DEFAULT_ROUTE}
+                    className={styles.footer__navbar_link}
+                  >
+                    О компании
+                  </Link>
+                </li>
+                <li className={styles.footer__navbar_item}>
+                  <Link
+                    to={DEFAULT_ROUTE}
+                    className={styles.footer__navbar_link}
+                  >
+                    Поддержка
+                  </Link>
+                </li>
+                {currentUser.userRole === CUSTOMER_ROLE && (
                   <li className={styles.footer__navbar_item}>
-                    <Link to="/" className={styles.footer__navbar_link}>
-                      О компании
-                    </Link>
-                  </li>
-                  <li className={styles.footer__navbar_item}>
-                    <Link to="/" className={styles.footer__navbar_link}>
-                      Поддержка
-                    </Link>
-                  </li>
-                  <li className={styles.footer__navbar_item}>
-                    <Link to="/news" className={styles.footer__navbar_link}>
+                    <Link
+                      to={NEWS_ROUTE}
+                      className={styles.footer__navbar_link}
+                    >
                       Новости
                     </Link>
                   </li>
-                  <li className={styles.footer__navbar_item}>
-                    <Link to="/news" className={styles.footer__navbar_link}>
-                      Контакты
-                    </Link>
-                  </li>
-                </ul>
-              ) : (
-                <ul className={styles.footer__navbar}>
-                  <li className={styles.footer__navbar_item}>
-                    <Link to="/" className={styles.footer__navbar_link}>
-                      О компании
-                    </Link>
-                  </li>
-                  <li className={styles.footer__navbar_item}>
-                    <Link to="/" className={styles.footer__navbar_link}>
-                      Поддержка
-                    </Link>
-                  </li>
-                  <li className={styles.footer__navbar_item}>
-                    <Link to="/news" className={styles.footer__navbar_link}>
-                      Контакты
-                    </Link>
-                  </li>
-                </ul>
-              )}
+                )}
+                <li className={styles.footer__navbar_item}>
+                  <Link
+                    to={DEFAULT_ROUTE}
+                    className={styles.footer__navbar_link}
+                  >
+                    Контакты
+                  </Link>
+                </li>
+              </ul>
             </li>
           </ul>
         </span>
@@ -161,9 +195,9 @@ const Footer = () => {
                 <li>
                   <a
                     className={styles.footer__connection_number}
-                    href={'malto:help@sagaart.ru'}
+                    href={`malto: ${SAGA_HELP_MAIL}`}
                   >
-                    help@sagaart.ru
+                    {SAGA_HELP_MAIL}
                   </a>
                 </li>
               </ul>
@@ -172,10 +206,16 @@ const Footer = () => {
               <ul className={styles.footer__social}>
                 <li className={styles.footer__social_title}>Мы в соцсетях</li>
                 <li>
-                  <ul className={styles.footer__social_icon}>
-                    <li className={styles.footer__social_icon}><a className={styles.footer__social_icon_tg}></a></li>
-                    <li className={styles.footer__social_icon}><a className={styles.footer__social_icon_vk}></a></li>
-                    <li className={styles.footer__social_icon}><a className={styles.footer__social_icon_yt}></a></li>
+                  <ul className={styles.footer__social_icons}>
+                    <li className={styles.footer__social_icon}>
+                      <a className={styles.footer__social_icon_tg}></a>
+                    </li>
+                    <li className={styles.footer__social_icon}>
+                      <a className={styles.footer__social_icon_vk}></a>
+                    </li>
+                    <li className={styles.footer__social_icon}>
+                      <a className={styles.footer__social_icon_yt}></a>
+                    </li>
                   </ul>
                 </li>
               </ul>
