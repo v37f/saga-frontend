@@ -10,7 +10,7 @@ import {
  * @returns an array containing arrays of products(ReactNodes) for each column
  */
 export const distributeProductsToColumns = (
-  products: React.ReactNode[],
+  products: React.ReactNode[] | undefined,
   columnsNumber: number
 ) => {
   const distrubutedProducts: React.ReactNode[][] = [];
@@ -18,7 +18,7 @@ export const distributeProductsToColumns = (
     distrubutedProducts.push([]);
   }
 
-  products.forEach((product, index) => {
+  products?.forEach((product, index) => {
     for (let i = 0; i < columnsNumber; i++) {
       if (!((index + columnsNumber - i) % columnsNumber)) {
         distrubutedProducts[i].push(product);
