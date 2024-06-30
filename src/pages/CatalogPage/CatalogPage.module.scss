@@ -20,5 +20,23 @@
   .products {
     display: flex;
     gap: 40px;
+
+    .rightSide {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      flex-grow: 1;
+
+      .currentFilters {
+        height: 38px;
+      }
+
+      .nothingFound {
+        @include text-header-h2;
+        padding: 68px;
+        color: $colorMediumGrey;
+        text-align: center;
+      }
+    }
   }
 }

@@ -69,3 +69,8 @@ export const PRICE_FILTER_OPTIONS: Map<string, TMinMaxFilterOption> = new Map([
   ['200 000 - 500 000 ₽', { min: 200000, max: 500000 }],
   ['от 500 000 ₽', { min: 500000, max: 500000000000 }],
 ]);
+
+export const PAINTING_CATEGORY_NAME = 'Живопись';
+export const GRAPHIC_CATEGORY_NAME = 'Графика';
+export const PHOTOGRAPHY_CATEGORY_NAME = 'Фотография';
+export const DIGITAL_CATEGORY_NAME = 'Digital';
