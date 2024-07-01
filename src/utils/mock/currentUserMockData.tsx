@@ -5,8 +5,8 @@ import { productsMockData } from './productsMockData';
 export const Customer: ICurrentUserType = {
   userId: 1,
   userRole: 'customer',
-  name: 'Иванов',
-  lastName: 'Иван',
+  name: 'иван',
+  lastName: 'Иванов',
   surname: 'Иванович',
   email: 'ivanivanov@mail.com',
   phone: '+79163223434',
