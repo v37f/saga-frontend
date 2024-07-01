@@ -83,6 +83,25 @@ export const filterByCategory = (
   }
 };
 
+export const filterByPrice = (array: IProductType[], prices: string[]) => {
+  if (prices.length === 0) {
+    return array;
+  } else {
+    let filteredByPrice: IProductType[] = [];
+    prices.forEach((price) => {
+      const parsedPrice: TMinMaxFilterOption = JSON.parse(price);
+      filteredByPrice = filteredByPrice.concat(
+        array.filter(
+          (item) =>
+            item.estimatedPrice >= parsedPrice.min &&
+            item.estimatedPrice <= parsedPrice.max
+        )
+      );
+    });
+    return filteredByPrice;
+  }
+};
+
 export const filterProductsByParameters = (
   array: IProductType[],
   categorys: string[],
@@ -138,25 +157,6 @@ export const filterProductsByParameters = (
         );
       });
       return filteredBySize;
-    }
-  };
-
-  const filterByPrice = (array: IProductType[], prices: string[]) => {
-    if (prices.length === 0) {
-      return array;
-    } else {
-      let filteredByPrice: IProductType[] = [];
-      prices.forEach((price) => {
-        const parsedPrice: TMinMaxFilterOption = JSON.parse(price);
-        filteredByPrice = filteredByPrice.concat(
-          array.filter(
-            (item) =>
-              item.estimatedPrice >= parsedPrice.min &&
-              item.estimatedPrice <= parsedPrice.max
-          )
-        );
-      });
-      return filteredByPrice;
     }
   };
 

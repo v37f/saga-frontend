@@ -3,6 +3,7 @@ import currentUser from './slices/currentUserSlice';
 import modals from './slices/modalsSlice';
 import filters from './slices/filtersSlice';
 import products from './slices/productsSlice';
+import artists from './slices/artistsSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     modals,
     filters,
     products,
+    artists,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
