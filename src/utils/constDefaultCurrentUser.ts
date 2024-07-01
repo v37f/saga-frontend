@@ -11,8 +11,6 @@ export const defaultCurrentUser: ICurrentUserType = {
   phone: '+79991234567',
   preferStyle: 'Абстракция',
   preferCategory: 'Живопись',
-  favoriteProducts: [],
-  favoriteArtist: [],
   subscription: null,
   customerOrders: [],
 };
