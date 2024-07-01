@@ -33,6 +33,22 @@ export const removeFavoriteProduct = async (product: IProductType) => {
   return res;
 };
 
+// get product by id
+export const getProductById = async (id: number) => {
+  const res = await new Promise<IProductType>((resolve, reject) => {
+    const findedProduct = productsMockData.find(
+      (product) => product.productId === id
+    );
+    if (findedProduct) {
+      resolve(findedProduct);
+    } else {
+      reject(new Error('Товар не найден'));
+    }
+  });
+
+  return res;
+};
+
 // all artists
 export const getAllArtists = async () => {
   const artistsFromServer: IArtistType[] = artistMockData;

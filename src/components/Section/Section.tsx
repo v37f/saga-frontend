@@ -9,6 +9,7 @@ type TSectionPropsType = {
   children?: ReactNode;
   smallGap?: boolean;
   headerH3?: boolean;
+  noSidePadding?: boolean;
 };
 
 const Section = (props: TSectionPropsType) => {
@@ -20,10 +21,13 @@ const Section = (props: TSectionPropsType) => {
     children,
     smallGap,
     headerH3,
+    noSidePadding,
   } = props;
   return (
     <section
-      className={`${styles.section} ${smallGap ? styles.smallGap : ''} `}
+      className={`${styles.section} ${smallGap ? styles.smallGap : ''} ${
+        noSidePadding ? styles.noSidePadding : ''
+      }`}
     >
       <div className={styles.header}>
         <h2 className={`${styles.title} ${headerH3 ? styles.titleH3 : ''}`}>

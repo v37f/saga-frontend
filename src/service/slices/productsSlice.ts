@@ -7,7 +7,17 @@ import {
   getAllProducts,
   addFavoriteProduct,
   removeFavoriteProduct,
+  getProductById,
 } from 'src/api/api';
+import { defaultCurrentProduct } from 'src/utils/constDefaultCurrenProduct';
+
+interface ICurrentProductStateType {
+  item: IProductType;
+  isRequest: boolean;
+  isSuccess: boolean;
+  isFailed: boolean;
+  errorMessage: string;
+}
 
 interface IProductsArrayStateType {
   array: IProductType[];
@@ -21,6 +31,7 @@ interface IProductsStateType {
   allProducts: IProductsArrayStateType;
   filteredProducts: IProductType[];
   favoriteProducts: IProductsArrayStateType;
+  currentProduct: ICurrentProductStateType;
 }
 
 const initialState: IProductsStateType = {
@@ -34,6 +45,13 @@ const initialState: IProductsStateType = {
   filteredProducts: [],
   favoriteProducts: {
     array: [],
+    isRequest: false,
+    isSuccess: false,
+    isFailed: false,
+    errorMessage: '',
+  },
+  currentProduct: {
+    item: defaultCurrentProduct,
     isRequest: false,
     isSuccess: false,
     isFailed: false,
@@ -69,6 +87,14 @@ export const removeFromFavoriteProducts = createAsyncThunk(
   'remove/favoriteProducts',
   async (product: IProductType) => {
     const response = await removeFavoriteProduct(product);
+    return response;
+  }
+);
+
+export const fetchCurrentProduct = createAsyncThunk(
+  'fetch/currentProduct',
+  async (id: number) => {
+    const response = await getProductById(id);
     return response;
   }
 );
@@ -164,6 +190,26 @@ const modals = createSlice({
         state.favoriteProducts.isSuccess = false;
         state.favoriteProducts.isFailed = true;
         console.log(action.error);
+      })
+      .addCase(fetchCurrentProduct.pending, (state) => {
+        state.currentProduct.isRequest = true;
+        state.currentProduct.isSuccess = false;
+        state.currentProduct.isFailed = false;
+        state.currentProduct.errorMessage = '';
+      })
+      .addCase(fetchCurrentProduct.fulfilled, (state, action) => {
+        state.currentProduct.item = action.payload;
+        state.currentProduct.isRequest = false;
+        state.currentProduct.isSuccess = true;
+        state.currentProduct.isFailed = false;
+        state.currentProduct.errorMessage = '';
+      })
+      .addCase(fetchCurrentProduct.rejected, (state, action) => {
+        state.currentProduct.isRequest = false;
+        state.currentProduct.isSuccess = false;
+        state.currentProduct.isFailed = true;
+        state.currentProduct.errorMessage =
+          action.error.message || 'Продукт не найден';
       });
   },
 });
@@ -178,3 +224,9 @@ export const getAllProductsData = (state: RootState) =>
   state.products.allProducts.array;
 export const getFavoriteProductsData = (state: RootState) =>
   state.products.favoriteProducts.array;
+export const getCurrentProductData = (state: RootState) =>
+  state.products.currentProduct.item;
+export const getCurrentProductLoadFailed = (state: RootState) =>
+  state.products.currentProduct.isFailed;
+export const getCurrentProductLoadFailedMessage = (state: RootState) =>
+  state.products.currentProduct.errorMessage;
