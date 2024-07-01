@@ -14,7 +14,7 @@ import {
 } from 'src/service/slices/filtersSlice';
 import { filterProductsByParameters } from 'src/utils/utils';
 import {
-  getAllProducts,
+  getAllProductsData,
   getFilteredProducts,
   setFilteredProducts,
 } from 'src/service/slices/productsSlice';
@@ -30,7 +30,7 @@ const CatalogPage = () => {
   const dispatch = useAppDispatch();
 
   const filteredProducts = useAppSelector(getFilteredProducts);
-  const allProducts = useAppSelector(getAllProducts);
+  const allProducts = useAppSelector(getAllProductsData);
 
   const artCategoryFilter = useAppSelector(getCategoryFilter);
   const artStyleFilter = useAppSelector(getStyleFilter);

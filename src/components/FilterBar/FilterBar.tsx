@@ -25,7 +25,7 @@ import {
   setStyleFilter,
 } from 'src/service/slices/filtersSlice';
 import {
-  getAllProducts,
+  getAllProductsData,
   setFilteredProducts,
 } from 'src/service/slices/productsSlice';
 
@@ -36,7 +36,7 @@ interface IFilterBarPropsType {
 const FilterBar = ({ onAcceptFilterClick }: IFilterBarPropsType) => {
   const dispatch = useAppDispatch();
 
-  const allProducts = useAppSelector(getAllProducts);
+  const allProducts = useAppSelector(getAllProductsData);
 
   const artCategoryFilter = useAppSelector(getCategoryFilter);
   const artStyleFilter = useAppSelector(getStyleFilter);

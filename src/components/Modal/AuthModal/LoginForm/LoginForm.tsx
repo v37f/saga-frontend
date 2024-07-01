@@ -21,6 +21,7 @@ import {
   setIsAuthModalOpen,
 } from 'src/service/slices/modalsSlice';
 import { useNavigate } from 'react-router-dom';
+import { fetchFavoriteProducts } from 'src/service/slices/productsSlice';
 
 const loginSchema = yup.object({
   email: yup
@@ -68,6 +69,7 @@ const LoginForm = () => {
           data.isSeller ? SELLER_ROLE : CUSTOMER_ROLE
         );
         dispatch(fetchCurrentUser(data.isSeller));
+        dispatch(fetchFavoriteProducts());
       })
       .then(() => {
         dispatch(setIsLoggedIn(true));

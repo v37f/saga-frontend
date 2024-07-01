@@ -372,3 +372,12 @@ export const productsMockData: IProductType[] = [
     styleArt: 'Минимализм',
   },
 ];
+
+export const favoriteProductsMockData: IProductType[] = [
+  productsMockData[3],
+  productsMockData[5],
+  productsMockData[8],
+  productsMockData[12],
+  productsMockData[13],
+  productsMockData[4],
+];

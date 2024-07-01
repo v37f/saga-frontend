@@ -20,7 +20,10 @@ import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CUSTOMER_ROLE } from 'src/utils/constants';
 import SubscribtionModal from '../Modal/SubscribtionModal/SubscribtionModal';
-import { fetchProducts } from 'src/service/slices/productsSlice';
+import {
+  fetchAllProducts,
+  fetchFavoriteProducts,
+} from 'src/service/slices/productsSlice';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -35,13 +38,14 @@ function App() {
     if (jwt) {
       dispatch(setIsLoggedIn(true));
       dispatch(setCurrentUserData(jwt === CUSTOMER_ROLE ? Customer : Seller));
+      dispatch(fetchFavoriteProducts());
       navigate(pathname, { replace: true });
     }
   };
 
   useEffect(() => {
     checkToken();
-    dispatch(fetchProducts());
+    dispatch(fetchAllProducts());
     // disable eslint because we only need check jwt token once when app loaded
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

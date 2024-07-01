@@ -1,6 +1,5 @@
 import { ICurrentUserType } from '../types';
 import { artistMockData } from './artistsMockData';
-import { productsMockData } from './productsMockData';
 
 export const Customer: ICurrentUserType = {
   userId: 1,
@@ -12,20 +11,11 @@ export const Customer: ICurrentUserType = {
   phone: '+79163223434',
   preferStyle: 'Минимализм',
   preferCategory: 'Графика',
-  favoriteProducts: [
-    productsMockData[3],
-    productsMockData[5],
-    productsMockData[8],
-    productsMockData[12],
-    productsMockData[13],
-    productsMockData[4],
-  ],
   favoriteArtist: [
     artistMockData[2],
     artistMockData[3],
     artistMockData[1],
-    artistMockData[1],
-    artistMockData[1],
+    artistMockData[4],
   ],
   subscription: null,
   customerOrders: [],
