@@ -1,11 +1,12 @@
 import styles from './ArtistsPage.module.scss';
-import { artistMockData } from 'src/utils/mock/artistsMockData';
 import Section from 'src/components/Section/Section';
 import Carousel from 'src/components/Carousel/Carousel';
 import ArtistCard from 'src/components/ArtistCard/ArtistCard';
 import { MAIN_SECTION_ARTISTS_NUMBER } from 'src/utils/constants';
 import { ReactNode } from 'react';
 import { TArtStyleType } from 'src/utils/types';
+import { useAppSelector } from 'src/service/hooks';
+import { getAllArtistsData } from 'src/service/slices/artistsSlice';
 
 const ArtistsPage = () => {
   const artistTitleByStyle: Map<TArtStyleType, string> = new Map([
@@ -19,10 +20,12 @@ const ArtistsPage = () => {
     ['Street Art', 'Street Art'],
   ]);
 
+  const artists = useAppSelector(getAllArtistsData);
+
   const getArtistsSectionsLayout = (map: Map<TArtStyleType, string>) => {
     const sectionsArray: ReactNode[] = [];
     map.forEach((title, style) => {
-      const currentStyleArtist = artistMockData.filter(
+      const currentStyleArtist = artists.filter(
         (item) => item.personalStyle === style
       );
       sectionsArray.push(

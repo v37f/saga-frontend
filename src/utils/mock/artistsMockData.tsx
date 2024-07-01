@@ -372,3 +372,12 @@ export const artistMockData: IArtistType[] = [
     personalStyle: 'Street Art',
   },
 ];
+
+export const favoriteArtistsMockData: IArtistType[] = [
+  artistMockData[0],
+  artistMockData[5],
+  artistMockData[12],
+  artistMockData[3],
+  artistMockData[9],
+  artistMockData[7],
+];

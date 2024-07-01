@@ -24,6 +24,10 @@ import {
   fetchAllProducts,
   fetchFavoriteProducts,
 } from 'src/service/slices/productsSlice';
+import {
+  fetchAllArtists,
+  fetchFavoriteArtists,
+} from 'src/service/slices/artistsSlice';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -39,6 +43,7 @@ function App() {
       dispatch(setIsLoggedIn(true));
       dispatch(setCurrentUserData(jwt === CUSTOMER_ROLE ? Customer : Seller));
       dispatch(fetchFavoriteProducts());
+      dispatch(fetchFavoriteArtists());
       navigate(pathname, { replace: true });
     }
   };
@@ -46,6 +51,7 @@ function App() {
   useEffect(() => {
     checkToken();
     dispatch(fetchAllProducts());
+    dispatch(fetchAllArtists());
     // disable eslint because we only need check jwt token once when app loaded
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

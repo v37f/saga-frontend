@@ -66,14 +66,16 @@ export const ORIENTATION_FILTER_OPTIONS: Map<string, string> = new Map([
   ['Квадратная', 'квадратная'],
 ]);
 
+export const CHEAP_COST_KEY = 'до 20 000 ₽';
+export const EXPENSIVE_COST_KEY = 'от 500 000 ₽';
 // [title, value]
 export const PRICE_FILTER_OPTIONS: Map<string, TMinMaxFilterOption> = new Map([
-  ['до 20 000 ₽', { min: 0, max: 20000 }],
+  [CHEAP_COST_KEY, { min: 0, max: 20000 }],
   ['20 000 - 50 000 ₽', { min: 20000, max: 50000 }],
   ['50 000 - 100 000 ₽', { min: 50000, max: 100000 }],
   ['100 000 - 200 000 ₽', { min: 100000, max: 200000 }],
   ['200 000 - 500 000 ₽', { min: 200000, max: 500000 }],
-  ['от 500 000 ₽', { min: 500000, max: 500000000000 }],
+  [EXPENSIVE_COST_KEY, { min: 500000, max: 500000000000 }],
 ]);
 
 export const PAINTING_CATEGORY_NAME = 'Живопись';
