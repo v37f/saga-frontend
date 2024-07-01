@@ -4,7 +4,10 @@ import MainBanner from 'src/components/MainBanner/MainBanner';
 import Carousel from 'src/components/Carousel/Carousel';
 import Section from 'src/components/Section/Section';
 import NewsCard from 'src/components/NewsCard/NewsCard';
-import { MAIN_SECTION_NEWS_NUMBER, MAIN_SECTION_PRODUCTS_NUMBER } from 'src/utils/constants';
+import {
+  MAIN_SECTION_NEWS_NUMBER,
+  MAIN_SECTION_PRODUCTS_NUMBER,
+} from 'src/utils/constants';
 import { ReactNode } from 'react';
 import { TNewsBlockType } from 'src/utils/types';
 import ArtistCard from '../../components/ArtistCard/ArtistCard';
@@ -52,9 +55,9 @@ const NewsPage = () => {
       {getNewsSectionsLayout(newsTitleByBlock)}
       <Section title={'Все новости'} headerH3 smallGap>
         <div className={styles.newsPage__allNews}>
-        {newsMockData.slice(0, MAIN_SECTION_PRODUCTS_NUMBER).map((item) => (
-          <NewsCard item={item} key={item.newsId} />
-        ))}
+          {newsMockData.slice(0, MAIN_SECTION_PRODUCTS_NUMBER).map((item) => (
+            <NewsCard item={item} key={item.newsId} />
+          ))}
         </div>
       </Section>
     </main>
