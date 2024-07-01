@@ -123,3 +123,16 @@ export interface IAuctionResultType {
   lotNumber: number;
   sellingPrice: number | null | undefined;
 }
+
+export interface INewsType {
+  newsId: number;
+  titleNews: string;
+  subtitleNews: string;
+  photo: string;
+  chapter: TNewsBlockType;
+}
+export type TNewsBlockType =
+  | 'Новости'
+  | 'Популярные новости'
+  | 'Новые художники'
+  | 'Все новости';

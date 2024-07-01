@@ -12,5 +12,5 @@ export const bannersMockData: IBannerItemType[] = [
     bannerId: 2,
     src: banner_2,
     title: 'Аукцион 10 июля. Картины Ван Гога',
-  },
+  }
 ];
