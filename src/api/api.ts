@@ -33,15 +33,7 @@ export const removeFavoriteProduct = async (product: IProductType) => {
   return res;
 };
 
-// current product
-// export const getProductById = async (id: number) => {
-//   const product: IProductType =
-//     productsMockData.find((product) => product.productId === id) ||
-//     defaultCurrentProduct;
-//   const res = await Promise.resolve(product);
-//   return res;
-// };
-
+// get product by id
 export const getProductById = async (id: number) => {
   const res = await new Promise<IProductType>((resolve, reject) => {
     const findedProduct = productsMockData.find(

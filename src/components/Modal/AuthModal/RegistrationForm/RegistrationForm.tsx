@@ -84,14 +84,10 @@ const RegistrationForm = () => {
       .then(() => {
         dispatch(setIsLoggedIn(true));
         dispatch(setIsAuthModalOpen(false));
-        navigate(data.isSeller ? DEFAULT_ROUTE : targetUrl);
+        setTimeout(() => {
+          navigate(data.isSeller ? DEFAULT_ROUTE : targetUrl);
+        });
       });
-
-    console.log({
-      email: data.email,
-      password: data.password,
-      userRole: data.isSeller ? SELLER_ROLE : CUSTOMER_ROLE,
-    });
   };
 
   return (
