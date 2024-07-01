@@ -1,0 +1,35 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.productParameters {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 28px;
+
+  .parameter {
+    display: flex;
+    align-items: center;
+    gap: 35%;
+    padding: 16px;
+
+    .key {
+      @include text-header-h5;
+      color: $colorBrandBlack;
+      width: 400px;
+    }
+
+    .value {
+      @include text-body-medium;
+      color: $colorBrandBlack;
+
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    &:nth-of-type(even) {
+      background-color: $colorLightGrey;
+    }
+  }
+}

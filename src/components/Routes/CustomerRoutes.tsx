@@ -23,12 +23,14 @@ import {
   PLACE_ORDER_ROUTE,
   PRICE_ANALYTICS_ROUTE,
 } from 'src/utils/constants';
+import ProductPage from 'src/pages/ProductPage/ProductPage';
 
 const CustomerRoutes = () => {
   return (
     <Routes>
       <Route index path={DEFAULT_ROUTE} element={<MainPage />} />
       <Route path={CATALOG_ROUTE} element={<CatalogPage />} />
+      <Route path={CATALOG_ROUTE + '/:id'} element={<ProductPage />} />
       <Route path={ARTISTS_ROUTE} element={<ArtistsPage />} />
       <Route path={NEWS_ROUTE} element={<NewsPage />} />
       <Route
