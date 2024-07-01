@@ -1,0 +1,49 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.cartPage {
+  width: $contentMaxWidth;
+  margin: 0 auto;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 60px 0 392px 0;
+    gap: 60px;
+  }
+
+  &__title {
+    @include text-header-h2;
+    color: $colorBrandBlack;
+    margin-bottom: 20px;
+    margin-left: 80px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__empty {
+    width: 255.61px;
+    height: 131.56px;
+    background-image: url('../../assets/images/icons/empty.svg');
+    background-size: 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+  }
+  &__text {
+    @include text-header-h4;
+    margin-top: 60px;
+  }
+
+  &__button {
+    width: 400px;
+    height: 48px;
+    margin-top: 40px;
+  }
+}
