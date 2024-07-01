@@ -48,7 +48,7 @@ const CustomerRoutes = () => {
         }
       />
       <Route
-        path={CUSTOMER_PROFILE_ROUTE}
+        path={CUSTOMER_PROFILE_ROUTE + '/*'}
         element={
           <ProtectedRoute>
             <CustomerProfilePage />

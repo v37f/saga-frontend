@@ -1,17 +1,22 @@
 import { ICurrentUserType } from '../types';
+import { artistMockData } from './artistsMockData';
 
 export const Customer: ICurrentUserType = {
   userId: 1,
   userRole: 'customer',
-  name: 'Иванов',
-  lastName: 'Иван',
+  name: 'иван',
+  lastName: 'Иванов',
   surname: 'Иванович',
   email: 'ivanivanov@mail.com',
   phone: '+79163223434',
   preferStyle: 'Минимализм',
   preferCategory: 'Графика',
-  favoriteProducts: [],
-  favoriteArtist: [],
+  favoriteArtist: [
+    artistMockData[2],
+    artistMockData[3],
+    artistMockData[1],
+    artistMockData[4],
+  ],
   subscription: null,
   customerOrders: [],
 };

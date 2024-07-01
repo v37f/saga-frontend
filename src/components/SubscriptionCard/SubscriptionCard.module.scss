@@ -17,6 +17,11 @@
     padding-bottom: 28px;
     border-bottom: 1px solid $colorMediumLightGrey;
     text-align: center;
+    align-self: center;
+  }
+
+  .narrowTitle {
+    max-width: 190px;
   }
 
   .price {
@@ -51,4 +56,8 @@
       }
     }
   }
+}
+
+.narrow {
+  width: 290px;
 }

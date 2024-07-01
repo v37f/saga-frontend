@@ -9,17 +9,47 @@ import useProtectionNavigate from 'src/hooks/useProtectionNavigate';
 import {
   CART_ROUTE,
   CATALOG_ROUTE,
+  CUSTOMER_FAVORITE_PRODUCTS_ROUTE,
   CUSTOMER_PROFILE_ROUTE,
   PRICE_ANALYTICS_ROUTE,
 } from 'src/utils/constants';
+import { useAppDispatch, useAppSelector } from 'src/service/hooks';
+import {
+  getAllProductsData,
+  setFilteredProducts,
+} from 'src/service/slices/productsSlice';
+
+import { searchProductsByKeyword } from 'src/utils/utils';
+import {
+  getKeyword,
+  setDefaultFilters,
+  setKeyword,
+} from 'src/service/slices/filtersSlice';
+import { useEffect, useState } from 'react';
 const CustomerActions = () => {
   const navigate = useNavigate();
   const protectionNavigate = useProtectionNavigate();
+
+  const dispatch = useAppDispatch();
+
+  const allProducts = useAppSelector(getAllProductsData);
+  const keyword = useAppSelector(getKeyword);
+  const [searchInput, setSearchInput] = useState(keyword);
   const cartItemsNumber = 0;
-  const onSearchSubmit = () => {
-    // search products by keyword
+
+  const onSearchSubmit = (e: React.FormEvent<EventTarget>) => {
+    e.preventDefault();
+    dispatch(setKeyword(searchInput));
+    dispatch(setDefaultFilters());
+    dispatch(
+      setFilteredProducts(searchProductsByKeyword(allProducts, searchInput))
+    );
     navigate(CATALOG_ROUTE);
   };
+
+  useEffect(() => {
+    setSearchInput(keyword);
+  }, [keyword]);
 
   return (
     <div className={styles.customerActions}>
@@ -32,7 +62,12 @@ const CustomerActions = () => {
           className={styles.customerActions__search}
           onSubmit={onSearchSubmit}
         >
-          <InputTypeSearch placeholder="Поиск по названию, стилю, художнику" />
+          <InputTypeSearch
+            placeholder="Поиск по названию, художнику"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            spellCheck={false}
+          />
           <input
             type="submit"
             className={styles.customerActions__searchSubmit}
@@ -63,7 +98,9 @@ const CustomerActions = () => {
           <button
             className={styles.customerActions__link}
             onClick={() =>
-              protectionNavigate(`${CUSTOMER_PROFILE_ROUTE}/favoritelots`)
+              protectionNavigate(
+                `${CUSTOMER_PROFILE_ROUTE}${CUSTOMER_FAVORITE_PRODUCTS_ROUTE}`
+              )
             }
             title="Перейти к избранным товарам"
             aria-label="Перейти в избранным товарам"

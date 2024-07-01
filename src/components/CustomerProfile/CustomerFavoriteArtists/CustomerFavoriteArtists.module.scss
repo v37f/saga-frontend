@@ -1,0 +1,33 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.customerFavoriteArtists {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .title {
+    @include text-header-h3;
+    color: $colorBrandBlack;
+  }
+
+  .artists {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 40px;
+  }
+  .noArtists {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .text {
+      @include text-header-h4;
+      color: $colorBrandBlack;
+    }
+
+    .button {
+      width: 282px;
+    }
+  }
+}

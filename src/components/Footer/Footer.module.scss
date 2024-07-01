@@ -8,11 +8,6 @@
     @include reset-list;
   }
 
-  a:hover {
-    @include hover-opacity;
-    cursor: pointer;
-  }
-
   &__container {
     max-width: $contentMaxWidth;
     min-height: 388px;
@@ -109,6 +104,11 @@
     @include reset-fieldset;
     @include text-body-small;
     @include reset-link;
+    @include transition-opacity;
+
+    &:hover {
+      @include hover-opacity;
+    }
   }
 
   &__navbar {
@@ -121,6 +121,12 @@
 
   &__navbar_link {
     @include reset-link;
+    @include reset-button;
+    @include transition-opacity;
+
+    &:hover {
+      @include hover-opacity;
+    }
   }
 
   &__navbar_seller {
@@ -135,9 +141,18 @@
     padding-bottom: 78px;
   }
 
-  &__social_icon {
+  &__social_icons {
     display: flex;
     justify-content: space-between;
+  }
+  &__social_icon {
+    @include transition-opacity;
+    display: flex;
+    cursor: pointer;
+
+    &:hover {
+      @include hover-opacity;
+    }
   }
 
   &__social_icon_tg {
