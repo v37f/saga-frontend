@@ -21,7 +21,7 @@ import {
   setStyleFilter,
 } from 'src/service/slices/filtersSlice';
 import {
-  getAllProducts,
+  getAllProductsData,
   setFilteredProducts,
 } from 'src/service/slices/productsSlice';
 import { filterByCategory } from 'src/utils/utils';
@@ -30,7 +30,7 @@ const NavBar = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const protectionNavigate = useProtectionNavigate();
-  const allProducts = useAppSelector(getAllProducts);
+  const allProducts = useAppSelector(getAllProductsData);
 
   const resetFiltersExeptCategory = () => {
     dispatch(setStyleFilter([]));

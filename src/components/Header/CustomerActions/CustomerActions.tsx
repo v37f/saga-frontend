@@ -9,12 +9,13 @@ import useProtectionNavigate from 'src/hooks/useProtectionNavigate';
 import {
   CART_ROUTE,
   CATALOG_ROUTE,
+  CUSTOMER_FAVORITE_PRODUCTS_ROUTE,
   CUSTOMER_PROFILE_ROUTE,
   PRICE_ANALYTICS_ROUTE,
 } from 'src/utils/constants';
 import { useAppDispatch, useAppSelector } from 'src/service/hooks';
 import {
-  getAllProducts,
+  getAllProductsData,
   setFilteredProducts,
 } from 'src/service/slices/productsSlice';
 
@@ -31,7 +32,7 @@ const CustomerActions = () => {
 
   const dispatch = useAppDispatch();
 
-  const allProducts = useAppSelector(getAllProducts);
+  const allProducts = useAppSelector(getAllProductsData);
   const keyword = useAppSelector(getKeyword);
   const [searchInput, setSearchInput] = useState(keyword);
   const cartItemsNumber = 0;
@@ -65,6 +66,7 @@ const CustomerActions = () => {
             placeholder="Поиск по названию, художнику"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
+            spellCheck={false}
           />
           <input
             type="submit"
@@ -96,7 +98,9 @@ const CustomerActions = () => {
           <button
             className={styles.customerActions__link}
             onClick={() =>
-              protectionNavigate(`${CUSTOMER_PROFILE_ROUTE}/favoritelots`)
+              protectionNavigate(
+                `${CUSTOMER_PROFILE_ROUTE}${CUSTOMER_FAVORITE_PRODUCTS_ROUTE}`
+              )
             }
             title="Перейти к избранным товарам"
             aria-label="Перейти в избранным товарам"

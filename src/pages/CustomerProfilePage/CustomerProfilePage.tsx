@@ -1,5 +1,11 @@
 import styles from './CustomerProfilePage.module.scss';
-import { NavLink, Route, Routes, useNavigate } from 'react-router-dom';
+import {
+  NavLink,
+  Navigate,
+  Route,
+  Routes,
+  useNavigate,
+} from 'react-router-dom';
 import { useAppDispatch } from 'src/service/hooks';
 import {
   setCurrentUserData,
@@ -117,6 +123,10 @@ const CustomerProfilePage = () => {
           <Route
             path={CUSTOMER_SUBSCRIPTION_ROUTE}
             element={<CustomerSubscription />}
+          />
+          <Route
+            path="/*"
+            element={<Navigate to={`${CUSTOMER_PROFILE_ROUTE}`} />}
           />
         </Routes>
       </section>

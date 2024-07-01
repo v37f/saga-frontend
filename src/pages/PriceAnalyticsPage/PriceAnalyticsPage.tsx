@@ -42,6 +42,7 @@ const PriceAnalyticsPage = () => {
             placeholder="Поиск по имени художника, названию работы"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
+            spellCheck={false}
           />
         </div>
         <div className={styles.button}>

@@ -1,12 +1,24 @@
 import { Customer, Seller } from 'src/utils/mock/currentUserMockData';
-import { productsMockData } from 'src/utils/mock/productsMockData';
+import {
+  favoriteProductsMockData,
+  productsMockData,
+} from 'src/utils/mock/productsMockData';
 import { ICurrentUserType, IProductType } from 'src/utils/types';
 
-export const getProducts = async () => {
+export const getAllProducts = async () => {
   //products from server
   const productsFromServer: IProductType[] = productsMockData;
 
   const res = await Promise.resolve(productsFromServer);
+
+  return res;
+};
+
+export const getFavoriteProducts = async () => {
+  //products from server
+  const favoriteProductsFromServer: IProductType[] = favoriteProductsMockData;
+
+  const res = await Promise.resolve(favoriteProductsFromServer);
 
   return res;
 };
@@ -26,6 +38,22 @@ export const updateCurrentUser = async <T>(newUserInfo: T) => {
   const updatedtUserDataFromServer: T = newUserInfo;
 
   const res = await Promise.resolve(updatedtUserDataFromServer);
+
+  return res;
+};
+
+export const addFavoriteProduct = async (product: IProductType) => {
+  //regions from server
+
+  const res = await Promise.resolve(product);
+
+  return res;
+};
+
+export const removeFavoriteProduct = async (product: IProductType) => {
+  //regions from server
+
+  const res = await Promise.resolve(product);
 
   return res;
 };

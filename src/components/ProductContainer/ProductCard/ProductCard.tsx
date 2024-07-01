@@ -2,10 +2,16 @@ import LikeButton from 'src/ui/buttons/LikeButton/LikeButton';
 import styles from './ProductCard.module.scss';
 import TrendingUpIcon from 'src/assets/images/components/trending_up.svg';
 import TrendingDownIcon from 'src/assets/images/components/trending_down.svg';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IProductType } from 'src/utils/types';
 import { CATALOG_ROUTE } from 'src/utils/constants';
+import { useAppDispatch, useAppSelector } from 'src/service/hooks';
+import { getIsLoggedIn } from 'src/service/slices/currentUserSlice';
+import {
+  addToFavoriteProducts,
+  getFavoriteProductsData,
+  removeFromFavoriteProducts,
+} from 'src/service/slices/productsSlice';
 
 interface IProductCardPropsType {
   item: IProductType;
@@ -13,11 +19,16 @@ interface IProductCardPropsType {
 
 const ProductCard = (props: IProductCardPropsType) => {
   const { item } = props;
-  const [isLiked, setIsLiked] = useState(false);
+  const dispatch = useAppDispatch();
+  const favoriteProducts = useAppSelector(getFavoriteProductsData);
+  const setIsLoggedIn = useAppSelector(getIsLoggedIn);
 
-  const onLikeButtonClick = () => {
-    setIsLiked(!isLiked);
-  };
+  const isLiked = favoriteProducts?.some(
+    (product) => product.productId === item.productId
+  );
+
+  // const [isLiked, setIsLiked] = useState(false);
+
   return (
     <li className={styles.productCard}>
       <Link
@@ -36,7 +47,16 @@ const ProductCard = (props: IProductCardPropsType) => {
         <h4
           className={styles.productCard__artistName}
         >{`${item.artist.nameArtist} ${item.artist.lastnameArtist}`}</h4>
-        <LikeButton isActive={isLiked} onClick={onLikeButtonClick} />
+        {setIsLoggedIn && (
+          <LikeButton
+            isActive={Boolean(isLiked)}
+            onClick={
+              isLiked
+                ? () => dispatch(removeFromFavoriteProducts(item))
+                : () => dispatch(addToFavoriteProducts(item))
+            }
+          />
+        )}
       </div>
       <p className={styles.productCard__title}>{item.titleArt}</p>
       <div className={styles.productCard__evaluation}>

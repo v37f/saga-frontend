@@ -1,0 +1,55 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.customerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 510px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      @include text-header-h3;
+      color: $colorBrandBlack;
+    }
+
+    .button {
+      @include reset-button;
+      @include text-body-medium;
+      @include transition-opacity;
+      color: $colorBrandBlack;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &:hover {
+        @include hover-opacity;
+      }
+    }
+
+    .cancel {
+      color: $colorCritical;
+
+      & svg path {
+        stroke-width: 2px;
+        stroke: $colorCritical;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    .fieldset {
+      @include reset-fieldset;
+    }
+
+    .submit {
+      width: 134px;
+    }
+  }
+}

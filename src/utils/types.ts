@@ -76,7 +76,6 @@ export interface ICurrentUserType {
   phone: string;
   preferStyle?: TArtStyleType;
   preferCategory?: TProductCategoryType;
-  favoriteProducts?: IProductType[];
   favoriteArtist?: IArtistType[];
   subscription?: ICustomerSubscriptionType | null | undefined;
   customerOrders?: IOrderType[];
