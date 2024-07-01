@@ -1,16 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import Section from '../Section/Section';
-import { artistMockData } from 'src/utils/mock/artistsMockData';
 import Carousel from '../Carousel/Carousel';
 import ArtistCard from '../ArtistCard/ArtistCard';
 import {
   ARTISTS_ROUTE,
   MAIN_SECTION_ARTISTS_NUMBER,
 } from 'src/utils/constants';
+import { useAppSelector } from 'src/service/hooks';
+import { getAllArtistsData } from 'src/service/slices/artistsSlice';
 
 const ArtistSection = () => {
   const navigate = useNavigate();
-  const artists = artistMockData;
+  const artists = useAppSelector(getAllArtistsData);
 
   const handleMoreButtonClick = () => {
     navigate(ARTISTS_ROUTE);

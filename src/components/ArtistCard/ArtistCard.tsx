@@ -1,8 +1,14 @@
 import { IArtistType } from 'src/utils/types';
 import styles from './ArtistCard.module.scss';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import LikeButton from 'src/ui/buttons/LikeButton/LikeButton';
+import { useAppDispatch, useAppSelector } from 'src/service/hooks';
+import {
+  addToFavoriteArtists,
+  getFavoriteArtistsData,
+  removeFromFavoriteArtists,
+} from 'src/service/slices/artistsSlice';
+import { getIsLoggedIn } from 'src/service/slices/currentUserSlice';
 
 interface IArtistCardPropsType {
   item: IArtistType;
@@ -10,11 +16,14 @@ interface IArtistCardPropsType {
 
 const ArtistCard = (props: IArtistCardPropsType) => {
   const { item } = props;
-  const [isLiked, setIsLiked] = useState(false);
+  const dispatch = useAppDispatch();
+  const favoriteArtists = useAppSelector(getFavoriteArtistsData);
+  const isLoggedIn = useAppSelector(getIsLoggedIn);
 
-  const onLikeButtonClick = () => {
-    setIsLiked(!isLiked);
-  };
+  const isLiked = favoriteArtists?.some(
+    (artist) => artist.artistId === item.artistId
+  );
+
   return (
     <li className={styles.artistCard}>
       <Link
@@ -27,7 +36,16 @@ const ArtistCard = (props: IArtistCardPropsType) => {
         <h4
           className={styles.artistCard__artistName}
         >{`${item.nameArtist} ${item.lastnameArtist}`}</h4>
-        <LikeButton isActive={isLiked} onClick={onLikeButtonClick} />
+        {isLoggedIn && (
+          <LikeButton
+            isActive={isLiked}
+            onClick={
+              isLiked
+                ? () => dispatch(removeFromFavoriteArtists(item))
+                : () => dispatch(addToFavoriteArtists(item))
+            }
+          />
+        )}
       </div>
       <p className={styles.artistCard__description}>{item.shortDescription}</p>
       <p className={styles.artistCard__liveYears}>{item.yearOfBirth}</p>

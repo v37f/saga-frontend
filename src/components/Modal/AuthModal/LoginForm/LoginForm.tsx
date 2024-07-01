@@ -22,6 +22,7 @@ import {
 } from 'src/service/slices/modalsSlice';
 import { useNavigate } from 'react-router-dom';
 import { fetchFavoriteProducts } from 'src/service/slices/productsSlice';
+import { fetchFavoriteArtists } from 'src/service/slices/artistsSlice';
 
 const loginSchema = yup.object({
   email: yup
@@ -70,6 +71,7 @@ const LoginForm = () => {
         );
         dispatch(fetchCurrentUser(data.isSeller));
         dispatch(fetchFavoriteProducts());
+        dispatch(fetchFavoriteArtists());
       })
       .then(() => {
         dispatch(setIsLoggedIn(true));

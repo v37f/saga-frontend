@@ -21,13 +21,11 @@ const ProductCard = (props: IProductCardPropsType) => {
   const { item } = props;
   const dispatch = useAppDispatch();
   const favoriteProducts = useAppSelector(getFavoriteProductsData);
-  const setIsLoggedIn = useAppSelector(getIsLoggedIn);
+  const isLoggedIn = useAppSelector(getIsLoggedIn);
 
   const isLiked = favoriteProducts?.some(
     (product) => product.productId === item.productId
   );
-
-  // const [isLiked, setIsLiked] = useState(false);
 
   return (
     <li className={styles.productCard}>
@@ -47,9 +45,9 @@ const ProductCard = (props: IProductCardPropsType) => {
         <h4
           className={styles.productCard__artistName}
         >{`${item.artist.nameArtist} ${item.artist.lastnameArtist}`}</h4>
-        {setIsLoggedIn && (
+        {isLoggedIn && (
           <LikeButton
-            isActive={Boolean(isLiked)}
+            isActive={isLiked}
             onClick={
               isLiked
                 ? () => dispatch(removeFromFavoriteProducts(item))
