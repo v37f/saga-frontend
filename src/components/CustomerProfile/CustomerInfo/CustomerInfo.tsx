@@ -96,6 +96,7 @@ const CustomerInfo = () => {
         className={styles.form}
         onSubmit={handleSubmit(onSubmit)}
         spellCheck={false}
+        noValidate
       >
         <fieldset className={styles.fieldset} disabled={!enableEdit}>
           <Controller

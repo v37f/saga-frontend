@@ -65,7 +65,12 @@ const Consultation = () => {
 
   return (
     <section className={styles.consultation}>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+        spellCheck={false}
+      >
         <h3 className={styles.title}>
           {currentStep === 'inputData' ? 'Заполните форму' : 'Вводные данные'}
         </h3>

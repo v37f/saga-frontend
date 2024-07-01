@@ -65,6 +65,7 @@ const CustomerActions = () => {
             placeholder="Поиск по названию, художнику"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
+            spellCheck={false}
           />
           <input
             type="submit"

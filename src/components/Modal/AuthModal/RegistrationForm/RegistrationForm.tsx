@@ -95,6 +95,7 @@ const RegistrationForm = () => {
       className={styles.registrationForm}
       onSubmit={handleSubmit(onSubmit)}
       noValidate
+      spellCheck={false}
     >
       <fieldset className={styles.inputs}>
         <Controller

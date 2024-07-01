@@ -87,6 +87,7 @@ const LoginForm = () => {
       className={styles.loginForm}
       onSubmit={handleSubmit(onSubmit)}
       noValidate
+      spellCheck={false}
     >
       <fieldset className={styles.inputs}>
         <Controller
