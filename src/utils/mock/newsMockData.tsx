@@ -10,55 +10,55 @@ export const newsMockData: INewsType[] = [
     titleNews: 'Эксклюзив',
     subtitleNews: 'Открытие выставки: шедевры мировой живописи',
     photo: news1,
-    chapter:'Популярные новости'
+    chapter: 'Популярные новости',
   },
   {
     newsId: 2,
     titleNews: 'Эксклюзив',
     subtitleNews: 'Начало аукциона',
     photo: news2,
-    chapter:'Популярные новости'
+    chapter: 'Популярные новости',
   },
   {
     newsId: 3,
     titleNews: 'Эксклюзив',
     subtitleNews: 'Начало аукциона',
     photo: news3,
-    chapter:'Популярные новости'
+    chapter: 'Популярные новости',
   },
   {
     newsId: 4,
     titleNews: 'Эксклюзив',
     subtitleNews: 'Начало аукциона',
     photo: news4,
-    chapter:'Популярные новости'
+    chapter: 'Популярные новости',
   },
   {
-    newsId: 1,
+    newsId: 5,
     titleNews: 'Эксклюзив',
     subtitleNews: 'Открытие выставки: шедевры мировой живописи',
     photo: news1,
-    chapter:'Популярные новости'
+    chapter: 'Популярные новости',
   },
   {
-    newsId: 2,
+    newsId: 6,
     titleNews: 'Эксклюзив',
     subtitleNews: 'Начало аукциона',
     photo: news2,
-    chapter:'Популярные новости'
+    chapter: 'Популярные новости',
   },
   {
-    newsId: 3,
+    newsId: 7,
     titleNews: 'Эксклюзив',
     subtitleNews: 'Начало аукциона',
     photo: news3,
-    chapter:'Популярные новости'
+    chapter: 'Популярные новости',
   },
   {
-    newsId: 4,
+    newsId: 8,
     titleNews: 'Эксклюзив',
     subtitleNews: 'Начало аукциона',
     photo: news4,
-    chapter:'Популярные новости'
+    chapter: 'Популярные новости',
   },
 ];

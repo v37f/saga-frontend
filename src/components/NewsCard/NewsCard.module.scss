@@ -8,6 +8,7 @@
   list-style-type: none;
   display: flex;
   position: relative;
+
   p {
     @include reset-fieldset;
   }
@@ -21,10 +22,6 @@
     object-fit: cover;
     object-position: top center;
     transition: transform ease-in-out 0.35s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
   }
   &__text {
     width: 250px;

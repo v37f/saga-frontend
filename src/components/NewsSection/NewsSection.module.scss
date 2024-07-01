@@ -1,4 +1,12 @@
 .newsSection {
-  gap: 100px;
-  border-bottom: 1px solid red;
+  padding: 20px 80px;
+
+  .container {
+    width: 1280px;
+    height: 800px;
+    background-image: url('../../assets/mock/bg/news.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
