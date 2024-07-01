@@ -82,3 +82,6 @@ export const DIGITAL_CATEGORY_NAME = 'Digital';
 export const SAGA_ALL_RUSSIAN_PHONE = '+78001205250';
 export const SAGA_MOSCOW_PHONE = '+74954562421';
 export const SAGA_HELP_MAIL = 'help@sagaart.ru';
+
+export const DEFAULT_VISIBLE_PRODUCTS = 12;
+export const VISIBLE_PRODUCTS_INCREMENT = 6;

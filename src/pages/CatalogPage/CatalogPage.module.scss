@@ -4,7 +4,7 @@
 .catalogPage {
   width: $contentMaxWidth;
   margin: 0 auto;
-  padding: 60px 80px 40px;
+  padding: 60px 80px 120px;
   box-sizing: border-box;
   flex-grow: 1;
   display: flex;
@@ -36,6 +36,17 @@
         padding: 68px;
         color: $colorMediumGrey;
         text-align: center;
+      }
+
+      .foundProducts {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+
+        .button {
+          align-self: center;
+          width: 163px;
+        }
       }
     }
   }
