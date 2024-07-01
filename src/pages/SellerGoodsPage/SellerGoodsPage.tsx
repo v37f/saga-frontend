@@ -8,7 +8,7 @@ const SellerGoodsPage = () => {
   return (
     <main className={styles.sellerGoodsPage}>
       <div className={styles.sellerGoodsPage__container}>
-        <h2 className={styles.sellerGoodsPage__title}>Корзина</h2>
+        <h2 className={styles.sellerGoodsPage__title}>Товары</h2>
         <div className={styles.sellerGoodsPage__content}>
           <p className={styles.sellerGoodsPage__empty}>Пока здесь пусто</p>
           <p className={styles.sellerGoodsPage__text}>
