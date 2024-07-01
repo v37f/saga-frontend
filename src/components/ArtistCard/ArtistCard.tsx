@@ -9,6 +9,7 @@ import {
   removeFromFavoriteArtists,
 } from 'src/service/slices/artistsSlice';
 import { getIsLoggedIn } from 'src/service/slices/currentUserSlice';
+import { ARTISTS_ROUTE } from 'src/utils/constants';
 
 interface IArtistCardPropsType {
   item: IArtistType;
@@ -27,7 +28,7 @@ const ArtistCard = (props: IArtistCardPropsType) => {
   return (
     <li className={styles.artistCard}>
       <Link
-        to={`/arists/${item.artistId}`}
+        to={`${ARTISTS_ROUTE}/${item.artistId}`}
         className={`${styles.artistCard__link}`}
       >
         <img className={styles.artistCard__photo} src={item.photo} />

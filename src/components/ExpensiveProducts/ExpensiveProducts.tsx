@@ -1,18 +1,42 @@
 import Section from 'src/components/Section/Section';
 import ProductContainer from 'src/components/ProductContainer/ProductContainer';
 import ProductCard from 'src/components/ProductContainer/ProductCard/ProductCard';
-import { productsMockData } from 'src/utils/mock/productsMockData';
+
 import { useNavigate } from 'react-router-dom';
 import {
   CATALOG_ROUTE,
+  EXPENSIVE_COST_KEY,
   MAIN_SECTION_PRODUCTS_NUMBER,
+  PRICE_FILTER_OPTIONS,
 } from 'src/utils/constants';
+import { useAppDispatch, useAppSelector } from 'src/service/hooks';
+import {
+  getAllProductsData,
+  setFilteredProducts,
+} from 'src/service/slices/productsSlice';
+import { filterByPrice } from 'src/utils/utils';
+import {
+  setDefaultFilters,
+  setKeyword,
+  setPriceFilter,
+} from 'src/service/slices/filtersSlice';
 
 const ExpensiveProducts = () => {
   const navigate = useNavigate();
-  const expensiveProducts = productsMockData;
+  const dispatch = useAppDispatch();
+  const allProducts = useAppSelector(getAllProductsData);
+
+  const expensiveCost = JSON.stringify(
+    PRICE_FILTER_OPTIONS.get(EXPENSIVE_COST_KEY)
+  );
+
+  const expensiveProducts = filterByPrice(allProducts, [expensiveCost]);
 
   const handleMoreButtonClick = () => {
+    dispatch(setDefaultFilters());
+    dispatch(setPriceFilter([expensiveCost]));
+    dispatch(setKeyword(''));
+    dispatch(setFilteredProducts(expensiveProducts));
     navigate(CATALOG_ROUTE);
   };
   return (
