@@ -27,16 +27,16 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footer__container}>
         <span className={styles.footer__block}>
-          <div className={styles.footer__block_wrap}>
+          <div className={styles.footer__blockWrap}>
             <p className={styles.footer__logo}></p>
-            <div className={styles.footer__title_wrap}>
+            <div className={styles.footer__titleWrap}>
               <p className={styles.footer__title}>САГААРТ</p>
               <p className={styles.footer__subtitle}>Исскуство рядом</p>
             </div>
           </div>
-          <div className={styles.footer__info_wrap}>
-            <p className={styles.footer__info_title}>Юридический адрес</p>
-            <p className={styles.footer__info_location}>
+          <div className={styles.footer__infoWrap}>
+            <p className={styles.footer__infoTitle}>Юридический адрес</p>
+            <p className={styles.footer__infoLocation}>
               141701, Московская Область, г.о. Долгопрудный, г. Долгопрудный,
               пер Научный, д. 4, к. 1, помещ. 29
             </p>
@@ -47,12 +47,12 @@ const Footer = () => {
           <ul className={styles.footer__list}>
             <li>
               <ul className={styles.footer__connection}>
-                <li className={styles.footer__connection_title}>
+                <li className={styles.footer__connectionTitle}>
                   Звонок по России бесплатный
                 </li>
                 <li>
                   <a
-                    className={styles.footer__connection_number}
+                    className={styles.footer__connectionNumber}
                     href={`tel: ${SAGA_ALL_RUSSIAN_PHONE}`}
                   >
                     {formatPhoneNumber(SAGA_ALL_RUSSIAN_PHONE)}
@@ -63,34 +63,34 @@ const Footer = () => {
             <li>
               {currentUser.userRole === CUSTOMER_ROLE ? (
                 <ul className={styles.footer__navbar}>
-                  <li className={styles.footer__navbar_item}>
+                  <li className={styles.footer__navbarItem}>
                     <Link
                       to={CATALOG_ROUTE}
-                      className={styles.footer__navbar_link}
+                      className={styles.footer__navbarLink}
                     >
                       Каталог
                     </Link>
                   </li>
-                  <li className={styles.footer__navbar_item}>
+                  <li className={styles.footer__navbarItem}>
                     <Link
                       to={ARTISTS_ROUTE}
-                      className={styles.footer__navbar_link}
+                      className={styles.footer__navbarLink}
                     >
                       Художники
                     </Link>
                   </li>
-                  <li className={styles.footer__navbar_item}>
+                  <li className={styles.footer__navbarItem}>
                     <button
                       onClick={() => protectionNavigate(PRICE_ANALYTICS_ROUTE)}
-                      className={styles.footer__navbar_link}
+                      className={styles.footer__navbarLink}
                     >
                       Аналитика цен
                     </button>
                   </li>
-                  <li className={styles.footer__navbar_item}>
+                  <li className={styles.footer__navbarItem}>
                     <button
                       onClick={() => protectionNavigate(CONSULTATION_ROUTE)}
-                      className={styles.footer__navbar_link}
+                      className={styles.footer__navbarLink}
                     >
                       Арт-консультация
                     </button>
@@ -98,28 +98,28 @@ const Footer = () => {
                 </ul>
               ) : (
                 <ul
-                  className={`${styles.footer__navbar} ${styles.footer__navbar_seller}`}
+                  className={`${styles.footer__navbar} ${styles.footer__navbarSeller}`}
                 >
-                  <li className={styles.footer__navbar_item}>
+                  <li className={styles.footer__navbarItem}>
                     <Link
                       to={DEFAULT_ROUTE}
-                      className={styles.footer__navbar_link}
+                      className={styles.footer__navbarLink}
                     >
                       Профиль продавца
                     </Link>
                   </li>
-                  <li className={styles.footer__navbar_item}>
+                  <li className={styles.footer__navbarItem}>
                     <Link
                       to={SELLER_ORDERS_ROUTE}
-                      className={styles.footer__navbar_link}
+                      className={styles.footer__navbarLink}
                     >
                       Заказы
                     </Link>
                   </li>
-                  <li className={styles.footer__navbar_item}>
+                  <li className={styles.footer__navbarItem}>
                     <Link
                       to={SELLER_GOODS_ROUTE}
-                      className={styles.footer__navbar_link}
+                      className={styles.footer__navbarLink}
                     >
                       Товары
                     </Link>
@@ -134,12 +134,12 @@ const Footer = () => {
           <ul className={styles.footer__list}>
             <li>
               <ul className={styles.footer__connection}>
-                <li className={styles.footer__connection_title}>
+                <li className={styles.footer__connectionTitle}>
                   Телефон в Москве
                 </li>
                 <li>
                   <a
-                    className={styles.footer__connection_number}
+                    className={styles.footer__connectionNumber}
                     href={`tel:${SAGA_MOSCOW_PHONE}`}
                   >
                     {formatPhoneNumber(SAGA_MOSCOW_PHONE)}
@@ -149,36 +149,36 @@ const Footer = () => {
             </li>
             <li>
               <ul className={styles.footer__navbar}>
-                <li className={styles.footer__navbar_item}>
+                <li className={styles.footer__navbarItem}>
                   <Link
                     to={DEFAULT_ROUTE}
-                    className={styles.footer__navbar_link}
+                    className={styles.footer__navbarLink}
                   >
                     О компании
                   </Link>
                 </li>
-                <li className={styles.footer__navbar_item}>
+                <li className={styles.footer__navbarItem}>
                   <Link
                     to={DEFAULT_ROUTE}
-                    className={styles.footer__navbar_link}
+                    className={styles.footer__navbarLink}
                   >
                     Поддержка
                   </Link>
                 </li>
                 {currentUser.userRole === CUSTOMER_ROLE && (
-                  <li className={styles.footer__navbar_item}>
+                  <li className={styles.footer__navbarItem}>
                     <Link
                       to={NEWS_ROUTE}
-                      className={styles.footer__navbar_link}
+                      className={styles.footer__navbarLink}
                     >
                       Новости
                     </Link>
                   </li>
                 )}
-                <li className={styles.footer__navbar_item}>
+                <li className={styles.footer__navbarItem}>
                   <Link
                     to={DEFAULT_ROUTE}
-                    className={styles.footer__navbar_link}
+                    className={styles.footer__navbarLink}
                   >
                     Контакты
                   </Link>
@@ -191,10 +191,10 @@ const Footer = () => {
           <ul className={styles.footer__list}>
             <li>
               <ul className={styles.footer__connection}>
-                <li className={styles.footer__connection_title}>Email</li>
+                <li className={styles.footer__connectionTitle}>Email</li>
                 <li>
                   <a
-                    className={styles.footer__connection_number}
+                    className={styles.footer__connectionNumber}
                     href={`malto: ${SAGA_HELP_MAIL}`}
                   >
                     {SAGA_HELP_MAIL}
@@ -204,17 +204,17 @@ const Footer = () => {
             </li>
             <li>
               <ul className={styles.footer__social}>
-                <li className={styles.footer__social_title}>Мы в соцсетях</li>
+                <li className={styles.footer__socialTitle}>Мы в соцсетях</li>
                 <li>
-                  <ul className={styles.footer__social_icons}>
-                    <li className={styles.footer__social_icon}>
-                      <a className={styles.footer__social_icon_tg}></a>
+                  <ul className={styles.footer__socialIcons}>
+                    <li className={styles.footer__socialIcon}>
+                      <a className={styles.footer__socialIconTg}></a>
                     </li>
-                    <li className={styles.footer__social_icon}>
-                      <a className={styles.footer__social_icon_vk}></a>
+                    <li className={styles.footer__socialIcon}>
+                      <a className={styles.footer__socialIconVk}></a>
                     </li>
-                    <li className={styles.footer__social_icon}>
-                      <a className={styles.footer__social_icon_yt}></a>
+                    <li className={styles.footer__socialIcon}>
+                      <a className={styles.footer__socialIconYt}></a>
                     </li>
                   </ul>
                 </li>
