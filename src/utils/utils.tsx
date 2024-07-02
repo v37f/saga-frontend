@@ -28,6 +28,16 @@ export const distributeProductsToColumns = (
   return distrubutedProducts;
 };
 
+export const getWorkWord = (value: number) => {
+  const words = ['работа', 'работы', 'работ'];
+  value = Math.abs(value) % 100;
+  const num = value % 10;
+  if (value > 10 && value < 20) return words[2];
+  if (num > 1 && num < 5) return words[1];
+  if (num === 1) return words[0];
+  return words[2];
+};
+
 export const getPeriodWord = (value: TSubscribtionPeriodType = 1) => {
   switch (value) {
     case 12:
@@ -190,4 +200,12 @@ export const formatPhoneNumber = (phoneNumberString: string): string | null => {
     ].join('');
   }
   return null;
+};
+
+export const getAverageCostOfProducts = (products: IProductType[]) => {
+  const overallCost = products.reduce(
+    (acc, product) => acc + product.estimatedPrice,
+    0
+  );
+  return Math.round(overallCost / products.length);
 };

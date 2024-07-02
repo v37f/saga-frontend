@@ -1,0 +1,56 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.aboutTab {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  .info {
+    @include reset-list;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .key {
+        @include text-header-h5;
+        color: $colorBrandBlack;
+      }
+
+      .value {
+        @include text-body-medium;
+        color: $colorBrandBlack;
+      }
+    }
+  }
+
+  .collections {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .title {
+      @include text-header-h3;
+      color: $colorBrandBlack;
+    }
+
+    .collectionsList {
+      @include reset-list;
+      max-width: 1280px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .collection {
+        @include text-header-h5;
+        color: $colorMediumGrey;
+        padding: 12px 0;
+      }
+    }
+  }
+}

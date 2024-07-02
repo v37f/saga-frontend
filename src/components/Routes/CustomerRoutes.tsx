@@ -24,6 +24,7 @@ import {
   PRICE_ANALYTICS_ROUTE,
 } from 'src/utils/constants';
 import ProductPage from 'src/pages/ProductPage/ProductPage';
+import ArtistPage from 'src/pages/ArtistPage/ArtistPage';
 
 const CustomerRoutes = () => {
   return (
@@ -32,6 +33,7 @@ const CustomerRoutes = () => {
       <Route path={CATALOG_ROUTE} element={<CatalogPage />} />
       <Route path={CATALOG_ROUTE + '/:id'} element={<ProductPage />} />
       <Route path={ARTISTS_ROUTE} element={<ArtistsPage />} />
+      <Route path={ARTISTS_ROUTE + '/:id'} element={<ArtistPage />} />
       <Route path={NEWS_ROUTE} element={<NewsPage />} />
       <Route
         path={CONSULTATION_ROUTE}
