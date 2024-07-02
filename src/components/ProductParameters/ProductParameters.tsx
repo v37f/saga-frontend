@@ -33,7 +33,7 @@ const ProductParameters = ({ item }: IProductParametersPropsType) => {
         <p className={styles.value}>Москва</p>
       </li>
       <li className={styles.parameter}>
-        <h4 className={styles.key}>Оформлениек</h4>
+        <h4 className={styles.key}>Оформление</h4>
         <p className={styles.value}>Подрамник</p>
       </li>
       <li className={styles.parameter}>
