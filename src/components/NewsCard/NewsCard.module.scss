@@ -18,7 +18,8 @@
   }
   &__photo {
     position: relative;
-    width: 100%;
+    width: 290px;
+    height: 475px;
     object-fit: cover;
     object-position: top center;
     transition: transform ease-in-out 0.35s;

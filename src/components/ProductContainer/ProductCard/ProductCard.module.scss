@@ -7,7 +7,7 @@
   &__link {
     display: block;
     overflow: hidden;
-    width: 100%;
+    width: 290px;
     margin-bottom: 20px;
 
     &_orientation_vertical {
@@ -25,7 +25,7 @@
   &__image {
     object-fit: cover;
     object-position: top center;
-    width: inherit;
+    width: 290px;
     height: inherit;
 
     transition: transform ease-in-out 0.35s;

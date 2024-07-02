@@ -26,17 +26,23 @@ const ArtistCard = (props: IArtistCardPropsType) => {
   );
 
   return (
-    <li className={styles.artistCard}>
+    <div className={styles.artistCard}>
       <Link
         to={`${ARTISTS_ROUTE}/${item.artistId}`}
         className={`${styles.artistCard__link}`}
+        title="Перейти на страницу художника"
+        aria-label="Перейти на страницу художника"
       >
-        <img className={styles.artistCard__photo} src={item.photo} />
+        <img
+          className={styles.artistCard__photo}
+          src={item.photo}
+          alt={`${item.nameArtist} ${item.lastnameArtist}`}
+        />
       </Link>
       <div className={styles.artistCard__header}>
-        <h4
+        <h2
           className={styles.artistCard__artistName}
-        >{`${item.nameArtist} ${item.lastnameArtist}`}</h4>
+        >{`${item.nameArtist} ${item.lastnameArtist}`}</h2>
         {isLoggedIn && (
           <LikeButton
             isActive={isLiked}
@@ -50,7 +56,7 @@ const ArtistCard = (props: IArtistCardPropsType) => {
       </div>
       <p className={styles.artistCard__description}>{item.shortDescription}</p>
       <p className={styles.artistCard__liveYears}>{item.yearOfBirth}</p>
-    </li>
+    </div>
   );
 };
 

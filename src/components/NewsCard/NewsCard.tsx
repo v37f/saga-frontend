@@ -14,8 +14,14 @@ const NewsCard = (props: INewsCardPropsType) => {
       <Link
         to={`${NEWS_ROUTE}/${item.newsId}`}
         className={`${styles.newsCard__link}`}
+        title="Перейти на страницу новости"
+        aria-label="Перейти на страницу новости"
       >
-        <img className={styles.newsCard__photo} src={item.photo} />
+        <img
+          className={styles.newsCard__photo}
+          src={item.photo}
+          alt={item.titleNews}
+        />
         <div className={styles.newsCard__text}>
           <p className={styles.newsCard__title}>{item.titleNews}</p>
           <p className={styles.newsCard__subtitle}>{item.subtitleNews}</p>

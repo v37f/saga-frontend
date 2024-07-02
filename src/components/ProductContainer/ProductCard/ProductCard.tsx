@@ -36,13 +36,19 @@ const ProductCard = (props: IProductCardPropsType) => {
             ? styles.productCard__link_orientation_vertical
             : styles.productCard__link_orientation_square
         }`}
+        title="Перейти на страницу товара"
+        aria-label="Перейти на страницу товара"
       >
-        <img className={styles.productCard__image} src={item.photoProduct[0]} />
+        <img
+          className={styles.productCard__image}
+          src={item.photoProduct[0]}
+          alt={item.titleArt}
+        />
       </Link>
       <div className={styles.productCard__header}>
-        <h4
+        <h2
           className={styles.productCard__artistName}
-        >{`${item.artist.nameArtist} ${item.artist.lastnameArtist}`}</h4>
+        >{`${item.artist.nameArtist} ${item.artist.lastnameArtist}`}</h2>
         {isLoggedIn && (
           <LikeButton
             isActive={isLiked}
