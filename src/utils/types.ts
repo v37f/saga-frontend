@@ -64,7 +64,7 @@ export interface ICustomerSubscriptionType {
   subsDateOn: string;
 }
 
-type TUserRoleType = 'customer' | 'seller';
+export type TUserRoleType = 'buyer' | 'seller';
 
 export interface ICurrentUserType {
   userId: number;

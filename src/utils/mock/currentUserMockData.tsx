@@ -1,8 +1,9 @@
+import { CUSTOMER_ROLE } from '../constants';
 import { ICurrentUserType } from '../types';
 
 export const Customer: ICurrentUserType = {
   userId: 1,
-  userRole: 'customer',
+  userRole: CUSTOMER_ROLE,
   name: 'иван',
   lastName: 'Иванов',
   surname: 'Иванович',
