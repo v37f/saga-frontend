@@ -52,18 +52,8 @@
     margin-bottom: 12px;
   }
 
-  &__evaluation {
-    display: flex;
-    gap: 12px;
-  }
-
   &__price {
     @include text-header-h4;
     max-width: 254px;
-  }
-
-  &__trend {
-    width: 24px;
-    height: 24px;
   }
 }

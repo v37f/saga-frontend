@@ -1,7 +1,5 @@
 import LikeButton from 'src/ui/buttons/LikeButton/LikeButton';
 import styles from './ProductCard.module.scss';
-import TrendingUpIcon from 'src/assets/images/components/trending_up.svg';
-import TrendingDownIcon from 'src/assets/images/components/trending_down.svg';
 import { Link } from 'react-router-dom';
 import { IProductType } from 'src/utils/types';
 import { CATALOG_ROUTE } from 'src/utils/constants';
@@ -57,18 +55,7 @@ const ProductCard = (props: IProductCardPropsType) => {
         )}
       </div>
       <p className={styles.productCard__title}>{item.titleArt}</p>
-      <div className={styles.productCard__evaluation}>
-        <p
-          className={styles.productCard__price}
-        >{`${item.estimatedPrice} ₽`}</p>
-        <div className={styles.productCard__trend}>
-          {item.estimatedPrice > item.forecastPrice ? (
-            <TrendingDownIcon />
-          ) : (
-            <TrendingUpIcon />
-          )}
-        </div>
-      </div>
+      <p className={styles.productCard__price}>{`${item.estimatedPrice} ₽`}</p>
     </li>
   );
 };
