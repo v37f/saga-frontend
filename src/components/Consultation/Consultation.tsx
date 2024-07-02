@@ -12,39 +12,48 @@ import * as yup from 'yup';
 type TConsultationStepType = 'inputData' | 'result';
 
 type ConsultationInputs = {
-  artistName: string;
-  heightCm: number;
-  widthCm: number;
-  yearOfCreation: number;
+  country: string;
+  height: number;
+  width: number;
+  year: number;
+  age: number;
 };
 const currentYear = Number(new Date().getFullYear());
 const consultationSchema = yup.object({
-  artistName: yup.string().required('Введите имя художника'),
-  heightCm: yup
+  country: yup.string().typeError('Укажите страну').required('Укажите страну'),
+  height: yup
     .number()
     .typeError('Укажите высоту')
     .required('Укажите высоту')
     .min(1, 'Минимальная высота 1 см.')
     .max(1000, 'Максимальная высота 1000 см.'),
-  widthCm: yup
+  width: yup
     .number()
     .typeError('Укажите ширину')
     .required()
     .min(1, 'Минимальная ширина 1 см.')
     .max(1000, 'Максимальная ширина 1000 см.'),
-  yearOfCreation: yup
+  year: yup
     .number()
     .typeError('Укажите год создания')
     .required()
     .min(1, 'Минимально возмозжный год: 1')
     .max(currentYear, `Максимально возмозжный год: ${currentYear}`),
+  age: yup
+    .number()
+    .typeError('Укажите возраст')
+    .required()
+    .min(1, 'Минимально возмозжный возраст: 1 год')
+    .max(130, `Максимально возмозжный возраст: 130 лет`),
 });
 
 const Consultation = () => {
   const [currentStep, setCurrentStep] =
     useState<TConsultationStepType>('inputData');
 
-  const onSubmit: SubmitHandler<ConsultationInputs> = () => {
+  const onSubmit: SubmitHandler<ConsultationInputs> = (data) => {
+    console.log(data);
+
     setCurrentStep('result');
   };
 
@@ -56,10 +65,11 @@ const Consultation = () => {
     mode: 'all',
     resolver: yupResolver(consultationSchema),
     defaultValues: {
-      artistName: '',
-      heightCm: 100,
-      widthCm: 100,
-      yearOfCreation: 2024,
+      country: '',
+      height: 100,
+      width: 100,
+      year: 2024,
+      age: 30,
     },
   });
 
@@ -79,43 +89,16 @@ const Consultation = () => {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <InputTypeText
-                label="Фамилия Имя/Псевдоним художника"
+                type="text"
+                label="Страна"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
-                error={errors.artistName?.message}
-                placeholder="Введите имя художника"
+                error={errors.country?.message}
+                placeholder="Введите название страны"
               />
             )}
-            name="artistName"
-          />
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <InputTypeText
-                type="number"
-                label="Высота, см"
-                onBlur={onBlur}
-                onChange={onChange}
-                value={value}
-                error={errors.heightCm?.message}
-              />
-            )}
-            name="heightCm"
-          />
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <InputTypeText
-                type="number"
-                label="Ширина, см"
-                onBlur={onBlur}
-                onChange={onChange}
-                value={value}
-                error={errors.widthCm?.message}
-              />
-            )}
-            name="widthCm"
+            name="country"
           />
           <Controller
             control={control}
@@ -126,11 +109,53 @@ const Consultation = () => {
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
-                error={errors.yearOfCreation?.message}
+                error={errors.year?.message}
                 maxLength={4}
               />
             )}
-            name="yearOfCreation"
+            name="year"
+          />
+          <Controller
+            control={control}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <InputTypeText
+                type="number"
+                label="Высота, см"
+                onBlur={onBlur}
+                onChange={onChange}
+                value={value}
+                error={errors.height?.message}
+              />
+            )}
+            name="height"
+          />
+          <Controller
+            control={control}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <InputTypeText
+                type="number"
+                label="Ширина, см"
+                onBlur={onBlur}
+                onChange={onChange}
+                value={value}
+                error={errors.width?.message}
+              />
+            )}
+            name="width"
+          />
+          <Controller
+            control={control}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <InputTypeText
+                type="number"
+                label="Возраст художника"
+                onBlur={onBlur}
+                onChange={onChange}
+                value={value}
+                error={errors.age?.message}
+              />
+            )}
+            name="age"
           />
         </fieldset>
         {currentStep === 'inputData' && (
