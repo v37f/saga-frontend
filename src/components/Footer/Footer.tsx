@@ -18,6 +18,9 @@ import {
   SELLER_ORDERS_ROUTE,
 } from 'src/utils/constants';
 import { formatPhoneNumber } from 'src/utils/utils';
+import VkIcon from 'src/assets/images/components/icon_vk.svg';
+import TelegramIcon from 'src/assets/images/components/icon_tg.svg';
+import YouTubeIcon from 'src/assets/images/components/icon_youtube.svg';
 
 const Footer = () => {
   const currentUser = useAppSelector(getCurrentUserData);
@@ -28,7 +31,15 @@ const Footer = () => {
       <div className={styles.footer__container}>
         <span className={styles.footer__block}>
           <div className={styles.footer__blockWrap}>
-            <p className={styles.footer__logo}></p>
+            <Link
+              to={DEFAULT_ROUTE}
+              className={styles.footer__logo}
+              title="Вернуться на главную"
+              aria-label="Вернуться на главную"
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              Вернуться на главную
+            </Link>
             <div className={styles.footer__titleWrap}>
               <p className={styles.footer__title}>САГААРТ</p>
               <p className={styles.footer__subtitle}>Исскуство рядом</p>
@@ -45,12 +56,14 @@ const Footer = () => {
         </span>
         <span className={styles.footer__block}>
           <ul className={styles.footer__list}>
-            <li>
+            <li className={styles.footer__listItem}>
               <ul className={styles.footer__connection}>
-                <li className={styles.footer__connectionTitle}>
+                <li
+                  className={`${styles.footer__connectionItem} ${styles.footer__connectionTitle}`}
+                >
                   Звонок по России бесплатный
                 </li>
-                <li>
+                <li className={styles.footer__connectionItem}>
                   <a
                     className={styles.footer__connectionNumber}
                     href={`tel: ${SAGA_ALL_RUSSIAN_PHONE}`}
@@ -60,7 +73,7 @@ const Footer = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li className={styles.footer__listItem}>
               {currentUser.userRole === CUSTOMER_ROLE ? (
                 <ul className={styles.footer__navbar}>
                   <li className={styles.footer__navbarItem}>
@@ -127,17 +140,21 @@ const Footer = () => {
                 </ul>
               )}
             </li>
-            <li>Политика в области персональных данных</li>
+            <li className={styles.footer__listItem}>
+              Политика в области персональных данных
+            </li>
           </ul>
         </span>
         <span className={styles.footer__block}>
           <ul className={styles.footer__list}>
-            <li>
+            <li className={styles.footer__listItem}>
               <ul className={styles.footer__connection}>
-                <li className={styles.footer__connectionTitle}>
+                <li
+                  className={`${styles.footer__connectionItem} ${styles.footer__connectionTitle}`}
+                >
                   Телефон в Москве
                 </li>
-                <li>
+                <li className={styles.footer__connectionItem}>
                   <a
                     className={styles.footer__connectionNumber}
                     href={`tel:${SAGA_MOSCOW_PHONE}`}
@@ -147,7 +164,7 @@ const Footer = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li className={styles.footer__listItem}>
               <ul className={styles.footer__navbar}>
                 <li className={styles.footer__navbarItem}>
                   <Link
@@ -167,10 +184,7 @@ const Footer = () => {
                 </li>
                 {currentUser.userRole === CUSTOMER_ROLE && (
                   <li className={styles.footer__navbarItem}>
-                    <Link
-                      to={NEWS_ROUTE}
-                      className={styles.footer__navbarLink}
-                    >
+                    <Link to={NEWS_ROUTE} className={styles.footer__navbarLink}>
                       Новости
                     </Link>
                   </li>
@@ -189,9 +203,13 @@ const Footer = () => {
         </span>
         <span className={styles.footer__block}>
           <ul className={styles.footer__list}>
-            <li>
+            <li className={styles.footer__listItem}>
               <ul className={styles.footer__connection}>
-                <li className={styles.footer__connectionTitle}>Email</li>
+                <li
+                  className={`${styles.footer__connectionItem} ${styles.footer__connectionTitle}`}
+                >
+                  Email
+                </li>
                 <li>
                   <a
                     className={styles.footer__connectionNumber}
@@ -202,19 +220,47 @@ const Footer = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li className={styles.footer__listItem}>
               <ul className={styles.footer__social}>
-                <li className={styles.footer__socialTitle}>Мы в соцсетях</li>
-                <li>
+                <li
+                  className={`${styles.footer__connectionItem} ${styles.footer__connectionTitle}`}
+                >
+                  Мы в соцсетях
+                </li>
+                <li className={styles.footer__connectionItem}>
                   <ul className={styles.footer__socialIcons}>
                     <li className={styles.footer__socialIcon}>
-                      <a className={styles.footer__socialIconTg}></a>
+                      <a
+                        className={styles.footer__socialLink}
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <TelegramIcon />
+                        Telegram
+                      </a>
                     </li>
                     <li className={styles.footer__socialIcon}>
-                      <a className={styles.footer__socialIconVk}></a>
+                      <a
+                        className={styles.footer__socialLink}
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <VkIcon />
+                        Vk
+                      </a>
                     </li>
                     <li className={styles.footer__socialIcon}>
-                      <a className={styles.footer__socialIconYt}></a>
+                      <a
+                        className={styles.footer__socialLink}
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <YouTubeIcon />
+                        YouTube
+                      </a>
                     </li>
                   </ul>
                 </li>
