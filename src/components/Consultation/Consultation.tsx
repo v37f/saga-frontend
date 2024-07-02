@@ -8,6 +8,8 @@ import RefreshIcon from 'src/assets/images/components/refresh.svg';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import InputTypeDropdown from 'src/ui/inputs/InputTypeDropdown/InputTypeDropdown';
+import { ALL_SHOWS } from 'src/utils/constants';
 
 type TConsultationStepType = 'inputData' | 'result';
 
@@ -50,13 +52,8 @@ const consultationSchema = yup.object({
 const Consultation = () => {
   const [currentStep, setCurrentStep] =
     useState<TConsultationStepType>('inputData');
-
-  const onSubmit: SubmitHandler<ConsultationInputs> = (data) => {
-    console.log(data);
-
-    setCurrentStep('result');
-  };
-
+  const [soloShows, setSoloShows] = useState<string[]>([]);
+  const [groupShows, setGroupShows] = useState<string[]>([]);
   const {
     control,
     handleSubmit,
@@ -72,6 +69,12 @@ const Consultation = () => {
       age: 30,
     },
   });
+
+  const onSubmit: SubmitHandler<ConsultationInputs> = (data) => {
+    console.log({ ...data, solo_shows: soloShows, group_shows: groupShows });
+
+    setCurrentStep('result');
+  };
 
   return (
     <section className={styles.consultation}>
@@ -158,6 +161,25 @@ const Consultation = () => {
             name="age"
           />
         </fieldset>
+        <div className={styles.dropdowns}>
+          <InputTypeDropdown
+            addScroll
+            dropdownValue={soloShows}
+            valueSetter={setSoloShows}
+            label="Персональные выставки"
+            options={ALL_SHOWS}
+            disabled={currentStep === 'result'}
+          />
+
+          <InputTypeDropdown
+            addScroll
+            dropdownValue={groupShows}
+            valueSetter={setGroupShows}
+            label="Групповые выставки"
+            options={ALL_SHOWS}
+            disabled={currentStep === 'result'}
+          />
+        </div>
         {currentStep === 'inputData' && (
           <SolidButton type="submit" disabled={!isValid}>
             Оценить

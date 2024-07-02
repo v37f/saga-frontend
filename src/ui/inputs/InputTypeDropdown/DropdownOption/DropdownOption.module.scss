@@ -12,6 +12,11 @@
   &:hover {
     background-color: $colorMediumLightGrey;
   }
+
+  &:has(.input:disabled):hover {
+    background-color: unset;
+  }
+
   .input {
     @include checkbox-black;
   }

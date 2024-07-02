@@ -8,10 +8,13 @@ interface IInputTypeDropdownProps {
   valueSetter: (value: string[]) => void;
   dropdownValue: string[];
   options: Map<string, string | TMinMaxFilterOption>;
+  addScroll?: boolean;
+  disabled?: boolean;
 }
 
 const InputTypeDropdown = (props: IInputTypeDropdownProps) => {
-  const { label, valueSetter, dropdownValue, options } = props;
+  const { label, valueSetter, dropdownValue, options, addScroll, disabled } =
+    props;
   const [isOpen, setIsOpen] = useState(false);
 
   const handleButtonClick = () => {
@@ -38,6 +41,7 @@ const InputTypeDropdown = (props: IInputTypeDropdownProps) => {
           value={value}
           checked={dropdownValue.includes(value)}
           onChange={onOptionChange}
+          disabled={disabled}
         />
       );
     });
@@ -55,7 +59,11 @@ const InputTypeDropdown = (props: IInputTypeDropdownProps) => {
           {label}
         </p>
       </button>
-      <div className={`${styles.options} ${isOpen ? styles.visible : ''}`}>
+      <div
+        className={`${styles.options} ${isOpen ? styles.visible : ''} ${
+          addScroll ? styles.addScroll : ''
+        }`}
+      >
         {getOptionsLayout(options)}
       </div>
     </fieldset>
