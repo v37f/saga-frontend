@@ -7,7 +7,7 @@ export const PHONE_NUMBER_REGEX =
 export const MAIN_SECTION_PRODUCTS_NUMBER = 8;
 export const MAIN_SECTION_ARTISTS_NUMBER = 10;
 
-export const CUSTOMER_ROLE = 'customer';
+export const CUSTOMER_ROLE = 'buyer';
 export const SELLER_ROLE = 'seller';
 
 export const DEFAULT_ROUTE = '/';

@@ -7,7 +7,13 @@ import {
   favoriteProductsMockData,
   productsMockData,
 } from 'src/utils/mock/productsMockData';
-import { IArtistType, ICurrentUserType, IProductType } from 'src/utils/types';
+import {
+  IArtistType,
+  ICurrentUserType,
+  IProductType,
+  TUserRoleType,
+} from 'src/utils/types';
+import { $host } from './index';
 
 // all products
 export const getAllProducts = async () => {
@@ -108,8 +114,24 @@ export const updateCurrentUser = async <T>(newUserInfo: T) => {
 };
 
 // auth
-export const login = async () => {
-  const res = await Promise.resolve();
+// export const login = async () => {
+//   const res = await Promise.resolve();
+//   return res;
+// };
+
+interface ILoginPropstype {
+  email: string;
+  password: string;
+  role: TUserRoleType;
+}
+
+export const login = async ({ email, password, role }: ILoginPropstype) => {
+  const res = await $host.post('api/auth/jwt/create', {
+    email,
+    password,
+    role,
+  });
+
   return res;
 };
 

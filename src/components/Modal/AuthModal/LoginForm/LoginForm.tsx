@@ -23,6 +23,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { fetchFavoriteProducts } from 'src/service/slices/productsSlice';
 import { fetchFavoriteArtists } from 'src/service/slices/artistsSlice';
+import { useState } from 'react';
 
 const loginSchema = yup.object({
   email: yup
@@ -60,11 +61,16 @@ const LoginForm = () => {
       isSeller: false,
     },
   });
-  const requestError = '';
+  const [requestErrorMessage, setRequestErrorMessage] = useState('');
 
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
-    login()
-      .then(() => {
+    login({
+      email: data.email,
+      password: data.password,
+      role: data.isSeller ? SELLER_ROLE : CUSTOMER_ROLE,
+    })
+      .then((res) => {
+        console.log(res);
         localStorage.setItem(
           'jwt',
           data.isSeller ? SELLER_ROLE : CUSTOMER_ROLE
@@ -79,6 +85,10 @@ const LoginForm = () => {
         setTimeout(() => {
           navigate(data.isSeller ? DEFAULT_ROUTE : targetUrl);
         });
+      })
+      .catch((error) => {
+        console.log(error);
+        setRequestErrorMessage(error.response.data.detail);
       });
   };
 
@@ -138,7 +148,7 @@ const LoginForm = () => {
           </label>
         </div>
       </fieldset>
-      <p className={styles.requestError}>{requestError}</p>
+      <p className={styles.requestError}>{requestErrorMessage}</p>
       <SolidButton type="submit" disabled={!isValid}>
         Войти
       </SolidButton>
