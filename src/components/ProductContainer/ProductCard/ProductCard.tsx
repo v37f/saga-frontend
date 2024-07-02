@@ -10,6 +10,7 @@ import {
   getFavoriteProductsData,
   removeFromFavoriteProducts,
 } from 'src/service/slices/productsSlice';
+import { useState } from 'react';
 
 interface IProductCardPropsType {
   item: IProductType;
@@ -24,6 +25,23 @@ const ProductCard = (props: IProductCardPropsType) => {
   const isLiked = favoriteProducts?.some(
     (product) => product.productId === item.productId
   );
+
+  const [isTooltipOnTop, setIsTooltipOnTop] = useState(false);
+  const [isTooltipOnCenter, setIsTooltipOnCenter] = useState(false);
+  const onMouseOverPrice = (
+    e: React.MouseEvent<HTMLParagraphElement, MouseEvent>
+  ) => {
+    if (window.innerHeight - e.clientY < 320) {
+      setIsTooltipOnTop(true);
+    } else {
+      setIsTooltipOnTop(false);
+    }
+    if (window.innerWidth - e.clientX < 400) {
+      setIsTooltipOnCenter(true);
+    } else {
+      setIsTooltipOnCenter(false);
+    }
+  };
 
   return (
     <li className={styles.productCard}>
@@ -61,7 +79,17 @@ const ProductCard = (props: IProductCardPropsType) => {
         )}
       </div>
       <p className={styles.productCard__title}>{item.titleArt}</p>
-      <p className={styles.productCard__price}>{`${item.estimatedPrice} ₽`}</p>
+      <div className={styles.productCard__priceContainer}>
+        <p
+          onMouseEnter={(e) => onMouseOverPrice(e)}
+          className={styles.productCard__price}
+        >{`${item.estimatedPrice.toLocaleString()} ₽`}</p>
+        <div
+          className={`${styles.productCard__tooltip} ${
+            isTooltipOnTop ? styles.productCard__tooltip_onTop : ''
+          } ${isTooltipOnCenter ? styles.productCard__tooltip_onCenter : ''}`}
+        ></div>
+      </div>
     </li>
   );
 };
