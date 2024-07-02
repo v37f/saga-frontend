@@ -1,0 +1,15 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.workTab {
+  .count {
+    @include text-body-large;
+    color: $colorBrandBlack;
+  }
+
+  .works {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+}

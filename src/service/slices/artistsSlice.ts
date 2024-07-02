@@ -6,7 +6,17 @@ import {
   getFavoriteArtists,
   addFavoriteArtist,
   removeFavoriteArtist,
+  getArtistById,
 } from 'src/api/api';
+import { defaultCurrentArtist } from 'src/utils/constDefaultCurrenArtist';
+
+interface ICurrenArtistStateType {
+  item: IArtistType;
+  isRequest: boolean;
+  isSuccess: boolean;
+  isFailed: boolean;
+  errorMessage: string;
+}
 
 interface IArtistsArrayStateType {
   array: IArtistType[];
@@ -19,6 +29,7 @@ interface IArtistsArrayStateType {
 interface IArtistsStateType {
   allArtists: IArtistsArrayStateType;
   favoriteArtists: IArtistsArrayStateType;
+  currentArtist: ICurrenArtistStateType;
 }
 
 const initialState: IArtistsStateType = {
@@ -31,6 +42,13 @@ const initialState: IArtistsStateType = {
   },
   favoriteArtists: {
     array: [],
+    isRequest: false,
+    isSuccess: false,
+    isFailed: false,
+    errorMessage: '',
+  },
+  currentArtist: {
+    item: defaultCurrentArtist,
     isRequest: false,
     isSuccess: false,
     isFailed: false,
@@ -66,6 +84,14 @@ export const removeFromFavoriteArtists = createAsyncThunk(
   'remove/favoriteArtists',
   async (artist: IArtistType) => {
     const response = await removeFavoriteArtist(artist);
+    return response;
+  }
+);
+
+export const fetchCurrentArtist = createAsyncThunk(
+  'fetch/currentArtist',
+  async (id: number) => {
+    const response = await getArtistById(id);
     return response;
   }
 );
@@ -156,6 +182,26 @@ const modals = createSlice({
         state.favoriteArtists.isSuccess = false;
         state.favoriteArtists.isFailed = true;
         console.log(action.error);
+      })
+      .addCase(fetchCurrentArtist.pending, (state) => {
+        state.currentArtist.isRequest = true;
+        state.currentArtist.isSuccess = false;
+        state.currentArtist.isFailed = false;
+        state.currentArtist.errorMessage = '';
+      })
+      .addCase(fetchCurrentArtist.fulfilled, (state, action) => {
+        state.currentArtist.item = action.payload;
+        state.currentArtist.isRequest = false;
+        state.currentArtist.isSuccess = true;
+        state.currentArtist.isFailed = false;
+        state.currentArtist.errorMessage = '';
+      })
+      .addCase(fetchCurrentArtist.rejected, (state, action) => {
+        state.currentArtist.isRequest = false;
+        state.currentArtist.isSuccess = false;
+        state.currentArtist.isFailed = true;
+        state.currentArtist.errorMessage =
+          action.error.message || 'Художник не найден';
       });
   },
 });
@@ -166,3 +212,9 @@ export const getAllArtistsData = (state: RootState) =>
   state.artists.allArtists.array;
 export const getFavoriteArtistsData = (state: RootState) =>
   state.artists.favoriteArtists.array;
+export const getCurrentArtistData = (state: RootState) =>
+  state.artists.currentArtist.item;
+export const getCurrentArtistLoadFailed = (state: RootState) =>
+  state.artists.currentArtist.isFailed;
+export const getCurrentArtistLoadFailedMessage = (state: RootState) =>
+  state.artists.currentArtist.errorMessage;

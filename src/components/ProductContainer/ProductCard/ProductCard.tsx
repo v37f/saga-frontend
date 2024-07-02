@@ -1,7 +1,5 @@
 import LikeButton from 'src/ui/buttons/LikeButton/LikeButton';
 import styles from './ProductCard.module.scss';
-import TrendingUpIcon from 'src/assets/images/components/trending_up.svg';
-import TrendingDownIcon from 'src/assets/images/components/trending_down.svg';
 import { Link } from 'react-router-dom';
 import { IProductType } from 'src/utils/types';
 import { CATALOG_ROUTE } from 'src/utils/constants';
@@ -38,13 +36,19 @@ const ProductCard = (props: IProductCardPropsType) => {
             ? styles.productCard__link_orientation_vertical
             : styles.productCard__link_orientation_square
         }`}
+        title="Перейти на страницу товара"
+        aria-label="Перейти на страницу товара"
       >
-        <img className={styles.productCard__image} src={item.photoProduct[0]} />
+        <img
+          className={styles.productCard__image}
+          src={item.photoProduct[0]}
+          alt={item.titleArt}
+        />
       </Link>
       <div className={styles.productCard__header}>
-        <h4
+        <h2
           className={styles.productCard__artistName}
-        >{`${item.artist.nameArtist} ${item.artist.lastnameArtist}`}</h4>
+        >{`${item.artist.nameArtist} ${item.artist.lastnameArtist}`}</h2>
         {isLoggedIn && (
           <LikeButton
             isActive={isLiked}
@@ -57,18 +61,7 @@ const ProductCard = (props: IProductCardPropsType) => {
         )}
       </div>
       <p className={styles.productCard__title}>{item.titleArt}</p>
-      <div className={styles.productCard__evaluation}>
-        <p
-          className={styles.productCard__price}
-        >{`${item.estimatedPrice} ₽`}</p>
-        <div className={styles.productCard__trend}>
-          {item.estimatedPrice > item.forecastPrice ? (
-            <TrendingDownIcon />
-          ) : (
-            <TrendingUpIcon />
-          )}
-        </div>
-      </div>
+      <p className={styles.productCard__price}>{`${item.estimatedPrice} ₽`}</p>
     </li>
   );
 };

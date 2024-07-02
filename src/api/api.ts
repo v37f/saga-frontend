@@ -49,6 +49,22 @@ export const getProductById = async (id: number) => {
   return res;
 };
 
+// get artist by id
+export const getArtistById = async (id: number) => {
+  const res = await new Promise<IArtistType>((resolve, reject) => {
+    const findedArtist = artistMockData.find(
+      (artist) => artist.artistId === id
+    );
+    if (findedArtist) {
+      resolve(findedArtist);
+    } else {
+      reject(new Error('Художник не найден'));
+    }
+  });
+
+  return res;
+};
+
 // all artists
 export const getAllArtists = async () => {
   const artistsFromServer: IArtistType[] = artistMockData;

@@ -4,31 +4,42 @@ import SolidButton from 'src/ui/buttons/SolidButton/SolidButton';
 import { useAppSelector } from 'src/service/hooks';
 import { getCurrentUserData } from 'src/service/slices/currentUserSlice';
 import SubscriptionOffer from 'src/components/SubscriptionOffer/SubscriptionOffer';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import PriceAnalyticsResult from 'src/components/PriceAnalyticsResult/PriceAnalyticsResult';
 import { auctionsMockData } from 'src/utils/mock/auctionsMockData';
 import { IAuctionResultType } from 'src/utils/types';
 import { filterProductByKeyword } from 'src/utils/utils';
 
-type TPriceAnalyticsStepType = 'inputData' | 'result';
+type TPriceAnalyticsStepType = 'getSub' | 'result';
 
 const PriceAnalyticsPage = () => {
-  const currentUser = useAppSelector(getCurrentUserData);
+  const { subscription } = useAppSelector(getCurrentUserData);
   const [currentStep, setCurrentStep] =
-    useState<TPriceAnalyticsStepType>('inputData');
+    useState<TPriceAnalyticsStepType>('getSub');
 
   const [searchResult, setSearchResult] = useState<IAuctionResultType[]>([]);
   const [inputValue, setInputValue] = useState('');
 
-  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const showResult = () => {
     const result = auctionsMockData.filter((item) =>
       filterProductByKeyword(item.product, inputValue)
     );
 
     setSearchResult(result);
     setCurrentStep('result');
+  };
+
+  useEffect(() => {
+    if (subscription && inputValue.length > 0) {
+      showResult();
+    }
+    // disable eslint because we need trigger show result when user has subscription and input is not empty, but not when input change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [subscription]);
+
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    showResult();
   };
   return (
     <main className={styles.priceAnalyticsPage}>
@@ -49,14 +60,12 @@ const PriceAnalyticsPage = () => {
           <SolidButton type="submit">Искать</SolidButton>
         </div>
       </form>
-      {!currentUser.subscription && currentStep === 'inputData' && (
-        <SubscriptionOffer />
-      )}
+      {!subscription && currentStep === 'getSub' && <SubscriptionOffer />}
       {currentStep === 'result' && (
         <PriceAnalyticsResult
           items={searchResult}
           onGetSubClick={() => {
-            setCurrentStep('inputData');
+            setCurrentStep('getSub');
           }}
         />
       )}

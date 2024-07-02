@@ -8,7 +8,7 @@ const ConsultationPromo = () => {
   return (
     <section className={styles.consultaionPromo}>
       <article className={styles.consultaionPromo__container}>
-        <h5 className={styles.consultaionPromo__title}>Арт-консультация</h5>
+        <p className={styles.consultaionPromo__title}>Арт-консультация</p>
         <h1 className={styles.consultaionPromo__text}>
           Уникальный алгоритм поможет определиться с&nbsp;покупкой
         </h1>

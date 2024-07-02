@@ -1,0 +1,37 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.artistSocials {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .title {
+    @include text-header-h4;
+    color: $colorBrandBlack;
+  }
+
+  .list {
+    @include reset-list;
+    display: flex;
+    gap: 12px;
+
+    .item {
+      .link {
+        @include transition-opacity;
+        font-size: 0;
+        width: 40px;
+        height: 40px;
+
+        & svg {
+          width: inherit;
+          height: inherit;
+        }
+
+        &:hover {
+          @include hover-opacity;
+        }
+      }
+    }
+  }
+}

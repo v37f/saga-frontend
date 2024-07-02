@@ -1,18 +1,11 @@
+import { defaultCurrentArtist } from './constDefaultCurrenArtist';
 import { IProductType } from './types';
 
 export const defaultCurrentProduct: IProductType = {
   productId: 0,
   titleArt: 'Картина',
   orientalProduct: 'вертикальная',
-  artist: {
-    artistId: 0,
-    lastnameArtist: '',
-    nameArtist: '',
-    shortDescription: '',
-    yearOfBirth: '',
-    photo: '',
-    personalStyle: 'Абстракция',
-  },
+  artist: defaultCurrentArtist,
   estimatedPrice: 0,
   forecastPrice: 0,
   photoProduct: [],
