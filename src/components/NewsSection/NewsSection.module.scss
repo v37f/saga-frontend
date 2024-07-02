@@ -1,12 +1,36 @@
-.newsSection {
-  padding: 20px 80px;
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
 
-  .container {
-    width: 1280px;
+.newsSection {
+  padding: 20px 80px 20px 190px;
+  display: flex;
+  justify-content: space-between;
+
+  .texts {
+    width: 400px;
+    align-self: center;
+    .title {
+      @include text-header-h2;
+      color: $colorBrandBlack;
+      margin-bottom: 40px;
+    }
+
+    .description {
+      @include text-body-large;
+      color: $colorBrandBlack;
+      margin-bottom: 60px;
+    }
+
+    .button {
+      width: 186px;
+    }
+  }
+
+  .banner {
+    width: 620px;
     height: 800px;
     background-image: url('../../assets/mock/bg/news.jpg');
     background-size: contain;
-    background-position: center;
     background-repeat: no-repeat;
   }
 }
