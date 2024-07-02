@@ -88,7 +88,7 @@ const LoginForm = () => {
       })
       .catch((error) => {
         console.log(error);
-        setRequestErrorMessage(error.response.data.detail);
+        setRequestErrorMessage('');
       });
   };
 
