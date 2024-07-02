@@ -64,11 +64,7 @@ const LoginForm = () => {
   const [requestErrorMessage, setRequestErrorMessage] = useState('');
 
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
-    login({
-      email: data.email,
-      password: data.password,
-      role: data.isSeller ? SELLER_ROLE : CUSTOMER_ROLE,
-    })
+    login()
       .then((res) => {
         console.log(res);
         localStorage.setItem(
@@ -86,8 +82,7 @@ const LoginForm = () => {
           navigate(data.isSeller ? DEFAULT_ROUTE : targetUrl);
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         setRequestErrorMessage('');
       });
   };

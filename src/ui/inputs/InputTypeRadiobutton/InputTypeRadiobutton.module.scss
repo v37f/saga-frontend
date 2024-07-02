@@ -1,0 +1,61 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+
+.label_container {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  @include text-web;
+  color: $colorBrandBlack;
+}
+
+.original_input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.visible_input {
+  @include text-web;
+  color: $colorBrandBlack;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: 46px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  border: 1px solid $colorBrandBlack;
+  background-color: $colorBrandWhite;
+  color: $colorBrandBlack;
+  cursor: pointer;
+  transition: background-color ease-in-out 0.15s;
+}
+
+.visible_input:hover {
+  background-color: $colorMediumLightGrey;
+}
+
+.original_input:checked + .visible_input {
+  background-color: $colorBrandBlack;
+  color: $colorBrandWhite;
+}
+
+.original_input:focus-visible + .visible_input {
+  outline: 2px solid $colorMediumGrey;
+}
+
+.original_input:disabled + .visible_input {
+  color: $colorMediumGrey;
+  background-color: $colorBrandWhite;
+  border-color: $colorMediumGrey;
+  cursor: default;
+}
+
+.original_input:checked:disabled + .visible_input {
+  color: $colorBrandWhite;
+  background-color: $colorMediumGrey;
+  border-color: $colorMediumGrey;
+  cursor: default;
+}

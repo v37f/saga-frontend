@@ -1,7 +1,7 @@
 import InputTypeText from 'src/ui/inputs/InputTypeText/InputTypeText';
 import styles from './Consultation.module.scss';
 import SolidButton from 'src/ui/buttons/SolidButton/SolidButton';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import ConsultationResult from './ConsultationResult/ConsultationResult';
 import OutlinedButton from 'src/ui/buttons/OutlinedButton/OutlinedButton';
 import RefreshIcon from 'src/assets/images/components/refresh.svg';
@@ -10,6 +10,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import InputTypeDropdown from 'src/ui/inputs/InputTypeDropdown/InputTypeDropdown';
 import { ALL_SHOWS } from 'src/utils/constants';
+import InputTypeRadiobutton from 'src/ui/inputs/InputTypeRadiobutton/InputTypeRadiobutton';
+import { getArtPrice } from 'src/api/api';
 
 type TConsultationStepType = 'inputData' | 'result';
 
@@ -54,6 +56,9 @@ const Consultation = () => {
     useState<TConsultationStepType>('inputData');
   const [soloShows, setSoloShows] = useState<string[]>([]);
   const [groupShows, setGroupShows] = useState<string[]>([]);
+  const [artistSex, setArtistSex] = useState('М');
+  const [evaluationResult, setEvaluationResult] = useState(0);
+  const [requestError, setRequestError] = useState('');
   const {
     control,
     handleSubmit,
@@ -71,9 +76,21 @@ const Consultation = () => {
   });
 
   const onSubmit: SubmitHandler<ConsultationInputs> = (data) => {
-    console.log({ ...data, solo_shows: soloShows, group_shows: groupShows });
+    getArtPrice({
+      ...data,
+      soloShows,
+      groupShows,
+      artistSex,
+    })
+      .then((res) => {
+        setEvaluationResult(res);
+        setCurrentStep('result');
+      })
+      .catch((error) => setRequestError(error));
+  };
 
-    setCurrentStep('result');
+  const onArtistSexChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setArtistSex(e.target.value);
   };
 
   return (
@@ -161,6 +178,27 @@ const Consultation = () => {
             name="age"
           />
         </fieldset>
+        <div className={styles.artistSex}>
+          <p className={styles.artistSexTitle}>Пол художника</p>
+          <div className={styles.radioButtons}>
+            <InputTypeRadiobutton
+              label="Мужской"
+              name="artistSex"
+              value="М"
+              checked={artistSex === 'М'}
+              onChange={onArtistSexChange}
+              disabled={currentStep === 'result'}
+            />
+            <InputTypeRadiobutton
+              label="Женский"
+              name="artistSex"
+              value="Ж"
+              checked={artistSex === 'Ж'}
+              onChange={onArtistSexChange}
+              disabled={currentStep === 'result'}
+            />
+          </div>
+        </div>
         <div className={styles.dropdowns}>
           <InputTypeDropdown
             addScroll
@@ -181,15 +219,18 @@ const Consultation = () => {
           />
         </div>
         {currentStep === 'inputData' && (
-          <SolidButton type="submit" disabled={!isValid}>
-            Оценить
-          </SolidButton>
+          <div className={styles.submit}>
+            <p className={styles.requestError}>{requestError}</p>
+            <SolidButton type="submit" disabled={!isValid}>
+              Оценить
+            </SolidButton>
+          </div>
         )}
       </form>
       {currentStep === 'inputData' ? (
         <div className={styles.banner} />
       ) : (
-        <ConsultationResult price={350000} />
+        <ConsultationResult price={evaluationResult} />
       )}
       {currentStep === 'result' && (
         <div className={styles.refresh}>
