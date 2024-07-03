@@ -4,6 +4,7 @@
 .cartPage {
   width: $contentWidth;
   margin: 0 auto;
+  flex-grow: 1;
 
   &__container {
     display: flex;

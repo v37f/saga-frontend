@@ -5,6 +5,8 @@
   max-width: $contentMaxWidth;
   margin: 0 auto;
   padding: 60px 0 100px;
+  flex-grow: 1;
+
   &__title {
     @include text-header-h2;
     color: $colorBrandBlack;
