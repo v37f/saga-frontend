@@ -65,8 +65,7 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
     login()
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         localStorage.setItem(
           'jwt',
           data.isSeller ? SELLER_ROLE : CUSTOMER_ROLE
