@@ -104,6 +104,7 @@ const CustomerInfo = () => {
             render={({ field: { onChange, onBlur, value } }) => (
               <InputTypeText
                 label="Фамилия"
+                id="Фамилия"
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
@@ -117,6 +118,7 @@ const CustomerInfo = () => {
             render={({ field: { onChange, onBlur, value } }) => (
               <InputTypeText
                 label="Имя"
+                id="Имя"
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
@@ -130,6 +132,7 @@ const CustomerInfo = () => {
             render={({ field: { onChange, onBlur, value } }) => (
               <InputTypeText
                 label="Отчество"
+                id="Отчество"
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
@@ -143,6 +146,7 @@ const CustomerInfo = () => {
             render={({ field: { onChange, onBlur, value } }) => (
               <InputTypeText
                 label="Email"
+                id="Email"
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
@@ -156,6 +160,7 @@ const CustomerInfo = () => {
             render={({ field: { onChange, onBlur, value } }) => (
               <InputTypeText
                 label="Телефон"
+                id="Телефон"
                 type="tel"
                 onChange={onChange}
                 onBlur={onBlur}

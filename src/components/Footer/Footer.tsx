@@ -140,14 +140,16 @@ const Footer = () => {
                 </ul>
               )}
             </li>
-            <a
-              className={styles.footer__navbarLink}
-              href="#"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Политика в области персональных данных
-            </a>
+            <li className={styles.footer__listItem}>
+              <a
+                className={styles.footer__navbarLink}
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Политика в области персональных данных
+              </a>
+            </li>
           </ul>
         </span>
         <span className={styles.footer__block}>

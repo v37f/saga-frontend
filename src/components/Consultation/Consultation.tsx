@@ -111,6 +111,7 @@ const Consultation = () => {
               <InputTypeText
                 type="text"
                 label="Страна"
+                id="Страна"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -126,6 +127,7 @@ const Consultation = () => {
               <InputTypeText
                 type="number"
                 label="Год создания"
+                id="Год создания"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -141,6 +143,7 @@ const Consultation = () => {
               <InputTypeText
                 type="number"
                 label="Высота, см"
+                id="Высота"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -155,6 +158,7 @@ const Consultation = () => {
               <InputTypeText
                 type="number"
                 label="Ширина, см"
+                id="Ширина"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -169,6 +173,7 @@ const Consultation = () => {
               <InputTypeText
                 type="number"
                 label="Возраст художника"
+                id="Возраст"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
