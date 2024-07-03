@@ -57,7 +57,7 @@ const Consultation = () => {
   const [soloShows, setSoloShows] = useState<string[]>([]);
   const [groupShows, setGroupShows] = useState<string[]>([]);
   const [artistSex, setArtistSex] = useState('М');
-  const [evaluationResult, setEvaluationResult] = useState(0);
+  const [evaluationResult, setEvaluationResult] = useState<number>(0);
   const [requestError, setRequestError] = useState('');
   const {
     control,
@@ -83,10 +83,10 @@ const Consultation = () => {
       artistSex,
     })
       .then((res) => {
-        setEvaluationResult(res);
+        setEvaluationResult(Number(res?.data?.estimatedPrice));
         setCurrentStep('result');
       })
-      .catch((error) => setRequestError(error));
+      .catch((error) => setRequestError(error?.response?.data?.detail || ''));
   };
 
   const onArtistSexChange = (e: ChangeEvent<HTMLInputElement>) => {

@@ -62,6 +62,7 @@ npm run dev
 - react-router-dom
 - [react-hook-form](https://react-hook-form.com/)
 - [yup](https://www.npmjs.com/package/yup)
+- [axios](https://axios-http.com/ru/)
 - [react-slick](https://react-slick.neostack.com/)
 
 ## SCSS
