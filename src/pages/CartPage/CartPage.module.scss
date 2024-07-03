@@ -2,8 +2,9 @@
 @import 'src/styles/mixins.scss';
 
 .cartPage {
-  width: $contentMaxWidth;
+  width: $contentWidth;
   margin: 0 auto;
+  flex-grow: 1;
 
   &__container {
     display: flex;
@@ -17,7 +18,6 @@
     @include text-header-h2;
     color: $colorBrandBlack;
     margin-bottom: 20px;
-    margin-left: 80px;
   }
 
   &__content {

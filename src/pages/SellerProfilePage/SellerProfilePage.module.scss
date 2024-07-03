@@ -2,9 +2,9 @@
 @import 'src/styles/mixins.scss';
 
 .sellerProfilePage {
-  width: $contentMaxWidth;
+  width: $contentWidth;
   margin: 0 auto;
-  padding: 60px 80px 120px;
+  padding: 60px 0 120px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

@@ -5,9 +5,9 @@
   border-bottom: 1px solid $colorBrandBlack;
 
   &__container {
-    max-width: $contentMaxWidth;
+    max-width: $contentWidth;
     box-sizing: border-box;
-    padding: 16px 80px;
+    padding: 16px 0;
     margin: 0 auto;
     display: flex;
     gap: 40px;

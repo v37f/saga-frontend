@@ -7,12 +7,12 @@
   width: 24px;
   height: 24px;
 
-  & * {
+  & svg path {
     stroke: $colorBrandBlack;
   }
 
   &_active {
-    & * {
+    & svg path {
       fill: $colorBrandBlack;
     }
   }

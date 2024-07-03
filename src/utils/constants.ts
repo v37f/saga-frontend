@@ -1,4 +1,4 @@
-import { TMinMaxFilterOption } from './types';
+import { TArtStyleType, TMinMaxFilterOption, TNewsBlockType } from './types';
 
 export const MAIN_SECTION_NEWS_NUMBER = 4;
 export const PASSWORD_REGEX = /^[A-Za-z0-9]+$/;
@@ -21,7 +21,6 @@ export const CONSULTATION_ROUTE = '/consultation';
 export const PRICE_ANALYTICS_ROUTE = '/priceanalytics';
 export const CUSTOMER_PROFILE_ROUTE = '/profile';
 export const CART_ROUTE = '/cart';
-export const PLACE_ORDER_ROUTE = '/placeorder';
 export const CUSTOMER_FAVORITE_PRODUCTS_ROUTE = '/favoriteproducts';
 export const CUSTOMER_FAVORITE_ARTISTS_ROUTE = '/favoriteartists';
 export const CUSTOMER_ORDERS_ROUTE = '/orders';
@@ -76,6 +75,22 @@ export const PRICE_FILTER_OPTIONS: Map<string, TMinMaxFilterOption> = new Map([
   ['100 000 - 200 000 ₽', { min: 100000, max: 200000 }],
   ['200 000 - 500 000 ₽', { min: 200000, max: 500000 }],
   [EXPENSIVE_COST_KEY, { min: 500000, max: 500000000000 }],
+]);
+
+export const ARTIST_TITLE_BY_STYLE: Map<TArtStyleType, string> = new Map([
+  ['Абстракция', 'Абстракционисты'],
+  ['Интерьерное искусство', 'Интерьерное искусство'],
+  ['Концептуальное искусство', 'Концептуалисты'],
+  ['Минимализм', 'Минималисты'],
+  ['Фигуративное искусство', 'Фигуративисты'],
+  ['Экспрессионизм', 'Экспрессионисты'],
+  ['Pop Art', 'Pop Art'],
+  ['Street Art', 'Street Art'],
+]);
+
+export const NEWS_TITLE_BY_BLOCK: Map<TNewsBlockType, string> = new Map([
+  ['Популярные новости', 'Популярные новости'],
+  ['Новые художники', 'Новые художники'],
 ]);
 
 export const PAINTING_CATEGORY_NAME = 'Живопись';

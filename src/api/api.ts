@@ -7,13 +7,7 @@ import {
   favoriteProductsMockData,
   productsMockData,
 } from 'src/utils/mock/productsMockData';
-import {
-  IArtistType,
-  ICurrentUserType,
-  IProductType,
-  TUserRoleType,
-} from 'src/utils/types';
-import { $host } from './index';
+import { IArtistType, ICurrentUserType, IProductType } from 'src/utils/types';
 
 // all products
 export const getAllProducts = async () => {
@@ -114,28 +108,42 @@ export const updateCurrentUser = async <T>(newUserInfo: T) => {
 };
 
 // auth
-// export const login = async () => {
-//   const res = await Promise.resolve();
-//   return res;
-// };
-
-interface ILoginPropstype {
-  email: string;
-  password: string;
-  role: TUserRoleType;
-}
-
-export const login = async ({ email, password, role }: ILoginPropstype) => {
-  const res = await $host.post('api/auth/jwt/create', {
-    email,
-    password,
-    role,
-  });
-
+export const login = async () => {
+  const res = await Promise.resolve();
   return res;
 };
 
 export const register = async () => {
   const res = await Promise.resolve();
+  return res;
+};
+
+// consultation
+type TGetArtPriceArgsType = {
+  country: string;
+  height: number;
+  width: number;
+  year: number;
+  age: number;
+  artistSex: string;
+  soloShows: string[];
+  groupShows: string[];
+};
+
+export const getArtPrice = async (data: TGetArtPriceArgsType) => {
+  const parameters = {
+    country: data.country,
+    height: data.height,
+    width: data.width,
+    year: data.year,
+    age: data.age,
+    sex: data.artistSex,
+    solo_shows: data.soloShows,
+    group_shows: data.groupShows,
+  };
+
+  const res = await Promise.resolve(
+    parameters.country === 'Россия' ? 250000 : 150000
+  );
   return res;
 };

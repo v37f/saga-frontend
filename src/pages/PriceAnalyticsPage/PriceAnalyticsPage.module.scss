@@ -2,10 +2,11 @@
 @import 'src/styles/mixins.scss';
 
 .priceAnalyticsPage {
-  width: $contentMaxWidth;
+  width: $contentWidth;
   margin: 0 auto;
-  padding: 60px 80px 40px;
+  padding: 60px 0 40px;
   box-sizing: border-box;
+  flex-grow: 1;
 
   .title {
     @include text-header-h2;

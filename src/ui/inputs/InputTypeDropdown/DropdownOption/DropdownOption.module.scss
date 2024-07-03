@@ -19,6 +19,7 @@
 
   .input {
     @include checkbox-black;
+    flex-shrink: 0;
   }
   .label {
     @include text-body-medium;

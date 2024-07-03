@@ -30,7 +30,7 @@
   transform: scaleX(-1);
   filter: FlipH;
   -ms-filter: 'FlipH';
-  right: 124px;
+  right: 164px;
 }
 
 .carouselArrow.prev.offset {
@@ -39,7 +39,7 @@
 
 .next {
   background-image: url('../../../assets/images/icons/arrow_right.svg');
-  right: 0;
+  right: 40px;
 }
 
 .carouselArrow.next.offset {

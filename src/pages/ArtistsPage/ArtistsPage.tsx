@@ -2,24 +2,16 @@ import styles from './ArtistsPage.module.scss';
 import Section from 'src/components/Section/Section';
 import Carousel from 'src/components/Carousel/Carousel';
 import ArtistCard from 'src/components/ArtistCard/ArtistCard';
-import { MAIN_SECTION_ARTISTS_NUMBER } from 'src/utils/constants';
+import {
+  ARTIST_TITLE_BY_STYLE,
+  MAIN_SECTION_ARTISTS_NUMBER,
+} from 'src/utils/constants';
 import { ReactNode } from 'react';
 import { TArtStyleType } from 'src/utils/types';
 import { useAppSelector } from 'src/service/hooks';
 import { getAllArtistsData } from 'src/service/slices/artistsSlice';
 
 const ArtistsPage = () => {
-  const artistTitleByStyle: Map<TArtStyleType, string> = new Map([
-    ['Абстракция', 'Абстракционисты'],
-    ['Интерьерное искусство', 'Интерьерное искусство'],
-    ['Концептуальное искусство', 'Концептуалисты'],
-    ['Минимализм', 'Минималисты'],
-    ['Фигуративное искусство', 'Фигуративисты'],
-    ['Экспрессионизм', 'Экспрессионисты'],
-    ['Pop Art', 'Pop Art'],
-    ['Street Art', 'Street Art'],
-  ]);
-
   const artists = useAppSelector(getAllArtistsData);
 
   const getArtistsSectionsLayout = (map: Map<TArtStyleType, string>) => {
@@ -47,7 +39,7 @@ const ArtistsPage = () => {
   return (
     <main className={styles.artistsPage}>
       <h2 className={styles.title}>Художники</h2>
-      {getArtistsSectionsLayout(artistTitleByStyle)}
+      {getArtistsSectionsLayout(ARTIST_TITLE_BY_STYLE)}
     </main>
   );
 };

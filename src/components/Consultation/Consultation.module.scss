@@ -21,12 +21,35 @@
       @include reset-fieldset;
       padding-top: 40px;
     }
+    .artistSex {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
 
+      .artistSexTitle {
+        @include text-header-h5;
+        color: $colorBrandBlack;
+      }
+
+      .radioButtons {
+        display: flex;
+        gap: 20px;
+      }
+    }
     .dropdowns {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      padding: 10px 0 40px;
+      padding: 30px 0 6px;
+    }
+
+    .submit {
+      .requestError {
+        @include text-body-medium;
+        color: $colorCritical;
+        min-height: 48px;
+        margin-bottom: 6px;
+      }
     }
   }
 

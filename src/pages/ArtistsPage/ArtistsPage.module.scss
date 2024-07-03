@@ -2,17 +2,17 @@
 @import 'src/styles/mixins.scss';
 
 .artistsPage {
-  width: $contentMaxWidth;
+  width: $contentWidth;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 60px 0 100px;
+  flex-grow: 1;
 
   .title {
     @include text-header-h2;
     color: $colorBrandBlack;
     margin-bottom: 20px;
-    margin-left: 80px;
   }
 }

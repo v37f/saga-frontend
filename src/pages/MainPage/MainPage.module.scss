@@ -2,10 +2,11 @@
 @import 'src/styles/mixins.scss';
 
 .mainPage {
-  width: $contentMaxWidth;
+  max-width: $contentMaxWidth;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 80px;
   padding-bottom: 100px;
+  flex-grow: 1;
 }

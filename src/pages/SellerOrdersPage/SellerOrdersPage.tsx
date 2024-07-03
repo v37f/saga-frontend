@@ -8,8 +8,8 @@ const SellerOrdersPage = () => {
         <div className={styles.sellerOrdersPage__content}>
           <p className={styles.sellerOrdersPage__empty}>Пока здесь пусто</p>
           <p className={styles.sellerOrdersPage__text}>
-            На этой странице появятся заказы ваших товаров покупателями.
-            Вы сможете отслеживать статус, вносить изменения и отменять заказы
+            На этой странице появятся заказы ваших товаров покупателями. Вы
+            сможете отслеживать статус, вносить изменения и отменять заказы
           </p>
         </div>
       </div>

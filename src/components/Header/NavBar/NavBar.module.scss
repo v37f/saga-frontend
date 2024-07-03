@@ -6,10 +6,10 @@
 
   &__list {
     @include reset-list;
-    max-width: $contentMaxWidth;
+    max-width: $contentWidth;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 12px 80px;
+    padding: 12px 0;
     display: flex;
     justify-content: space-between;
   }
