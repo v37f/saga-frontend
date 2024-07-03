@@ -14,32 +14,31 @@ https://artfour.vercel.app/
 Клонируйте репозиторий и перейдите в его директорию
 
 ```sh
-$ git clone https://github.com/Sagaart-4/saga-frontend.git
-$ cd saga-frontend
+git clone https://github.com/Sagaart-4/saga-frontend.git && cd saga-frontend
 ```
 
 Для установки зависимостей, выполните команду:
 
 ```sh
-$ npm ci
+npm ci
 ```
 
 Для сборки проекта введите команду:
 
 ```sh
-$ npm run build
+npm run build
 ```
 
 Для запуска проекта в прод-режиме произведите сборку проекта и выполните команды:
 
 ```sh
-$ npm run start
+npm run start
 ```
 
 Можно скомбинировать команды для быстрого запуска:
 
 ```sh
-$ npm ci && npm run build && npm run start
+npm ci && npm run build && npm run start
 ```
 
 Приложение будет доступно по адресу: http://localhost:4173
@@ -47,7 +46,7 @@ $ npm ci && npm run build && npm run start
 Для запуска проекта в dev-режиме введите команду:
 
 ```sh
-$ npm run dev
+npm run dev
 ```
 
 Приложение будет доступно по адресу: http://localhost:5173
