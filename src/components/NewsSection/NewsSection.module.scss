@@ -2,9 +2,12 @@
 @import 'src/styles/mixins.scss';
 
 .newsSection {
-  padding: 20px 80px 20px 190px;
+  max-width: $contentWidth;
+  width: 100%;
+  padding: 20px 0 20px;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
 
   .texts {
     width: 400px;

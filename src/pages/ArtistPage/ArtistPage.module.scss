@@ -2,9 +2,9 @@
 @import 'src/styles/mixins.scss';
 
 .artistPage {
-  width: $contentMaxWidth;
+  width: $contentWidth;
   margin: 0 auto;
-  padding: 60px 80px 120px;
+  padding: 60px 0 120px;
   box-sizing: border-box;
   flex-grow: 1;
   display: flex;

@@ -7,7 +7,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(20, 18, 18, 0.3);
+  background-color: $colorModalOverlay;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
     position: relative;
     padding: 60px 48px 48px;
     background-color: $colorBrandWhite;
-    border: 1px solid rgba(255, 255, 255, 0.27);
+    border: 1px solid $colorModalBorder;
 
     .closeButton {
       @include reset-button;

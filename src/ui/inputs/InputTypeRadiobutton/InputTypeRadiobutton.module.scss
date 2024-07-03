@@ -1,7 +1,7 @@
 @import 'src/styles/variables.scss';
 @import 'src/styles/mixins.scss';
 
-.label_container {
+.labelContainer {
   display: flex;
   width: fit-content;
   align-items: center;
@@ -9,7 +9,7 @@
   color: $colorBrandBlack;
 }
 
-.original_input {
+.originalInput {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -17,7 +17,7 @@
   clip: rect(0 0 0 0);
 }
 
-.visible_input {
+.visibleInput {
   @include text-web;
   color: $colorBrandBlack;
   display: flex;
@@ -33,27 +33,27 @@
   transition: background-color ease-in-out 0.15s;
 }
 
-.visible_input:hover {
+.visibleInput:hover {
   background-color: $colorMediumLightGrey;
 }
 
-.original_input:checked + .visible_input {
+.originalInput:checked + .visibleInput {
   background-color: $colorBrandBlack;
   color: $colorBrandWhite;
 }
 
-.original_input:focus-visible + .visible_input {
+.originalInput:focus-visible + .visibleInput {
   outline: 2px solid $colorMediumGrey;
 }
 
-.original_input:disabled + .visible_input {
+.originalInput:disabled + .visibleInput {
   color: $colorMediumGrey;
   background-color: $colorBrandWhite;
   border-color: $colorMediumGrey;
   cursor: default;
 }
 
-.original_input:checked:disabled + .visible_input {
+.originalInput:checked:disabled + .visibleInput {
   color: $colorBrandWhite;
   background-color: $colorMediumGrey;
   border-color: $colorMediumGrey;

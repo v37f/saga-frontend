@@ -4,15 +4,19 @@
 .footer {
   background-color: $colorFooterGrey;
 
-  ul {
+  .footer__list,
+  .footer__connection,
+  .footer__navbar,
+  .footer__social,
+  .footer__socialIcons {
     @include reset-list;
   }
 
   &__container {
-    max-width: $contentMaxWidth;
+    max-width: $contentWidth;
     min-height: 388px;
     box-sizing: border-box;
-    padding: 40px 168px 18px 80px;
+    padding: 40px 168px 18px 0;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;

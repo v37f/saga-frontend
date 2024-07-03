@@ -7,6 +7,7 @@ import NewsCard from 'src/components/NewsCard/NewsCard';
 import {
   MAIN_SECTION_NEWS_NUMBER,
   MAIN_SECTION_PRODUCTS_NUMBER,
+  NEWS_TITLE_BY_BLOCK,
 } from 'src/utils/constants';
 import { ReactNode } from 'react';
 import { TNewsBlockType } from 'src/utils/types';
@@ -14,11 +15,6 @@ import ArtistCard from '../../components/ArtistCard/ArtistCard';
 import { artistMockData } from 'src/utils/mock/artistsMockData';
 
 const NewsPage = () => {
-  const newsTitleByBlock: Map<TNewsBlockType, string> = new Map([
-    ['Популярные новости', 'Популярные новости'],
-    ['Новые художники', 'Новые художники'],
-    // ['Все новости', 'Все новости'],
-  ]);
   const artists = artistMockData;
   const getNewsSectionsLayout = (map: Map<TNewsBlockType, string>) => {
     const sectionsArray: ReactNode[] = [];
@@ -52,8 +48,8 @@ const NewsPage = () => {
     <main className={styles.newsPage}>
       <h2 className={styles.newsPage__title}>Новости</h2>
       <MainBanner />
-      {getNewsSectionsLayout(newsTitleByBlock)}
-      <Section title={'Все новости'} headerH3 smallGap>
+      {getNewsSectionsLayout(NEWS_TITLE_BY_BLOCK)}
+      <Section title="Все новости" headerH3 smallGap>
         <div className={styles.newsPage__allNews}>
           {newsMockData.slice(0, MAIN_SECTION_PRODUCTS_NUMBER).map((item) => (
             <NewsCard item={item} key={item.newsId} />

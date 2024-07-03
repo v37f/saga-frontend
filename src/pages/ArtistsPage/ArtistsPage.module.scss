@@ -2,7 +2,7 @@
 @import 'src/styles/mixins.scss';
 
 .artistsPage {
-  width: $contentMaxWidth;
+  width: $contentWidth;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -13,6 +13,5 @@
     @include text-header-h2;
     color: $colorBrandBlack;
     margin-bottom: 20px;
-    margin-left: 80px;
   }
 }

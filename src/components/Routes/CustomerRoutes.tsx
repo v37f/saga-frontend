@@ -6,7 +6,6 @@ import ConsultationPage from 'src/pages/ConsultationPage/ConsultationPage';
 import CustomerProfilePage from 'src/pages/CustomerProfilePage/CustomerProfilePage';
 import NewsPage from 'src/pages/NewsPage/NewsPage';
 import NotFoundPage from 'src/pages/NotFoundPage/NotFoundPage';
-import PlaceOrderPage from 'src/pages/PlaceOrderPage/PlaceOrderPage';
 import PriceAnalyticsPage from 'src/pages/PriceAnalyticsPage/PriceAnalyticsPage';
 
 import { Route, Routes } from 'react-router-dom';
@@ -20,7 +19,6 @@ import {
   DEFAULT_ROUTE,
   NEWS_ROUTE,
   NOT_FOUND_ROUTE,
-  PLACE_ORDER_ROUTE,
   PRICE_ANALYTICS_ROUTE,
 } from 'src/utils/constants';
 import ProductPage from 'src/pages/ProductPage/ProductPage';
@@ -60,7 +58,6 @@ const CustomerRoutes = () => {
         }
       />
       <Route path={CART_ROUTE} element={<CartPage />} />
-      <Route path={PLACE_ORDER_ROUTE} element={<PlaceOrderPage />} />
       <Route path={NOT_FOUND_ROUTE} element={<NotFoundPage />} />
     </Routes>
   );

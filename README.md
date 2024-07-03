@@ -1,30 +1,84 @@
-# React + TypeScript + Vite
+# Команда №4 | Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Состав команды фронтенда
 
-Currently, two official plugins are available:
+- [Владимир Фролов](https://github.com/v37f) Главный по направлению
+- [Олеся Варнакова](https://github.com/Olesya090585)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Ссылка на приложение
 
-## Expanding the ESLint configuration
+https://artfour.vercel.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Сборка и запуск
 
-- Configure the top-level `parserOptions` property like this:
+Клонируйте репозиторий и перейдите в его директорию
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```sh
+$ git clone https://github.com/Sagaart-4/saga-frontend.git
+$ cd saga-frontend
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Для установки зависимостей, выполните команду:
+
+```sh
+$ npm ci
+```
+
+Для сборки проекта введите команду:
+
+```sh
+$ npm run build
+```
+
+Для запуска проекта в прод-режиме произведите сборку проекта и выполните команды:
+
+```sh
+$ npm run start
+```
+
+Можно скомбинировать команды для быстрого запуска:
+
+```sh
+$ npm ci && npm run build && npm run start
+```
+
+Приложение будет доступно по адресу: http://localhost:4173
+
+Для запуска проекта в dev-режиме введите команду:
+
+```sh
+$ npm run dev
+```
+
+Приложение будет доступно по адресу: http://localhost:5173
+
+## Стэк
+
+- HTML/SCSS
+- JavaScript
+- TypeSctipt
+- ReactJS
+- Redux Toolkit
+- Vite
+- react-router-dom
+- [react-hook-form](https://react-hook-form.com/)
+- [yup](https://www.npmjs.com/package/yup)
+- [react-slick](https://react-slick.neostack.com/)
+
+## SCSS
+
+Все основные SCSS константы лежат по пути src/styles/variables.scss.
+
+и являются цветовой палитрой приложения. Все цвета взяты из [макета](https://www.figma.com/design/XEw55EmzRGmpLw7jkCxP0i/%D0%9A%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0-%E2%84%964%2C-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82-%D0%A1%D0%B0%D0%B3%D0%B0%D0%B0%D1%80%D1%82?node-id=0-1&t=9jNFwRioVu1SQZKI-0) Figma UI kit.
+Все основные миксины лежат по пути src/styles/mixins.scss.
+
+начинающиеся с text - различные шрифты на основе Figma UI kit
+начинающиеся с reset - обнуление стандартных стилей
+
+## Иконки и шрифты
+
+В проекте применялись иконки из [макета](https://www.figma.com/design/XEw55EmzRGmpLw7jkCxP0i/%D0%9A%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0-%E2%84%964%2C-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82-%D0%A1%D0%B0%D0%B3%D0%B0%D0%B0%D1%80%D1%82?node-id=0-1&t=9jNFwRioVu1SQZKI-0) и шрифт [Manrope](https://fonts.google.com/specimen/Manrope)
+
+## Информация о проекте
+
+Проект сверстан для просмотра в десктопных браузерах и экранах с разрешением 1440px и более.

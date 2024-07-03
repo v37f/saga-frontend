@@ -3,6 +3,7 @@
 
 .consultaionPromo {
   display: flex;
+  max-width: $contentMaxWidth;
   width: 100%;
   height: 701px;
   background-image: url('../../assets/images/bg/consultation_promo.jpg');

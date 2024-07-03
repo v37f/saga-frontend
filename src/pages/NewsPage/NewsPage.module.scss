@@ -2,11 +2,14 @@
 @import 'src/styles/mixins.scss';
 
 .newsPage {
-  width: $contentMaxWidth;
+  max-width: $contentMaxWidth;
   margin: 0 auto;
+  padding: 60px 0 100px;
   &__title {
     @include text-header-h2;
-    margin: 74px auto 60px 80px;
+    color: $colorBrandBlack;
+    margin-bottom: 60px;
+    padding-left: 80px;
   }
 
   &__allNews {

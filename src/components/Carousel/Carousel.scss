@@ -2,7 +2,9 @@
 @import 'src/styles/mixins.scss';
 
 .carousel-container {
+  max-width: $contentMaxWidth;
   padding-bottom: 104px;
+
   .slick-list {
     cursor: grab;
   }
@@ -50,4 +52,10 @@
 
 .carousel-container.offset {
   padding-bottom: 64px;
+}
+
+@media screen and (max-width: 1457px) {
+  .carousel-container {
+    max-width: calc(100vw - 17px);
+  }
 }

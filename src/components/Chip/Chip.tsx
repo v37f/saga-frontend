@@ -10,7 +10,6 @@ const Chip = ({ text, onClose }: IChipProps) => {
   return (
     <div className={styles.chip}>
       <p className={styles.text}>{text}</p>
-
       <button
         className={styles.close}
         onClick={onClose}

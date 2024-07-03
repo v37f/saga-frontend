@@ -12,13 +12,13 @@ const InputTypeRadiobutton: FC<IInputTypeRadiobutton> = ({
   ...InputHTMLAttributes
 }) => {
   return (
-    <label htmlFor={InputHTMLAttributes.id} className={styles.label_container}>
+    <label htmlFor={InputHTMLAttributes.id} className={styles.labelContainer}>
       <input
         type="radio"
-        className={styles.original_input}
+        className={styles.originalInput}
         {...InputHTMLAttributes}
       />
-      <div className={styles.visible_input}>{label}</div>
+      <div className={styles.visibleInput}>{label}</div>
     </label>
   );
 };
