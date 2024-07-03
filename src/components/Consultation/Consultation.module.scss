@@ -49,6 +49,8 @@
         color: $colorCritical;
         min-height: 48px;
         margin-bottom: 6px;
+        display: flex;
+        align-items: center;
       }
     }
   }

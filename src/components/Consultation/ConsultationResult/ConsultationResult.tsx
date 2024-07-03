@@ -12,7 +12,9 @@ const ConsultationResult = ({ price }: IConsultationResultProps) => {
         <h3 className={styles.title}>Результат оценки</h3>
         <div className={styles.price}>
           <h4 className={styles.priceTitle}>Среднерыночная цена</h4>
-          <p className={styles.priceValue}>{`${price.toLocaleString()} ₽`}</p>
+          <p className={styles.priceValue}>{`${Math.round(
+            price
+          ).toLocaleString()} ₽`}</p>
         </div>
       </div>
       <ArtistAnalysis />

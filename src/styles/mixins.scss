@@ -34,21 +34,21 @@
   @include text-for-all;
   font-size: 48px;
   font-weight: 700;
-  line-height: normal;
+  line-height: 65px;
 }
 
 @mixin text-header-h2 {
   @include text-for-all;
   font-size: 40px;
   font-weight: 700;
-  line-height: normal;
+  line-height: 55px;
 }
 
 @mixin text-header-h3 {
   @include text-for-all;
   font-size: 28px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 38px;
   letter-spacing: 0.56px;
 }
 

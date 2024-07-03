@@ -11,19 +11,21 @@
   .title {
     @include text-header-h2;
     color: $colorBrandBlack;
+    margin-bottom: 20px;
   }
 
   .description {
     @include text-body-large;
-    padding-top: 20px;
     color: $colorDarkGrey;
     max-width: 730px;
+    min-height: 120px;
+    margin-bottom: 20px;
   }
 
   .subsDescription {
     @include text-header-h4;
-    padding-top: 20px;
     color: $colorDarkGrey;
     max-width: 574px;
+    margin-bottom: 20px;
   }
 }

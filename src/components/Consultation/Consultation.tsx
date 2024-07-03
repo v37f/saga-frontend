@@ -57,7 +57,7 @@ const Consultation = () => {
   const [soloShows, setSoloShows] = useState<string[]>([]);
   const [groupShows, setGroupShows] = useState<string[]>([]);
   const [artistSex, setArtistSex] = useState('М');
-  const [evaluationResult, setEvaluationResult] = useState(0);
+  const [evaluationResult, setEvaluationResult] = useState<number>(0);
   const [requestError, setRequestError] = useState('');
   const {
     control,
@@ -83,10 +83,10 @@ const Consultation = () => {
       artistSex,
     })
       .then((res) => {
-        setEvaluationResult(res);
+        setEvaluationResult(Number(res?.data?.estimatedPrice));
         setCurrentStep('result');
       })
-      .catch((error) => setRequestError(error));
+      .catch((error) => setRequestError(error?.response?.data?.detail || ''));
   };
 
   const onArtistSexChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -111,6 +111,7 @@ const Consultation = () => {
               <InputTypeText
                 type="text"
                 label="Страна"
+                id="Страна"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -126,6 +127,7 @@ const Consultation = () => {
               <InputTypeText
                 type="number"
                 label="Год создания"
+                id="Год создания"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -141,6 +143,7 @@ const Consultation = () => {
               <InputTypeText
                 type="number"
                 label="Высота, см"
+                id="Высота"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -155,6 +158,7 @@ const Consultation = () => {
               <InputTypeText
                 type="number"
                 label="Ширина, см"
+                id="Ширина"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -169,6 +173,7 @@ const Consultation = () => {
               <InputTypeText
                 type="number"
                 label="Возраст художника"
+                id="Возраст"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}

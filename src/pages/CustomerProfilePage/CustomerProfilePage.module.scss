@@ -15,9 +15,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .title {
       @include text-header-h2;
       color: $colorBrandBlack;
+      min-width: 185px;
     }
 
     .logout {

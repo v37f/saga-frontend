@@ -8,6 +8,7 @@ import {
   productsMockData,
 } from 'src/utils/mock/productsMockData';
 import { IArtistType, ICurrentUserType, IProductType } from 'src/utils/types';
+import { $host } from './index';
 
 // all products
 export const getAllProducts = async () => {
@@ -141,9 +142,6 @@ export const getArtPrice = async (data: TGetArtPriceArgsType) => {
     solo_shows: data.soloShows,
     group_shows: data.groupShows,
   };
-
-  const res = await Promise.resolve(
-    parameters.country === 'Россия' ? 250000 : 150000
-  );
+  const res = await $host.post('/api/user/analytics/', parameters);
   return res;
 };
